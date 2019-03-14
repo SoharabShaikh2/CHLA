@@ -1,0 +1,12 @@
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\ChlaDataRepository\bin\Debug\netcoreapp2.1\ChlaDataRepository.deps.json
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\ChlaDataRepository\bin\Debug\netcoreapp2.1\ChlaDataRepository.dll
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\ChlaDataRepository\bin\Debug\netcoreapp2.1\DataRepository.dll
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\ChlaDataRepository\bin\Debug\netcoreapp2.1\DataRepository.pdb
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.csprojAssemblyReference.cache
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.csproj.CoreCompileInputs.cache
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.AssemblyInfoInputs.cache
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.AssemblyInfo.cs
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.csproj.CopyComplete
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\ChlaDataRepository\bin\Debug\netcoreapp2.1\ChlaDataRepository.pdb
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.dll
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.pdb

@@ -1,0 +1,9 @@
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\DataRepository\bin\Debug\netcoreapp2.1\DataRepository.deps.json
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\DataRepository\bin\Debug\netcoreapp2.1\DataRepository.dll
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\DataRepository\bin\Debug\netcoreapp2.1\DataRepository.pdb
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csproj.CoreCompileInputs.cache
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.AssemblyInfoInputs.cache
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.AssemblyInfo.cs
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.dll
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.pdb
+F:\Projects\CHLA\documents\EQLWebAPI\EQLWebAPI\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csprojAssemblyReference.cache

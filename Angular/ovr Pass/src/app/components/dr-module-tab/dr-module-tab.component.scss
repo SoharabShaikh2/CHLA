@@ -1,0 +1,59 @@
+@import '../../../styles.scss';
+.tabs_header{
+    border-bottom: 2px solid $primary_color;
+    margin-top: 30px;
+    h3{
+        color: $primary_color;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: $big_font;
+    }
+    p{
+        color: #ffffff;
+        font-size: $small_font;
+        font-weight: 600;
+    }
+}
+.tab_section{
+    background-color: #ffffff;
+    border-radius: 5px;
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px;
+    .first_tab_section{
+        h3{
+            font-size: $medium_font;
+            color: $background_color;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        p{
+            font-size: $small_font;
+            color:#4d4d4d;
+            font-weight: 600;
+        }
+        ul{
+            margin:0px;
+                padding: 0px;
+                list-style: none;
+                margin-top: 20px;
+            li{
+                p{
+                    font-size: $medium_font;
+                    color: $background_color;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    span{
+                        color:#4d4d4d;
+                        display: inline-block;
+                        margin-left: 10px;
+                        text-transform: none;
+                    }
+                }
+                
+            }
+        }
+    }
+}

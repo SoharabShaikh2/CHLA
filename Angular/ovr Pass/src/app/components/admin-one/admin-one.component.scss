@@ -1,0 +1,28 @@
+@import '../../../styles.scss';
+.dr_pannel{
+    h4{
+        font-size: $verysmall_font;
+        color: #ffffff;
+        border-bottom: 1px solid $primary_color;
+        padding: 5px 0px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    .dr_list{
+        display: flex;
+        align-items: center;
+        background-color: $box_color;
+        justify-content: space-between;
+        padding: 7px 14px;
+        margin-bottom: 5px;
+        h3{
+            font-size: $small_font;
+            font-weight: 600;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        button{
+            @include small_btn;
+        }
+    }
+}

@@ -1,0 +1,271 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/cdk/overlay-prebuilt.css';
+// @font-face {
+//     font-family: 'HK Grotesk';
+//     src: url('fonts/HKGrotesk-Bold.eot');
+//     src: url('fonts/HKGrotesk-Bold.eot?#iefix') format('embedded-opentype'),
+//         url('fonts/HKGrotesk-Bold.woff2') format('woff2'),
+//         url('fonts/HKGrotesk-Bold.woff') format('woff'),
+//         url('fonts/HKGrotesk-Bold.ttf') format('truetype');
+//     font-weight: bold;
+//     font-style: normal;
+// }
+
+// @font-face {
+//     font-family: 'HK Grotesk';
+//     src: url('fonts/HKGrotesk-SemiBoldItalic.eot');
+//     src: url('fonts/HKGrotesk-SemiBold.eot?#iefix') format('embedded-opentype'),
+//         url('fonts/HKGrotesk-SemiBold.woff2') format('woff2'),
+//         url('fonts/HKGrotesk-SemiBold.woff') format('woff'),
+//         url('fonts/HKGrotesk-SemiBold.ttf') format('truetype');
+//     font-weight: 600;
+//     font-style: normal;
+// }
+
+// @font-face {
+//     font-family: 'HK Grotesk';
+//     src: url('fonts/HKGrotesk-Regular.eot');
+//     src: url('fonts/HKGrotesk-Regular.eot?#iefix') format('embedded-opentype'),
+//         url('fonts/HKGrotesk-Regular.woff2') format('woff2'),
+//         url('fonts/HKGrotesk-Regular.woff') format('woff'),
+//         url('fonts/HKGrotesk-Regular.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+// @font-face {
+//     font-family: 'HK Grotesk';
+//     src: url('fonts/HKGrotesk-Medium.eot');
+//     src: url('fonts/HKGrotesk-Medium.eot?#iefix') format('embedded-opentype'),
+//         url('fonts/HKGrotesk-Medium.woff2') format('woff2'),
+//         url('fonts/HKGrotesk-Medium.woff') format('woff'),
+//         url('fonts/HKGrotesk-Medium.ttf') format('truetype');
+//     font-weight: 500;
+//     font-style: normal;
+// }
+
+// @font-face {
+//     font-family: 'HK Grotesk';
+//     src: url('fonts/HKGrotesk-BoldItalic.eot');
+//     src: url('fonts/HKGrotesk-BoldItalic.eot?#iefix') format('embedded-opentype'),
+//         url('fonts/HKGrotesk-BoldItalic.woff2') format('woff2'),
+//         url('fonts/HKGrotesk-BoldItalic.woff') format('woff'),
+//         url('fonts/HKGrotesk-BoldItalic.ttf') format('truetype');
+//     font-weight: bold;
+//     font-style: italic;
+// }
+
+// @font-face {
+//     font-family: 'HK Grotesk';
+//     src: url('fonts/HKGrotesk-LightItalic.eot');
+//     src: url('fonts/HKGrotesk-LightItalic.eot?#iefix') format('embedded-opentype'),
+//         url('fonts/HKGrotesk-LightItalic.woff2') format('woff2'),
+//         url('fonts/HKGrotesk-LightItalic.woff') format('woff'),
+//         url('fonts/HKGrotesk-LightItalic.ttf') format('truetype');
+//     font-weight: 300;
+//     font-style: italic;
+// }
+
+// @font-face {
+//     font-family: 'HK Grotesk';
+//     src: url('fonts/HKGrotesk-Light.eot');
+//     src: url('fonts/HKGrotesk-Light.eot?#iefix') format('embedded-opentype'),
+//         url('fonts/HKGrotesk-Light.woff2') format('woff2'),
+//         url('fonts/HKGrotesk-Light.woff') format('woff'),
+//         url('fonts/HKGrotesk-Light.ttf') format('truetype');
+//     font-weight: 300;
+//     font-style: normal;
+// }
+
+// @font-face {
+//     font-family: 'HK Grotesk';
+//     src: url('fonts/HKGrotesk-MediumItalic.eot');
+//     src: url('fonts/HKGrotesk-MediumItalic.eot?#iefix') format('embedded-opentype'),
+//         url('fonts/HKGrotesk-MediumItalic.woff2') format('woff2'),
+//         url('fonts/HKGrotesk-MediumItalic.woff') format('woff'),
+//         url('fonts/HKGrotesk-MediumItalic.ttf') format('truetype');
+//     font-weight: 500;
+//     font-style: italic;
+// }
+
+// @font-face {
+//     font-family: 'HK Grotesk';
+//     src: url('fonts/HKGrotesk-SemiBoldItalic.eot');
+//     src: url('fonts/HKGrotesk-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+//         url('fonts/HKGrotesk-SemiBoldItalic.woff2') format('woff2'),
+//         url('fonts/HKGrotesk-SemiBoldItalic.woff') format('woff'),
+//         url('fonts/HKGrotesk-SemiBoldItalic.ttf') format('truetype');
+//     font-weight: 600;
+//     font-style: italic;
+// }
+
+// @font-face {
+//     font-family: 'HKGrotesk-Regular';
+//     src: url('../src/fonts/HKGrotesk-Regular.eot?#iefix') format('embedded-opentype'),  url('../src/fonts/HKGrotesk-Regular.woff') format('woff'), url('../src/fonts/HKGrotesk-Regular.ttf')  format('truetype'), url('../src/fonts/HKGrotesk-Regular.svg#HKGrotesk-Regular') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
+//   }
+
+
+
+
+$background_color:#24225b;
+$forground_color:#4b3597;
+$primary_color:#33a0b7;
+$secondary_color:#75dac7;
+$box_color:#3da9b9;
+$light_color:#dcdcdc;
+
+
+
+  /*font size*/
+  $verysmall_font:0.875em; //14px
+  $small_font:1em; //16px
+  $medium_font:1.188em; //19px
+  $big_font:1.500em; //24px
+  $very_big_font:4em;
+  h1, p, a, h3, h4, button{
+    font-family: 'HK Grotesk';
+    margin:0px;
+  }
+  button{
+      transition:0.5s;
+      &:focus{
+          outline: none !important;
+      }
+  }
+  a{
+    transition:0.5s;
+  }
+
+  body{
+      margin: 0px;
+      padding: 0px;
+      background-image: radial-gradient($forground_color, $background_color);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+  }
+
+  @mixin btn_style {
+    background-image: linear-gradient(to bottom right,  $secondary_color,$primary_color);
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 5px 30px;
+    font-size: $medium_font;
+  }
+  @mixin small_btn{
+    background-color: #ffffff;
+    border:1px solid $background_color;
+    color: $background_color;
+    font-size: $verysmall_font;
+    line-height: inherit;
+    border-radius: 35px;
+    text-transform: uppercase;
+    padding: 2px 16px;
+    display: inline-block;
+  }
+
+
+  /*page common section*/
+  .organization_header{
+    border-bottom: 2px solid $primary_color;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    h3{
+        font-size: $big_font;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    .search{
+        background-color: #ffffff;
+        overflow: hidden;
+        border-radius: 5px;
+        .form-control{
+            width: 80%;
+            float: left;
+            border-radius: 0px;
+            border:0px;
+        }
+        button{
+            width: 20%;
+            float: right;
+            border:0px;
+            background-color: transparent;
+            height: 38px;
+        }
+    }
+}
+.pagination{
+  border-bottom: 1px solid $primary_color;
+  margin-top: 15px;
+  border-radius: 0px;
+  padding-bottom: 15px;
+  ul{
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      li{
+          display: inline-block;
+          a{
+              display: inline-block;
+              width: 25px;
+              height: 25px;
+              color:$background_color;
+              background-color: #ffffff;
+              text-align: center;
+              border-radius: 50%;
+              font-size: $verysmall_font;
+              font-weight: 600;
+              margin-right: 5px;
+              padding: 2px 0px;
+          }
+          .prev, .next{padding: 0px;}
+          .active{
+              background-color: $primary_color;
+          }
+      }
+  }
+}
+.custom_calender{
+    .mat-calendar-body-cell-content, .mat-calendar-table-header th{
+        font-weight: 600 !important;
+    }
+}
+
+
+/*mat tab*/
+.mat-tab-group{
+    margin-top: -38px;
+}
+.mat-tab-header{
+    margin-bottom: 15px;
+    .mat-tab-list{
+        .mat-tab-label{
+            display: inline-block;
+            background-image: linear-gradient(to top, #b0b0b0, #797979);
+            font-size: $small_font;
+            font-weight: 600;
+            color: #ffffff;
+            border-radius: 5px 5px 0px 0px;
+            padding: 5px 20px;
+            margin-right: 10px;
+            opacity: 1;
+            height: inherit;
+            &:hover{
+                background-image: linear-gradient(to top, $primary_color, $secondary_color);
+            }
+        }
+        .mat-tab-label-active{
+            background-image: linear-gradient(to top, $primary_color, $secondary_color);
+        }
+    }
+}
