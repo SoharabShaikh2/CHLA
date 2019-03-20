@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-md-12">
+        <div class="organization_header">
+            <div class="col-md-6 col-6">
+                <h3>HOSPITAL A</h3>
+              </div>
+              <div class="col-md-3 col-6 text-right">
+                <div class="search">
+                  <input type="serach" class="form-control" />
+                  <button><img src="assets/imgs/icon-serch.svg" /></button>
+                </div>
+              </div>
+        </div>
+      </div>
+      
+    </div>
+  
+    <div class="row">
+      <div class="col-md-6 col-sm-12 col-12">
+        <div class="dr_pannel">
+            <h4>CHOOSE A DATE</h4>
+        </div>
+        <div class="custom_calender">
+          <div class="calender_header">
+            <p>2019</p>
+            <h2>Tue, May 18</h2>
+          </div>
+            <!-- <mat-datepicker></mat-datepicker> -->
+            <mat-calendar #calender></mat-calendar>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 col-12">
+        <div class="dr_pannel">
+          <h4>STANDARD USERS</h4>
+          <div class="dr_list">
+            <h3>MODULE A <span>13:34</span></h3>
+            <button mat-button routerLink="/drModuletab">View</button>
+          </div>
+          <div class="dr_list">
+            <h3>CAROL BING <span>16:32</span></h3>
+            <button mat-button routerLink="/drModuletab">View</button>
+          </div>
+          <div class="dr_list">
+            <h3>JANE JENSON <span>12:11</span></h3>
+            <button mat-button routerLink="/drModuletab">View</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row pagination justify-content-end">
+      <ul>
+        <li><a href="" class="prev"><img src="assets/imgs/arrow-left.svg" /></a></li>
+        <li><a href="" class="active">1</a></li>
+        <li><a href="">2</a></li>
+        <li><a href="">3</a></li>
+        <li><a href="">4</a></li>
+        <li><a href="">5</a></li>
+        <li><a href="" class="next"><img src="assets/imgs/arrow-right.svg" /></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <button (click)="close()">
+    my dialog
+  </button>

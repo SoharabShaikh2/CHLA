@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EQLWebAPIWithAngular", "EQLWebAPIWithAngular\EQLWebAPIWithAngular.csproj", "{60958F0F-7165-442A-A6C5-07CD8D229FA7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChlaDataRepository", "ChlaDataRepository\ChlaDataRepository.csproj", "{B05CAE7E-620D-4B78-8097-1B5C030FF467}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataRepository", "DataRepository\DataRepository.csproj", "{E5F8EB8C-CAE9-4506-9CA5-686D4D59E75A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySQLDataRepository", "MySQLDataRepository\MySQLDataRepository.csproj", "{563CBC70-EAC1-4FC0-A73F-78741D80C462}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60958F0F-7165-442A-A6C5-07CD8D229FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60958F0F-7165-442A-A6C5-07CD8D229FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60958F0F-7165-442A-A6C5-07CD8D229FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60958F0F-7165-442A-A6C5-07CD8D229FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B05CAE7E-620D-4B78-8097-1B5C030FF467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B05CAE7E-620D-4B78-8097-1B5C030FF467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B05CAE7E-620D-4B78-8097-1B5C030FF467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B05CAE7E-620D-4B78-8097-1B5C030FF467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5F8EB8C-CAE9-4506-9CA5-686D4D59E75A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F8EB8C-CAE9-4506-9CA5-686D4D59E75A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F8EB8C-CAE9-4506-9CA5-686D4D59E75A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F8EB8C-CAE9-4506-9CA5-686D4D59E75A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{563CBC70-EAC1-4FC0-A73F-78741D80C462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{563CBC70-EAC1-4FC0-A73F-78741D80C462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{563CBC70-EAC1-4FC0-A73F-78741D80C462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{563CBC70-EAC1-4FC0-A73F-78741D80C462}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B183018A-1FC9-4022-8A9D-31F7DA4F36B5}
+	EndGlobalSection
+EndGlobal

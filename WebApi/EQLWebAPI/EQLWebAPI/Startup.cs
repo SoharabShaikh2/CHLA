@@ -23,11 +23,7 @@ namespace EQLWebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowOrigin",
-                    builder => builder.WithOrigins("http://localhost:4200"));
-            });
+            services.AddCors();
             services.AddMvc();
         }
 
@@ -38,7 +34,8 @@ namespace EQLWebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            string[] origins = new string[] { "http://localhost:4200" };
+            app.UseCors(b => b.AllowAnyMethod().AllowAnyHeader().WithOrigins(origins));
             app.UseMvc();
 
         }

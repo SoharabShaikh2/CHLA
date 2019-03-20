@@ -13878,11 +13878,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Projects\\CHLA\\documents\\EQLWebAPI\\EQLWebAPI\\EQLWebAPI\\EQLWebAPI.csproj",
+      "projectUniqueName": "F:\\Projects\\CHLA\\source\\CHLA\\WebApi\\EQLWebAPI\\EQLWebAPI\\EQLWebAPI.csproj",
       "projectName": "EQLWebAPI",
-      "projectPath": "F:\\Projects\\CHLA\\documents\\EQLWebAPI\\EQLWebAPI\\EQLWebAPI\\EQLWebAPI.csproj",
+      "projectPath": "F:\\Projects\\CHLA\\source\\CHLA\\WebApi\\EQLWebAPI\\EQLWebAPI\\EQLWebAPI.csproj",
       "packagesPath": "C:\\Users\\Soharab\\.nuget\\packages\\",
-      "outputPath": "F:\\Projects\\CHLA\\documents\\EQLWebAPI\\EQLWebAPI\\EQLWebAPI\\obj\\",
+      "outputPath": "F:\\Projects\\CHLA\\source\\CHLA\\WebApi\\EQLWebAPI\\EQLWebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13901,14 +13901,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "F:\\Projects\\CHLA\\documents\\EQLWebAPI\\EQLWebAPI\\ChlaDataRepository\\ChlaDataRepository.csproj": {
-              "projectPath": "F:\\Projects\\CHLA\\documents\\EQLWebAPI\\EQLWebAPI\\ChlaDataRepository\\ChlaDataRepository.csproj"
+            "F:\\Projects\\CHLA\\source\\CHLA\\WebApi\\EQLWebAPI\\ChlaDataRepository\\ChlaDataRepository.csproj": {
+              "projectPath": "F:\\Projects\\CHLA\\source\\CHLA\\WebApi\\EQLWebAPI\\ChlaDataRepository\\ChlaDataRepository.csproj"
             },
-            "F:\\Projects\\CHLA\\documents\\EQLWebAPI\\EQLWebAPI\\DataRepository\\DataRepository.csproj": {
-              "projectPath": "F:\\Projects\\CHLA\\documents\\EQLWebAPI\\EQLWebAPI\\DataRepository\\DataRepository.csproj"
+            "F:\\Projects\\CHLA\\source\\CHLA\\WebApi\\EQLWebAPI\\DataRepository\\DataRepository.csproj": {
+              "projectPath": "F:\\Projects\\CHLA\\source\\CHLA\\WebApi\\EQLWebAPI\\DataRepository\\DataRepository.csproj"
             },
-            "F:\\Projects\\CHLA\\documents\\EQLWebAPI\\EQLWebAPI\\MySQLDataRepository\\MySQLDataRepository.csproj": {
-              "projectPath": "F:\\Projects\\CHLA\\documents\\EQLWebAPI\\EQLWebAPI\\MySQLDataRepository\\MySQLDataRepository.csproj"
+            "F:\\Projects\\CHLA\\source\\CHLA\\WebApi\\EQLWebAPI\\MySQLDataRepository\\MySQLDataRepository.csproj": {
+              "projectPath": "F:\\Projects\\CHLA\\source\\CHLA\\WebApi\\EQLWebAPI\\MySQLDataRepository\\MySQLDataRepository.csproj"
             }
           }
         }
