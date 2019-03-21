@@ -11,7 +11,7 @@ namespace ChlaDataRepository
         {
             return AnalyseAction(jsonObject);
         }
-        protected JObject SenarioStarted(JObject jsonobject);
+        //protected JObject SenarioStarted(JObject jsonobject);
         protected abstract JObject AnalyseAction(JObject jsonObject);
     }
 }
