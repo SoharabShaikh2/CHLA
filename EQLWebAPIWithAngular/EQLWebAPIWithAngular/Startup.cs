@@ -26,13 +26,13 @@ namespace EQLWebAPIWithAngular
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/dist";
+                configuration.RootPath = "ClientApp/dist/ovr-pass";
             });
 
             services.AddDistributedRedisCache(option =>
             {
                 option.Configuration = "127.0.0.1";
-                option.InstanceName = "master";
+               //ption.InstanceName = "master";
             });
         }
 

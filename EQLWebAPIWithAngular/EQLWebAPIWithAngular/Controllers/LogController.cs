@@ -58,46 +58,53 @@ namespace EQLWebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<JsonResult> SingleLogData([FromBody]string masterData)
+        public async Task<JsonResult> SingleLogData(string t)
         {
-            if (masterData != null)
+            string logData = string.Empty;
+            using (var requestBodyStream = new MemoryStream())
             {
-                var logJson = JObject.Parse(masterData);
-                JToken mainData = null;
-                if (logJson.TryGetValue("projectname", out mainData))
+                var body = HttpContext.Request.Body;
+                await HttpContext.Request.Body.CopyToAsync(requestBodyStream);
+                requestBodyStream.Seek(0, SeekOrigin.Begin);
+                logData = await new StreamReader(requestBodyStream).ReadToEndAsync();
+            }
+            if (logData != null)
+            {
+
+                if (t == "m")
                 {
+                    var logJson = JObject.Parse(logData);
                     JToken sessionID = null;
-                    if (mainData != null && !String.IsNullOrEmpty(mainData.ToString()))
+                    if (logJson.TryGetValue("Session_ID", out sessionID))
                     {
-                        if (logJson.TryGetValue("Session_ID", out sessionID))
+                        if (sessionID != null && !String.IsNullOrEmpty(sessionID.ToString()))
                         {
-                            if (sessionID != null && !String.IsNullOrEmpty(sessionID.ToString()))
-                            {
-                                _distributedCache.SetString(sessionID.ToString(), masterData);
-                            }
+                            _distributedCache.SetString(sessionID.ToString() + "-" + "Master", logJson.ToString());
                         }
                     }
                 }
-
-                JToken logData = null;
-                if (logJson.TryGetValue("ActionID", out logData))
+                if (t == "e")
                 {
+                    var logJson = JObject.Parse(logData);
                     JToken logSessionID = null;
-                    if (logData != null && !String.IsNullOrEmpty(logData.ToString()))
+                    if (logJson.TryGetValue("Session_ID", out logSessionID))
                     {
-                        if (logJson.TryGetValue("Session_ID", out logSessionID))
+                        if (logSessionID != null && !String.IsNullOrEmpty(logSessionID.ToString()))
                         {
-                            if (logSessionID != null && !String.IsNullOrEmpty(logSessionID.ToString()))
+                            JArray jArray = new JArray();
+                            string resData = _distributedCache.GetString(logSessionID.ToString() + "-" + "Events");
+                            if(!String.IsNullOrEmpty(resData) && resData != null)
                             {
-                                _distributedCache.SetString(logSessionID.ToString(), masterData);
-                            }
+                                jArray = JArray.Parse(resData);
+                            }                           
+                            jArray.Add(logJson);
+                            _distributedCache.SetString(logSessionID.ToString() + "-" + "Events", jArray.ToString());
                         }
                     }
                 }
-
                 return Json(new
                 {
-                    status = true,
+                    success = true,
                     data = "Data Inserted!!",
                     error = ""
                 });
@@ -106,7 +113,7 @@ namespace EQLWebAPI.Controllers
             {
                 return Json(new
                 {
-                    status = false,
+                    success = false,
                     data = "",
                     error = "No data found!!"
                 });

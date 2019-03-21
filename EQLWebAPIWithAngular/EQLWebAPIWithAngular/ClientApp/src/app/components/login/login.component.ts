@@ -16,13 +16,13 @@ export class LoginComponent implements OnInit {
   form = new FormGroup({
     email: new FormControl('', Validators.compose([
       Validators.required,
-      Validators.email,
+      //Validators.email,
       //Validators.pattern('\w+?@\w+?\x2E.+'),
     ])),
     password: new FormControl('', Validators.compose([
       Validators.required,
-      Validators.minLength(6),
-      Validators.maxLength(24),
+      //Validators.minLength(6),
+      //Validators.maxLength(24),
     ])),
   });
   constructor(private user :UserService, private router: Router,private globals: Globals) {

@@ -8,5 +8,6 @@ namespace DataRepository
     public interface IUserRepository<T>
     {
         Task<UserDto> LoginUser(string email, string password);
+        Task<UserDtoApp> LoginUserApp(string email, string password);
     }
 }

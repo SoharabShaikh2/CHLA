@@ -19,9 +19,9 @@ F:\Projects\CHLA\source\CHLA\WebApi\EQLWebAPI\DataRepository\obj\Debug\netcoreap
 F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\DataRepository.deps.json
 F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\DataRepository.dll
 F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\DataRepository.pdb
-F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csprojAssemblyReference.cache
 F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csproj.CoreCompileInputs.cache
 F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.AssemblyInfoInputs.cache
 F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.AssemblyInfo.cs
 F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.dll
 F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.pdb
+F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csprojAssemblyReference.cache

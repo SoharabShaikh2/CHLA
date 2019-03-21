@@ -23,7 +23,33 @@ namespace ChlaDataRepository
         public async Task<UserDto> LoginUser(string email, string password)
         {
             UserDto user = new UserDto();
-            String SQL = "select * from user where email= @email && password= @password;";
+            String SQL = "select u.firstname, u.lastname, u.username, ut.type as usertype, o.name as organizationname from user u join usertype ut on u.usertypeid = ut.id left join organization o on u.organizationid = o.id where username= @email && password= @password;";
+            using (MySqlConnection con = new MySqlConnection(connectionParameters.ConnectionString))
+            {
+                MySqlCommand cmd = new MySqlCommand(SQL, con);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@password", password);
+                con.Open();
+                using (var reader = await cmd.ExecuteReaderAsync())
+                {
+                    while (reader.Read())
+                    {
+                        user.firstname = Convert.ToString(reader["firstname"]);
+                        user.lastname = Convert.ToString(reader["lastname"]);
+                        user.organizationname = Convert.ToString(reader["organizationname"]);
+                        user.usertype = Convert.ToString(reader["usertype"]);
+                        user.username = Convert.ToString(reader["username"]);
+                    }
+                }
+                return user;
+            }
+
+        }
+
+        public async Task<UserDtoApp> LoginUserApp(string email, string password)
+        {
+            UserDtoApp user = new UserDtoApp();
+            String SQL = "select * from user where username= @email && password= @password;";
             using (MySqlConnection con = new MySqlConnection(connectionParameters.ConnectionString))
             {
                 MySqlCommand cmd = new MySqlCommand(SQL, con);
@@ -43,5 +69,6 @@ namespace ChlaDataRepository
             }
 
         }
+
     }
 }

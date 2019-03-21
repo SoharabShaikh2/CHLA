@@ -20,7 +20,7 @@ namespace EQLWebAPI.Controllers
         {
             OrganizationDto organization = new OrganizationDto();
             IUserRepository<IUser> _user = new UserDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=localhost;Database=chla;Uid=root;Pwd=123456;" });
-            var res = await _user.LoginUser(emailId, password);
+            var res = await _user.LoginUserApp(emailId, password);
 
             if (res.usertypeid == 2)
             {

@@ -12,7 +12,7 @@
               <input type="text" class="form-control user" placeholder="Username" formControlName="email">
             </div>
             <div class="form-group">
-                <input [type]="hide? 'password':'text'" class="form-control password" placeholder="Password" formControlName="password" [errorStateMatcher]="matcher">
+                <input [type]="hide? 'password':'text'" class="form-control password" placeholder="Password" formControlName="password" >
                 <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 <!-- <mat-error *ngIf="form.hasError('required', 'password')">Enter Password</mat-error> -->
                 <mat-error *ngIf="form.hasError('minLength')">Enter MIN 6 character</mat-error>

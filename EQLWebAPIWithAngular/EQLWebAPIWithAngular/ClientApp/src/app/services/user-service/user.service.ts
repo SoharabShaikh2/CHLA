@@ -20,7 +20,7 @@ export class UserService {
 let data:LoginData= new LoginData();
 data.Password=password;
 data.Username=email;
-  return this.http.post<any>('/api/user/UserLogin/', data,this.httpOptions)
+    return this.http.post<any>('/api/user/UserLoginApp/', data,this.httpOptions)
     .pipe(
       map(responseData=>{return responseData })
     );
