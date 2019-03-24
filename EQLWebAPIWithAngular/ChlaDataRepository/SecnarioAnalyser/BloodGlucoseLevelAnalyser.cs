@@ -24,7 +24,7 @@ namespace ChlaDataRepository
                 {
                     var currentrow = (JObject)jobj;
 
-                    if (currentrow.GetValue("Action")?.ToString() == "SCENARIO_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Adult_Seizure_Status_Epilepticus")
+                    if (currentrow.GetValue("Action")?.ToString() == "SCENARIO_STARTED" )
                     {
                         ScenarioStarted = currentrow.GetValue("Event_Time")?.ToString();
                     }
