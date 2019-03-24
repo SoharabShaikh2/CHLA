@@ -5,8 +5,13 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    public interface IAnalyser
+    interface IAnalyser
     {
+        string DisplayName { get; set; }
+
         JObject Analyse(JObject jsonObject);
+
+
+
     }
 }

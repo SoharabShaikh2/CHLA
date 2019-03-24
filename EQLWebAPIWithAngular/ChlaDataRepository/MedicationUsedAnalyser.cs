@@ -5,13 +5,27 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    public class MedicationUsedAnalyser : Analyser
+    class MedicationUsedAnalyser : Analyser
     {
         protected override JObject AnalyseAction(JObject jsonObject)
         {
+            var jarr = (JArray)jsonObject.GetValue("Events");
+            if (jarr != null)
+            {
 
+                string startTime = null;
+                foreach (var jobj in jarr)
+                {
+                    var currentrow = (JObject)jobj;
+                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENARIO_STARTED")
+                    {
+                        startTime = currentrow.GetValue("Event_Time")?.ToString();
 
-            throw new NotImplementedException();
+                    }
+                }
+            }
+
+            return new JObject();
         }
     }
 }

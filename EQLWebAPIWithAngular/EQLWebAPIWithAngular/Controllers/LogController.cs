@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using ChlaDataRepository;
 using DataRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -68,7 +69,7 @@ namespace EQLWebAPI.Controllers
                 requestBodyStream.Seek(0, SeekOrigin.Begin);
                 logData = await new StreamReader(requestBodyStream).ReadToEndAsync();
             }
-            if (logData != null)
+            if (logData != null && !String.IsNullOrEmpty(logData))
             {
 
                 if (t == "m")
@@ -81,9 +82,33 @@ namespace EQLWebAPI.Controllers
                         {
                             _distributedCache.SetString(sessionID.ToString() + "-" + "Master", logJson.ToString());
                         }
+                        else
+                        {
+                            return Json(new
+                            {
+                                success = false,
+                                data = "",
+                                error = "No data found!!"
+                            });
+                        }
+                        return Json(new
+                        {
+                            success = true,
+                            data = "Data Inserted!!",
+                            error = ""
+                        });
+                    }
+                    else
+                    {
+                        return Json(new
+                        {
+                            success = false,
+                            data = "",
+                            error = "No data found!!"
+                        });
                     }
                 }
-                if (t == "e")
+                else if (t == "e")
                 {
                     var logJson = JObject.Parse(logData);
                     JToken logSessionID = null;
@@ -93,21 +118,49 @@ namespace EQLWebAPI.Controllers
                         {
                             JArray jArray = new JArray();
                             string resData = _distributedCache.GetString(logSessionID.ToString() + "-" + "Events");
-                            if(!String.IsNullOrEmpty(resData) && resData != null)
+                            if (!String.IsNullOrEmpty(resData) && resData != null)
                             {
                                 jArray = JArray.Parse(resData);
-                            }                           
+                            }
                             jArray.Add(logJson);
                             _distributedCache.SetString(logSessionID.ToString() + "-" + "Events", jArray.ToString());
                         }
+                        else
+                        {
+                            return Json(new
+                            {
+                                success = false,
+                                data = "",
+                                error = "No data found!!"
+                            });
+                        }
+                        return Json(new
+                        {
+                            success = true,
+                            data = "Data Inserted!!",
+                            error = ""
+                        });
+                    }
+                    else
+                    {
+                        return Json(new
+                        {
+                            success = false,
+                            data = "",
+                            error = "No data found!!"
+                        });
                     }
                 }
-                return Json(new
+                else
                 {
-                    success = true,
-                    data = "Data Inserted!!",
-                    error = ""
-                });
+                    return Json(new
+                    {
+                        success = false,
+                        data = "",
+                        error = "No data found!!"
+                    });
+                }
+
             }
             else
             {
@@ -118,6 +171,38 @@ namespace EQLWebAPI.Controllers
                     error = "No data found!!"
                 });
             }
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> GetResult(string SessionId)
+        {
+
+            GameResultModel gameResult = new GameResultModel();
+
+            Details details = new Details();
+            details.Date = 154334344;
+            details.Difficulty = "High";
+            details.Distraction = "High";
+            details.Scenario = "Scenario 3";
+            details.Type = "Adult Seizure Status Epilepticus";
+            details.User = "jackryan";
+
+            gameResult.Details = details;
+
+            List<ResultView> resultViews = new List<ResultView>();
+            resultViews.Add(new ResultView { DisplayTitle = "Time To Suction", DisplayValue = "11:00" });
+            resultViews.Add(new ResultView { DisplayTitle = "Time To Intubation From Scene 5", DisplayValue = "12:00" });
+
+            gameResult.Qualitative = resultViews;
+            gameResult.Quantitative = resultViews;
+
+
+            return Json(new
+            {
+                success = true,
+                data = gameResult,
+                error = ""
+            });
         }
 
 

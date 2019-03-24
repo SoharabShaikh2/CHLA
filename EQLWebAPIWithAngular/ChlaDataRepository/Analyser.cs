@@ -5,13 +5,24 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    public abstract class Analyser : IAnalyser
+    abstract class Analyser : IAnalyser
     {
+
+
+        public string DisplayName { get; set; }
+
         public JObject Analyse(JObject jsonObject)
         {
+
+
             return AnalyseAction(jsonObject);
+
+
         }
-        //protected JObject SenarioStarted(JObject jsonobject);
+
+
+
         protected abstract JObject AnalyseAction(JObject jsonObject);
+
     }
 }

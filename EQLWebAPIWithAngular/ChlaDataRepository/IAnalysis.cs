@@ -5,9 +5,9 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    public interface IAnalysis
+    interface IAnalysis
     {
-        JObject CalculateResult(JObject jsonData);
-        void RegisterAnalyser(string name, IAnalyser analyser);
+        JArray CalculateResult(JObject jsonData);
+        void RegisterAnalyser(IAnalyser analyser);
     }
 }

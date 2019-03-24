@@ -1,17 +1,16 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ChlaDataRepository
 {
-
-    class QuantitativeAnalysis : Analysis
+    class QualitativeAnalysis : Analysis
     {
 
         protected override void Initialise()
         {
-            RegisterAnalyser(new MedicationUsedAnalyser());
+            RegisterAnalyser(new SuctionUsedAnalyser());
         }
+
     }
 }
