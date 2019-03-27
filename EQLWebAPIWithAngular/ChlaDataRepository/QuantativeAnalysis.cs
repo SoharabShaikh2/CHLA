@@ -6,12 +6,12 @@ using System.Text;
 namespace ChlaDataRepository
 {
 
-    class QuantitativeAnalysis : Analysis
+    public class QuantitativeAnalysis : Analysis
     {
 
         protected override void Initialise()
         {
-            RegisterAnalyser(new MedicationUsedAnalyser());
+            //RegisterAnalyser(new MedicationUsedAnalyser());
         }
     }
 }

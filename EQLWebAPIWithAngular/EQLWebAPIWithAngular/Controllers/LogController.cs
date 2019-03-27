@@ -20,11 +20,18 @@ namespace EQLWebAPI.Controllers
     {
         private IDataRepository<Log> DataRepository;
         private readonly IDistributedCache _distributedCache;
+        private readonly IResultAnanlyser _resultAnanlyser;
+        public enum SecnarioNameEnum
+        {
+            Seizure_Status_Epilepticus = 1, Anaphylaxis = 2, Adult_Seizure_Status_Epilepticus = 3
+        }
+
 
         public LogController(IDistributedCache distributedCache)
         {
             //DataRepository = dr;
             _distributedCache = distributedCache;
+            //_resultAnanlyser = resultAnanlyser;
         }
 
         [Route("Stream")]
@@ -174,7 +181,7 @@ namespace EQLWebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<JsonResult> GetResult(string SessionId)
+        public async Task<JsonResult> GetResultTest(string SessionId)
         {
 
             GameResultModel gameResult = new GameResultModel();
@@ -193,8 +200,8 @@ namespace EQLWebAPI.Controllers
             resultViews.Add(new ResultView { DisplayTitle = "Time To Suction", DisplayValue = "11:00" });
             resultViews.Add(new ResultView { DisplayTitle = "Time To Intubation From Scene 5", DisplayValue = "12:00" });
 
-            gameResult.Qualitative = resultViews;
-            gameResult.Quantitative = resultViews;
+            //gameResult.Qualitative = resultViews;
+            //gameResult.Quantitative = resultViews;
 
 
             return Json(new
@@ -203,6 +210,101 @@ namespace EQLWebAPI.Controllers
                 data = gameResult,
                 error = ""
             });
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> GetResult(string SessionId)
+        {
+            string resEvent = _distributedCache.GetString(SessionId + "-" + "Events");
+            string resMaster = _distributedCache.GetString(SessionId + "-" + "Master");
+
+            if (resEvent != null && resMaster != null)
+            {
+                string ScenarioName = "";
+                string gDifficulty = "";
+                string gUser = "";
+                string Date = "0";
+                string StartTime = "0";
+                string StopTime = "0";
+
+                var jarrEve = JArray.Parse(resEvent);
+                if (jarrEve != null)
+                {
+                    foreach (var jobj in jarrEve)
+                    {
+                        var currentrow = (JObject)jobj;
+                        if (currentrow.GetValue("ActionID")?.ToString() == "SCENARIO_STARTED")
+                        {
+                            StartTime = currentrow.GetValue("Event_Time")?.ToString();
+                            gDifficulty = currentrow.GetValue("Difficulty")?.ToString();
+                            ScenarioName = currentrow.GetValue("Scenario")?.ToString();
+                        }
+                        else if (currentrow.GetValue("ActionID")?.ToString() == "SCENARIO_ENDED")
+                        {
+                            StopTime = currentrow.GetValue("Event_Time")?.ToString();
+                        }
+                    }
+                }
+                var jObjectMain = JObject.Parse(resMaster);
+                if (jObjectMain != null)
+                {
+                    Date = jObjectMain.GetValue("Event_Time")?.ToString();
+                    gUser = jObjectMain.GetValue("userid")?.ToString();
+                }
+
+                var mainData = "{" + "'Events'" + ":" + resEvent + "," + "'Master'" + ":" + resMaster + "}";
+
+                var jObject = JObject.Parse(mainData);
+
+                AnalysisFactory analysisFactory = new AnalysisFactory();
+
+                IResultAnanlyser ra = new ResultAnanlyser();
+
+                var analysis = analysisFactory.GetAnalysis(ScenarioName);
+                ra.RegisterAnalysis(analysis, "Quantitative");
+
+                var result = ra.PerformAnalysis(jObject);
+
+                GameResultModel gameResult = new GameResultModel();
+
+                Details details = new Details();
+                details.Date = Convert.ToInt64(Date);
+                details.Difficulty = gDifficulty;
+                details.Distraction = "High";
+                details.Scenario = "Scenario " + (int)(SecnarioNameEnum)Enum.Parse(typeof(SecnarioNameEnum), ScenarioName);
+                details.Type = ScenarioName;
+                details.User = gUser;
+
+                gameResult.Details = details;
+
+                JObject resQualitative = new JObject();
+                resQualitative.Add("Catagory", "Circulation");
+                resQualitative.Add("Items", "Physical Exam");
+                resQualitative.Add("Error Type", "Exam");
+                resQualitative.Add("Description", "Faliure to check pulse prior to advacne scene");
+
+                JArray resQualitativeList = new JArray();
+                resQualitativeList.Add(resQualitative);
+
+                gameResult.Qualitative = resQualitativeList;
+                gameResult.Quantitative = (JArray)result.GetValue("Quantitative");
+
+                return Json(new
+                {
+                    success = true,
+                    data = gameResult,
+                    error = ""
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    success = false,
+                    data = "",
+                    error = "No data found!!"
+                });
+            }
         }
 
 

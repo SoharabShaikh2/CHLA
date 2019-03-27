@@ -24,12 +24,12 @@ namespace ChlaDataRepository
                 {
                     var currentrow = (JObject)jobj;
 
-                    if (currentrow.GetValue("Action")?.ToString() == "SCENARIO_STARTED")
+                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENARIO_STARTED")
                     {
                         ScenarioStarted = currentrow.GetValue("Event_Time")?.ToString();
                     }
 
-                    else if (currentrow.GetValue("Action")?.ToString() == "CHECK_PUPILS")
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_PUPILS")
                     {
                         CheckTime = currentrow.GetValue("Event_Time")?.ToString();
                     }

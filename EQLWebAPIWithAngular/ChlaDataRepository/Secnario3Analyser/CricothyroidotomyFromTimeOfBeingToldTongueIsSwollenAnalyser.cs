@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Newtonsoft.Json.Linq;
 
 namespace ChlaDataRepository
 {
-    class SuctionUsedAnalyser : Analyser
+    class CricothyroidotomyFromTimeOfBeingToldTongueIsSwollenAnalyser : Analyser
     {
-        public SuctionUsedAnalyser()
+        public CricothyroidotomyFromTimeOfBeingToldTongueIsSwollenAnalyser()
         {
-            DisplayName = "Suction Used";
+            DisplayName = "Cricothyroidotomy From Time Of Being Told Tongue Is Swollen";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)
@@ -18,26 +18,26 @@ namespace ChlaDataRepository
             var jarr = (JArray)jsonObject.GetValue("Events");
             if (jarr != null)
             {
-                string symtomChangedTime = null;
+                string startTime = null;
                 string toolusedTime = null;
                 foreach (var jobj in jarr)
                 {
                     var currentrow = (JObject)jobj;
 
-                    if (currentrow.GetValue("ActionID")?.ToString() == "SYMPTOM_CHANGED" && currentrow.GetValue("ActionValue")?.ToString() == "Vomiting State" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVE")
+                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 4 - Tongue Swelling")
                     {
-                        symtomChangedTime = currentrow.GetValue("Event_Time")?.ToString();
+                        startTime = currentrow.GetValue("Event_Time")?.ToString();
                     }
 
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "SuctionTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "CricothyroidotomyTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         toolusedTime = currentrow.GetValue("Event_Time")?.ToString();
                     }
                 }
 
-                if (symtomChangedTime != null && toolusedTime != null)
+                if (startTime != null && toolusedTime != null)
                 {
-                    var timeInSecs = long.Parse(toolusedTime) - long.Parse(symtomChangedTime);
+                    var timeInSecs = long.Parse(toolusedTime) - long.Parse(startTime);
                     var result = new JObject();
                     result.Add("DisplayTitle", DisplayName);
                     result.Add("DisplayValue", timeInSecs.ToString());

@@ -5,11 +5,11 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    class BloodGlucoseLevelAnalyser : Analyser
+    class FirstPulsesCheckFromStartAnalyser : Analyser
     {
-        public BloodGlucoseLevelAnalyser()
+        public FirstPulsesCheckFromStartAnalyser()
         {
-            DisplayName = "Blood Glucose Level Checking";
+            DisplayName = "First Pulses Check From Start";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)
@@ -18,32 +18,35 @@ namespace ChlaDataRepository
             var jarr = (JArray)jsonObject.GetValue("Events");
             if (jarr != null)
             {
+                string check = null;
                 string ScenarioStarted = null;
-                string CheckTime = null;
                 foreach (var jobj in jarr)
                 {
                     var currentrow = (JObject)jobj;
 
-                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENARIO_STARTED" )
+                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENARIO_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Anaphylaxis")
                     {
                         ScenarioStarted = currentrow.GetValue("Event_Time")?.ToString();
                     }
 
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_BLOOD_GLUCOSE")
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_ PULSE")
                     {
-                        CheckTime = currentrow.GetValue("Event_Time")?.ToString();
+                        check = currentrow.GetValue("Event_Time")?.ToString();
                     }
+
                 }
 
-                if (ScenarioStarted != null && CheckTime != null)
+                if (check != null && ScenarioStarted != null)
                 {
-                    var timeInSecs = long.Parse(CheckTime) - long.Parse(ScenarioStarted);
+                    var timeInSecs = long.Parse(check) - long.Parse(ScenarioStarted);
                     var result = new JObject();
                     result.Add("DisplayTitle", DisplayName);
                     result.Add("DisplayValue", timeInSecs.ToString());
                     return result;
+
                 }
             }
+
             return new JObject();
         }
     }

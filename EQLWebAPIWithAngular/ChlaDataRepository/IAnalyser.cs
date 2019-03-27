@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    interface IAnalyser
+    public interface IAnalyser
     {
         string DisplayName { get; set; }
 

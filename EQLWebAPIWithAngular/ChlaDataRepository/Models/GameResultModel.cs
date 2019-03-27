@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,10 +12,10 @@ namespace ChlaDataRepository
         public Details Details { get; set; }
 
         [JsonProperty("Quantitative")]
-        public List<ResultView> Quantitative { get; set; }
+        public JArray Quantitative { get; set; }
 
         [JsonProperty("Qualitative")]
-        public List<ResultView> Qualitative { get; set; }
+        public JArray Qualitative { get; set; }
     }
 
     public partial class Details

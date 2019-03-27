@@ -24,15 +24,15 @@ namespace ChlaDataRepository
                 {
                     var currentrow = (JObject)jobj;
 
-                    if (currentrow.GetValue("Action")?.ToString() == "CHECK_BREATH")
+                    if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_BREATH")
                     {
                         CheckTime = currentrow.GetValue("Event_Time")?.ToString();
                     }
-                    else if (currentrow.GetValue("Action")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "D50WIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "D50WIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         MedicationUsedTime = currentrow.GetValue("Event_Time")?.ToString();
                     }
-                    else if (currentrow.GetValue("Action")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "GlucoseThiamineIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "GlucoseThiamineIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         MedicationUsedTime = currentrow.GetValue("Event_Time")?.ToString();
                     }

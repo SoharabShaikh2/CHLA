@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    interface IResultAnanlyser
+    public interface IResultAnanlyser
     {
         JObject PerformAnalysis(JObject jsonData);
         void RegisterAnalysis(IAnalysis analysis, string name);

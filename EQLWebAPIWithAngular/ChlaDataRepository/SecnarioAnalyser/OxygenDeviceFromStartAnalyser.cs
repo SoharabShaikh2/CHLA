@@ -24,20 +24,20 @@ namespace ChlaDataRepository
                 {
                     var currentrow = (JObject)jobj;
 
-                    if (currentrow.GetValue("Action")?.ToString() == "SCENARIO_STARTED" )
+                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENARIO_STARTED" )
                     {
                         ScenarioStarted = currentrow.GetValue("Event_Time")?.ToString();
                     }
 
-                    else if (currentrow.GetValue("Action")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "NRBMaskTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "NRBMaskTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         maskUsedTime = currentrow.GetValue("Event_Time")?.ToString();
                     }
-                    else if (currentrow.GetValue("Action")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "SimpleFaceMaskTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "SimpleFaceMaskTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         maskUsedTime = currentrow.GetValue("Event_Time")?.ToString();
                     }
-                    else if (currentrow.GetValue("Action")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "NasalCannulaTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "NasalCannulaTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         maskUsedTime = currentrow.GetValue("Event_Time")?.ToString();
                     }

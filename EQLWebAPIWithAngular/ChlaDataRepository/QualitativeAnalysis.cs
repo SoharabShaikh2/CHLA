@@ -4,12 +4,12 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    class QualitativeAnalysis : Analysis
+    public class QualitativeAnalysis : Analysis
     {
 
         protected override void Initialise()
         {
-            RegisterAnalyser(new SuctionUsedAnalyser());
+            //RegisterAnalyser(new SuctionUsedAnalyser());
         }
 
     }

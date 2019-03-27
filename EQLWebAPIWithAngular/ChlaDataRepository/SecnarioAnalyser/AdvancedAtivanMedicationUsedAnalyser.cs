@@ -24,7 +24,7 @@ namespace ChlaDataRepository
                 {
                     var currentrow = (JObject)jobj;
 
-                    if (currentrow.GetValue("Action")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "AtivanIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "AtivanIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         if (MedicationUsedTime1 == null)
                         {

@@ -5,10 +5,10 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    class ResultAnanlyser : IResultAnanlyser
+    public class ResultAnanlyser : IResultAnanlyser
     {
 
-        Dictionary<string, IAnalysis> _analysises = new Dictionary<string, IAnalysis>();
+        public Dictionary<string, IAnalysis> _analysises = new Dictionary<string, IAnalysis>();
         public ResultAnanlyser()
         {
         }
@@ -16,7 +16,7 @@ namespace ChlaDataRepository
         public JObject PerformAnalysis(JObject jsonData)
         {
             JObject result = new JObject();
-            result.Add("Details", GetDetails(jsonData));
+            //result.Add("Details", GetDetails(jsonData));
 
             foreach (var kvp in _analysises)
             {

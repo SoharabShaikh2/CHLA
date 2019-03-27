@@ -5,11 +5,11 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    class BloodGlucoseLevelAnalyser : Analyser
+    class AlbuterolFromStartAnalyser :Analyser
     {
-        public BloodGlucoseLevelAnalyser()
+        public AlbuterolFromStartAnalyser()
         {
-            DisplayName = "Blood Glucose Level Checking";
+            DisplayName = "Albuterol From Start";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)
@@ -19,31 +19,33 @@ namespace ChlaDataRepository
             if (jarr != null)
             {
                 string ScenarioStarted = null;
-                string CheckTime = null;
+                string MedicationUsedTime = null;
                 foreach (var jobj in jarr)
                 {
                     var currentrow = (JObject)jobj;
 
-                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENARIO_STARTED" )
+                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENARIO_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Anaphylaxis")
                     {
                         ScenarioStarted = currentrow.GetValue("Event_Time")?.ToString();
                     }
 
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_BLOOD_GLUCOSE")
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "AlbuterolNebulizerMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
-                        CheckTime = currentrow.GetValue("Event_Time")?.ToString();
+                        MedicationUsedTime = currentrow.GetValue("Event_Time")?.ToString();
                     }
                 }
 
-                if (ScenarioStarted != null && CheckTime != null)
+                if (ScenarioStarted != null && MedicationUsedTime != null)
                 {
-                    var timeInSecs = long.Parse(CheckTime) - long.Parse(ScenarioStarted);
+                    var timeInSecs = long.Parse(MedicationUsedTime) - long.Parse(ScenarioStarted);
                     var result = new JObject();
                     result.Add("DisplayTitle", DisplayName);
                     result.Add("DisplayValue", timeInSecs.ToString());
                     return result;
+
                 }
             }
+
             return new JObject();
         }
     }

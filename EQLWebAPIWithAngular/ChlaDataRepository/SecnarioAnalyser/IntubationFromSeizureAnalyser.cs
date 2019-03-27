@@ -24,11 +24,11 @@ namespace ChlaDataRepository
                 {
                     var currentrow = (JObject)jobj;
 
-                    if (currentrow.GetValue("Action")?.ToString() == "OBJECTIVE_COMPLETED" && currentrow.GetValue("ActionValue")?.ToString() == "SeizureCureObjective" && currentrow.GetValue("ActionOutcome")?.ToString() == "SUCCESSFUL")
+                    if (currentrow.GetValue("ActionID")?.ToString() == "OBJECTIVE_COMPLETED" && currentrow.GetValue("ActionValue")?.ToString() == "SeizureCureObjective" && currentrow.GetValue("ActionOutcome")?.ToString() == "SUCCESSFUL")
                     {
                         completeTime = currentrow.GetValue("Event_Time")?.ToString();
                     }
-                    else if (currentrow.GetValue("Action")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "IntubationTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "IntubationTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         toolUsedTime = currentrow.GetValue("Event_Time")?.ToString();
                     }

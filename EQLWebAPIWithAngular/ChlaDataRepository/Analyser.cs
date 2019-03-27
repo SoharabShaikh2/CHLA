@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    abstract class Analyser : IAnalyser
+    public abstract class Analyser : IAnalyser
     {
 
 

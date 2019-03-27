@@ -5,11 +5,11 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    class CheckBreathAnalyser :Analyser
+    class FirstListeningToBreathSoundsFromStartOfScene2Analyser : Analyser
     {
-        public CheckBreathAnalyser()
+        public FirstListeningToBreathSoundsFromStartOfScene2Analyser()
         {
-            DisplayName = "Check Breath";
+            DisplayName = "First Listening To Breath Sounds From Start Of Scene 2";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)
@@ -18,32 +18,34 @@ namespace ChlaDataRepository
             var jarr = (JArray)jsonObject.GetValue("Events");
             if (jarr != null)
             {
-                string SymptomChanged = null;
-                string CheckTime = null;
+                string startTime = null;
+                string checkTime = null;
                 foreach (var jobj in jarr)
                 {
                     var currentrow = (JObject)jobj;
 
-                    if (currentrow.GetValue("ActionID")?.ToString() == "SYMPTOM_CHANGED" && currentrow.GetValue("ActionValue")?.ToString() == "Stop Breathing State" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVE")
+                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 2 - Worsening respiratory distress")
                     {
-                        SymptomChanged = currentrow.GetValue("Event_Time")?.ToString();
+                        startTime = currentrow.GetValue("Event_Time")?.ToString();
                     }
 
                     else if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_BREATH")
                     {
-                        CheckTime = currentrow.GetValue("Event_Time")?.ToString();
+                        checkTime = currentrow.GetValue("Event_Time")?.ToString();
                     }
                 }
 
-                if (SymptomChanged != null && CheckTime != null)
+                if (startTime != null && checkTime != null)
                 {
-                    var timeInSecs = long.Parse(CheckTime) - long.Parse(SymptomChanged);
+                    var timeInSecs = long.Parse(checkTime) - long.Parse(startTime);
                     var result = new JObject();
                     result.Add("DisplayTitle", DisplayName);
                     result.Add("DisplayValue", timeInSecs.ToString());
                     return result;
+
                 }
             }
+
             return new JObject();
         }
     }

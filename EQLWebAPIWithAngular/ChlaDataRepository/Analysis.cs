@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    abstract class Analysis : IAnalysis
+    public abstract class Analysis : IAnalysis
 
     {
 
@@ -24,7 +24,9 @@ namespace ChlaDataRepository
 
             foreach (var analyser in _analyser)
             {
-                result.Add(analyser.Analyse(jsonData));
+                var res = analyser.Analyse(jsonData);
+                if(res.Count != 0)
+                result.Add(res);
             }
 
             return result;

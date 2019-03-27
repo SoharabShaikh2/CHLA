@@ -4,16 +4,18 @@ using System.Text;
 
 namespace ChlaDataRepository
 {
-    class AnalysisFactory
+    public class AnalysisFactory
     {
         public IAnalysis GetAnalysis(string scenario)
         {
-            switch(scenario)
+            switch (scenario)
             {
-                case "Scenario 1":
+                case "Seizure_Status_Epilepticus":
                     return new Scenario1QuantitativeAnalysis();
-                                 
-
+                case "Anaphylaxis":
+                    return new Scenario2QuantitativeAnalysis();
+                case "Adult_Seizure_Status_Epilepticus":
+                    return new Scenario3QuantitativeAnalysis();
             }
 
             return null;
