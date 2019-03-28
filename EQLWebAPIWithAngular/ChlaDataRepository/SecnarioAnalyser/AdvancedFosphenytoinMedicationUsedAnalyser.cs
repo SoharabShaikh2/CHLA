@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public AdvancedFosphenytoinMedicationUsedAnalyser()
         {
-            DisplayName = "Advanced Fosphenytoin Medication Used";
+            DisplayName = "Time to Fosphenytoin after last dose of Lorazepam";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public IntubationFromStartOfScene2Analyser()
         {
-            DisplayName = "Intubation From Start Of Scene 2";
+            DisplayName = "Time to intubation after medications given";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

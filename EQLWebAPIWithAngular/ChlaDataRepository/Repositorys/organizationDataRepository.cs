@@ -19,7 +19,7 @@ namespace ChlaDataRepository
         public async Task<OrganizationDto> GetOrganization(int organizationId)
         {
             OrganizationDto dto = new OrganizationDto();
-            String SQL = "SELECT * FROM chla.organization where id = @id;";
+            String SQL = "SELECT * FROM organization where id = @id;";
             using (MySqlConnection con = new MySqlConnection(connectionParameters.ConnectionString))
             {
                 MySqlCommand cmd = new MySqlCommand(SQL, con);

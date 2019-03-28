@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public RanitidineFromStartAnalyser()
         {
-            DisplayName = "Ranitidine From Start";
+            DisplayName = "Time to Ranitidine dose";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

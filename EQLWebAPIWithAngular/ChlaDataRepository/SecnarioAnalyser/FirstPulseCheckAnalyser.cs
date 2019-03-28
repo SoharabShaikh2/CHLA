@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public FirstPulseCheckAnalyser()
         {
-            DisplayName = "First Pulse Check";
+            DisplayName = "First pulse check";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

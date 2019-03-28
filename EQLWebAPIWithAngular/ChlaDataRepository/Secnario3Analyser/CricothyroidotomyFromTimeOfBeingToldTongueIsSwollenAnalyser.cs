@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public CricothyroidotomyFromTimeOfBeingToldTongueIsSwollenAnalyser()
         {
-            DisplayName = "Cricothyroidotomy From Time Of Being Told Tongue Is Swollen";
+            DisplayName = "Time to Cricothyroidotomy after learning of tongue swelling";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

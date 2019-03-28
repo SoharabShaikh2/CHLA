@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public FirstPupilCheckAnalyser()
         {
-            DisplayName = "First Pupil Check";
+            DisplayName = "First pupil check";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

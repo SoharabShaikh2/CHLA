@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public NRBmaskFromStartAnalyser()
         {
-            DisplayName = "NRB Mask Used";
+            DisplayName = "Time to NRB Mask";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

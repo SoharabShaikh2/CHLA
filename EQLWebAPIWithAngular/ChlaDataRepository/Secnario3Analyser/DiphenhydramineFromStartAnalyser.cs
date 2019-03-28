@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public DiphenhydramineFromStartAnalyser()
         {
-            DisplayName = "Diphenhydramine From Start";
+            DisplayName = "Time to Diphenhydramine dose";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

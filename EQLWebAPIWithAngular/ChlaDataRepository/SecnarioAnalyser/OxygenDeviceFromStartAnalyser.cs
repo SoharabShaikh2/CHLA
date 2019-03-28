@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public OxygenDeviceFromStartAnalyser()
         {
-            DisplayName = "Oxygen Device From Start";
+            DisplayName = "Time to first oxygen device";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

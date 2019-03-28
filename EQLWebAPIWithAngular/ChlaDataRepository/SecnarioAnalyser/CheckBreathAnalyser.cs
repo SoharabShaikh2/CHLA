@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public CheckBreathAnalyser()
         {
-            DisplayName = "Check Breath";
+            DisplayName = "Time to breath check after patient stopped breathing";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

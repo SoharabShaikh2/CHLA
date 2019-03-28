@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public BloodGlucoseLevelAnalyser()
         {
-            DisplayName = "Blood Glucose Level Checking";
+            DisplayName = "Time to first blood glucose level check";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

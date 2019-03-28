@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public MethylprednisoloneFromStartAnalyser()
         {
-            DisplayName = "Methylprednisolone From Start";
+            DisplayName = "Time to Prednisone dose";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

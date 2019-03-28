@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public AlbuterolFromStartAnalyser()
         {
-            DisplayName = "Albuterol From Start";
+            DisplayName = "Time to Albuterol dose";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

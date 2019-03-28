@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public EpinephrineInjectionFromStartAnalyser()
         {
-            DisplayName = "Epinephrine Injection From Start";
+            DisplayName = "Time to Epinephrine dose";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

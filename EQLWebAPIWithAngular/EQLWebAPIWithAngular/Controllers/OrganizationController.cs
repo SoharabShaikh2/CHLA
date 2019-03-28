@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using ChlaDataRepository;
 using DataRepository;
 using Microsoft.AspNetCore.Mvc;
-using MySQLDataRepository;
+//using MySQLDataRepository;
 
 namespace EQLWebAPI.Controllers
 {

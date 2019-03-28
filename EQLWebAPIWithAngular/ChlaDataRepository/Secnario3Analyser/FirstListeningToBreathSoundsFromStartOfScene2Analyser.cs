@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public FirstListeningToBreathSoundsFromStartOfScene2Analyser()
         {
-            DisplayName = "First Listening To Breath Sounds From Start Of Scene 2";
+            DisplayName = "Time to first breath check after medications given";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

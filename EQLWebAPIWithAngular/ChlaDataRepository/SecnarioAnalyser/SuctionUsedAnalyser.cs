@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public SuctionUsedAnalyser()
         {
-            DisplayName = "Suction Used";
+            DisplayName = "Time to suction";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

@@ -8,7 +8,7 @@ using DataRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
-using MySQLDataRepository;
+//using MySQLDataRepository;
 using Newtonsoft.Json.Linq;
 
 namespace EQLWebAPI.Controllers
@@ -18,9 +18,12 @@ namespace EQLWebAPI.Controllers
     [Route("api/[controller]/[Action]")]
     public class LogController : Controller
     {
-        private IDataRepository<Log> DataRepository;
+
         private readonly IDistributedCache _distributedCache;
         private readonly IResultAnanlyser _resultAnanlyser;
+
+        readonly ILogRepository<ILog> UserRepository;
+
         public enum SecnarioNameEnum
         {
             Seizure_Status_Epilepticus = 1, Anaphylaxis = 2, Adult_Seizure_Status_Epilepticus = 3
@@ -32,37 +35,6 @@ namespace EQLWebAPI.Controllers
             //DataRepository = dr;
             _distributedCache = distributedCache;
             //_resultAnanlyser = resultAnanlyser;
-        }
-
-        [Route("Stream")]
-        // POST: Log/Stream
-        [HttpPost]
-        public async Task<JsonResult> PostStream(string c)
-        {
-            string json = string.Empty;
-
-
-            using (var requestBodyStream = new MemoryStream())
-            {
-                var body = HttpContext.Request.Body;
-                await HttpContext.Request.Body.CopyToAsync(requestBodyStream);
-                requestBodyStream.Seek(0, SeekOrigin.Begin);
-                json = await new StreamReader(requestBodyStream).ReadToEndAsync();
-            }
-
-
-            if (String.IsNullOrEmpty(c))
-            {
-                c = "orphan";
-            }
-
-            IDataRepository<ILog> ilg = new LogDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=106.51.76.45;Database=chladb;Uid=root;Pwd=P@ss1ord;" });
-
-
-            ilg.Add(new Log() { LogData = json }, c);
-
-
-            return Json(new { Result = "OK" });
         }
 
         [HttpPost]
@@ -131,6 +103,14 @@ namespace EQLWebAPI.Controllers
                             }
                             jArray.Add(logJson);
                             _distributedCache.SetString(logSessionID.ToString() + "-" + "Events", jArray.ToString());
+
+                            if(_distributedCache.GetString(logSessionID.ToString() + "-" + "Master") != null)
+                            {
+                                var mlog = _distributedCache.GetString(logSessionID.ToString() + "-" + "Master");
+                                var elog = logData;
+                                AddEventsToDB(mlog, elog);
+                            }
+
                         }
                         else
                         {
@@ -180,36 +160,10 @@ namespace EQLWebAPI.Controllers
             }
         }
 
-        [HttpGet]
-        public async Task<JsonResult> GetResultTest(string SessionId)
+        private void AddEventsToDB(string mlog, string elog)
         {
-
-            GameResultModel gameResult = new GameResultModel();
-
-            Details details = new Details();
-            details.Date = 154334344;
-            details.Difficulty = "High";
-            details.Distraction = "High";
-            details.Scenario = "Scenario 3";
-            details.Type = "Adult Seizure Status Epilepticus";
-            details.User = "jackryan";
-
-            gameResult.Details = details;
-
-            List<ResultView> resultViews = new List<ResultView>();
-            resultViews.Add(new ResultView { DisplayTitle = "Time To Suction", DisplayValue = "11:00" });
-            resultViews.Add(new ResultView { DisplayTitle = "Time To Intubation From Scene 5", DisplayValue = "12:00" });
-
-            //gameResult.Qualitative = resultViews;
-            //gameResult.Quantitative = resultViews;
-
-
-            return Json(new
-            {
-                success = true,
-                data = gameResult,
-                error = ""
-            });
+            ILogRepository<ILog> _log = new LogDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=eqlb.weplayvr.com;Database=chlaanalytics;Uid=chlauser;Pwd=Cgh!2us3r@34Uiidw;" });
+            _log.AddNewLog(mlog, elog);
         }
 
         [HttpGet]
@@ -278,10 +232,10 @@ namespace EQLWebAPI.Controllers
                 gameResult.Details = details;
 
                 JObject resQualitative = new JObject();
-                resQualitative.Add("Catagory", "Circulation");
-                resQualitative.Add("Items", "Physical Exam");
-                resQualitative.Add("Error Type", "Exam");
-                resQualitative.Add("Description", "Faliure to check pulse prior to advacne scene");
+                resQualitative.Add("Category", "Example Category");
+                resQualitative.Add("DifficultyType", "Standard");
+                resQualitative.Add("ErrorType", "Mild");
+                resQualitative.Add("Description", "Example qualitative data");
 
                 JArray resQualitativeList = new JArray();
                 resQualitativeList.Add(resQualitative);

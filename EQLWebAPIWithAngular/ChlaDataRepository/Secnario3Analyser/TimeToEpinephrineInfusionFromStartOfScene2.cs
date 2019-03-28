@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public TimeToEpinephrineInfusionFromStartOfScene2()
         {
-            DisplayName = "Time To Epinephrine Infusion From Start Of Scene 2";
+            DisplayName = "Time to Epinephrine infusion after medications given";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

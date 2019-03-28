@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public D50WAdminAnalyser()
         {
-            DisplayName = "D50W Adminstration";
+            DisplayName = "Time to glucose administration after first blood glucose check";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)

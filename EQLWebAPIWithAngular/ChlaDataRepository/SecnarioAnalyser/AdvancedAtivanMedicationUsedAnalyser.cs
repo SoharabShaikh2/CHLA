@@ -9,7 +9,7 @@ namespace ChlaDataRepository
     {
         public AdvancedAtivanMedicationUsedAnalyser()
         {
-            DisplayName = "Advanced Ativan Medication Used";
+            DisplayName = "Time to second dose of Lorazepam";
         }
 
         protected override JObject AnalyseAction(JObject jsonObject)
