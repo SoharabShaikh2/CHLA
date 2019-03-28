@@ -7,3 +7,12 @@ F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\net
 F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.dll
 F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.pdb
 F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.csprojAssemblyReference.cache
+D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Release\netcoreapp2.1\DataRepository.deps.json
+D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Release\netcoreapp2.1\DataRepository.dll
+D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Release\netcoreapp2.1\DataRepository.pdb
+D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.csprojAssemblyReference.cache
+D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.csproj.CoreCompileInputs.cache
+D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.AssemblyInfoInputs.cache
+D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.AssemblyInfo.cs
+D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.dll
+D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.pdb
