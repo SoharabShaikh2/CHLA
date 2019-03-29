@@ -108,7 +108,7 @@ namespace EQLWebAPI.Controllers
                             {
                                 var mlog = _distributedCache.GetString(logSessionID.ToString() + "-" + "Master");
                                 var elog = logData;
-                                AddEventsToDB(mlog, elog);
+                                AddEventsToDB(mlog, logJson);
                             }
 
                         }
@@ -160,7 +160,7 @@ namespace EQLWebAPI.Controllers
             }
         }
 
-        private void AddEventsToDB(string mlog, string elog)
+        private void AddEventsToDB(string mlog, JObject elog)
         {
             ILogRepository<ILog> _log = new LogDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=eqlb.weplayvr.com;Database=chlaanalytics;Uid=chlauser;Pwd=Cgh!2us3r@34Uiidw;" });
             _log.AddNewLog(mlog, elog);
