@@ -217,6 +217,9 @@ namespace EQLWebAPI.Controllers
                 var analysis = analysisFactory.GetAnalysis(ScenarioName);
                 ra.RegisterAnalysis(analysis, "Quantitative");
 
+                var analysis2 = analysisFactory.GetAnalysis("Qualitative");
+                ra.RegisterAnalysis(analysis2, "Qualitative");
+
                 var result = ra.PerformAnalysis(jObject);
 
                 GameResultModel gameResult = new GameResultModel();
@@ -240,7 +243,7 @@ namespace EQLWebAPI.Controllers
                 JArray resQualitativeList = new JArray();
                 resQualitativeList.Add(resQualitative);
 
-                gameResult.Qualitative = resQualitativeList;
+                gameResult.Qualitative = (JArray)result.GetValue("Qualitative"); ;
                 gameResult.Quantitative = (JArray)result.GetValue("Quantitative");
 
                 return Json(new

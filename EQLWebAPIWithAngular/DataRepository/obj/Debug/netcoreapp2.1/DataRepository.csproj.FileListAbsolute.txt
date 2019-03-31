@@ -36,3 +36,7 @@ D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netc
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csproj.CopyComplete
+F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
+F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml
+F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csprojAssemblyReference.cache
+F:\Projects\CHLA\source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csproj.CopyComplete
