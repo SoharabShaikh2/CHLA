@@ -104,7 +104,7 @@ namespace EQLWebAPI.Controllers
                             jArray.Add(logJson);
                             _distributedCache.SetString(logSessionID.ToString() + "-" + "Events", jArray.ToString());
 
-                            if(_distributedCache.GetString(logSessionID.ToString() + "-" + "Master") != null)
+                            if (_distributedCache.GetString(logSessionID.ToString() + "-" + "Master") != null)
                             {
                                 var mlog = _distributedCache.GetString(logSessionID.ToString() + "-" + "Master");
                                 var elog = logData;
@@ -217,7 +217,7 @@ namespace EQLWebAPI.Controllers
                 var analysis = analysisFactory.GetAnalysis(ScenarioName);
                 ra.RegisterAnalysis(analysis, "Quantitative");
 
-                var analysis2 = analysisFactory.GetAnalysis("Qualitative");
+                var analysis2 = analysisFactory.GetAnalysis(ScenarioName + "_Qualitative");
                 ra.RegisterAnalysis(analysis2, "Qualitative");
 
                 var result = ra.PerformAnalysis(jObject);
@@ -226,7 +226,7 @@ namespace EQLWebAPI.Controllers
 
                 Details details = new Details();
                 details.Date = Convert.ToInt64(Date);
-                details.Difficulty = gDifficulty;
+                details.Difficulty = gDifficulty == "BEGINNER" ? "Standard" : gDifficulty == "ADVANCED" ? "Advanced" : gDifficulty;
                 details.Distraction = "High";
                 details.Scenario = "Scenario " + (int)(SecnarioNameEnum)Enum.Parse(typeof(SecnarioNameEnum), ScenarioName);
                 details.Type = ScenarioName;
@@ -242,6 +242,8 @@ namespace EQLWebAPI.Controllers
 
                 JArray resQualitativeList = new JArray();
                 resQualitativeList.Add(resQualitative);
+
+
 
                 gameResult.Qualitative = (JArray)result.GetValue("Qualitative"); ;
                 gameResult.Quantitative = (JArray)result.GetValue("Quantitative");

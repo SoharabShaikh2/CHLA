@@ -11,13 +11,14 @@ namespace ChlaDataRepository
         {
             string ErrorType = null;
             string DifficultyType = null;
+            string Description = null;
             var jarr = (JArray)jsonObject.GetValue("Events");
             if (jarr != null)
             {
                 string scene1 = null;
                 string scene2 = null;
                 string scene3 = null;
-                string pupils = null;
+                List<string> pupilsArry = new List<string>(); ;
                 bool pulshCheck = false;
                 bool pulshCheck2 = false;
                 bool pulshCheck3 = false;
@@ -41,54 +42,62 @@ namespace ChlaDataRepository
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_PUPILS")
                     {
-                        pupils = currentrow.GetValue("Event_Time")?.ToString();
+                        pupilsArry.Add(currentrow.GetValue("Event_Time")?.ToString());
 
-                        if (scene2 != null && scene3 != null && pupils != null)
-                        {
-                            if (long.Parse(scene2) < long.Parse(pupils) && long.Parse(scene3) > long.Parse(pupils))
-                            {
-                                pulshCheck = true;
+                        
+                    }
+                }
 
-                            }
-                        }
-                        else if (scene2 != null && scene1 != null && pupils != null)
+                foreach (var pupils in pupilsArry)
+                {
+                    if (scene2 != null && scene3 != null && pupils != null)
+                    {
+                        if (long.Parse(scene2) < long.Parse(pupils) && long.Parse(scene3) > long.Parse(pupils))
                         {
-                            if (long.Parse(scene1) < long.Parse(pupils) && long.Parse(scene2) > long.Parse(pupils))
-                            {
-                                pulshCheck2 = true;
-                            }
+                            pulshCheck = true;
+
                         }
-                        else if (scene1 != null && pupils != null)
+                    }
+                    else if (scene2 != null && scene1 != null && pupils != null)
+                    {
+                        if (long.Parse(scene1) < long.Parse(pupils) && long.Parse(scene2) > long.Parse(pupils))
                         {
-                            if (long.Parse(scene1) > long.Parse(pupils))
-                            {
-                                pulshCheck3 = true;
-                            }
+                            pulshCheck2 = true;
+                        }
+                    }
+                    else if (scene1 != null && pupils != null)
+                    {
+                        if (long.Parse(scene1) > long.Parse(pupils))
+                        {
+                            pulshCheck3 = true;
                         }
                     }
                 }
 
-                if (!pulshCheck)
+                if (scene2 != null && scene3 != null && !pulshCheck)
                 {
                     ErrorType = "Critical";
+                    Description = "Failure to check pupils prior to Scene 3";
                 }
-                else if (!pulshCheck2)
+                else if (scene2 != null && scene1 != null && !pulshCheck2)
                 {
                     ErrorType = "Moderate";
+                    Description = "Failure to check pupils prior to scene 2";
 
                 }
-                else if (!pulshCheck3)
+                else if (scene1 != null && !pulshCheck3)
                 {
                     ErrorType = "Mild";
+                    Description = "Failure to check pupils during scene1";
                 }
 
                 if (ErrorType != null)
                 {
                     var result = new JObject();
                     result.Add("Category", "Physical Exam");
-                    result.Add("DifficultyType", DifficultyType);
+                    result.Add("DifficultyType", DifficultyType == "BEGINNER" ? "Standard" : DifficultyType == "ADVANCED" ? "Advanced" : DifficultyType);
                     result.Add("ErrorType", ErrorType);
-                    result.Add("Description", "Example qualitative data");
+                    result.Add("Description", Description);
                     return result;
 
                 }
@@ -103,12 +112,13 @@ namespace ChlaDataRepository
         {
             string ErrorType = null;
             string DifficultyType = null;
+            string Description = null;
             var jarr = (JArray)jsonObject.GetValue("Events");
             if (jarr != null)
             {
 
                 string scene4 = null;
-                string pulsh = null;
+                List<string> pulshArry = new List<string>();
                 bool pulshCheck = false;
 
                 foreach (var jobj in jarr)
@@ -122,33 +132,40 @@ namespace ChlaDataRepository
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_PULSE")
                     {
-                        pulsh = currentrow.GetValue("Event_Time")?.ToString();
-                        if (scene4 != null && pulsh != null)
-                        {
-                            if (long.Parse(scene4) < long.Parse(pulsh))
-                            {
-                                pulshCheck = true;
-                            }
-                        }
+                        pulshArry.Add(currentrow.GetValue("Event_Time")?.ToString());
+                        
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_CAPILLARY_REFILL")
                     {
                         ErrorType = "Moderate";
+                        Description = "Failure to check capillary refill at all";
                     }
                 }
 
-                if (!pulshCheck)
+                foreach (var pulsh in pulshArry)
+                {
+                    if (scene4 != null && pulsh != null)
+                    {
+                        if (long.Parse(scene4) < long.Parse(pulsh))
+                        {
+                            pulshCheck = true;
+                        }
+                    }
+                }
+
+                if (scene4 != null && !pulshCheck)
                 {
                     ErrorType = "Critical";
+                    Description = "Advanced: Failure to check pulses during advanced scene";
                 }
 
                 if (ErrorType != null)
                 {
                     var result = new JObject();
                     result.Add("Category", "Physical Exam");
-                    result.Add("DifficultyType", DifficultyType);
+                    result.Add("DifficultyType", DifficultyType == "BEGINNER" ? "Standard" : DifficultyType == "ADVANCED" ? "Advanced" : DifficultyType);
                     result.Add("ErrorType", ErrorType);
-                    result.Add("Description", "Example qualitative data");
+                    result.Add("Description", Description);
                     return result;
 
                 }
@@ -163,13 +180,14 @@ namespace ChlaDataRepository
         {
             string ErrorType = null;
             string DifficultyType = null;
+            string Description = null;
             var jarr = (JArray)jsonObject.GetValue("Events");
             if (jarr != null)
             {
 
                 string scene4 = null;
-                string breath = null;
-                string pulsh = null;
+                List<string> breathArry = new List<string>();
+                List<string> pulshArry = new List<string>() ;
                 bool breathCheck = false;
                 bool pulshCheck = false;
 
@@ -185,45 +203,55 @@ namespace ChlaDataRepository
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_BREATH")
                     {
-                        breath = currentrow.GetValue("Event_Time")?.ToString();
-                        if (scene4 != null && breath != null)
-                        {
-                            if (long.Parse(scene4) < long.Parse(breath))
-                            {
-                                breathCheck = true;
-
-                            }
-                        }
+                        breathArry.Add(currentrow.GetValue("Event_Time")?.ToString());
+                        
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_PULSE")
                     {
-                        pulsh = currentrow.GetValue("Event_Time")?.ToString();
-                        if (scene4 != null && pulsh != null)
+                        pulshArry.Add(currentrow.GetValue("Event_Time")?.ToString());
+                        
+                    }
+                }
+                foreach (var breath in breathArry)
+                {
+                    if (scene4 != null && breath != null)
+                    {
+                        if (long.Parse(scene4) < long.Parse(breath))
                         {
-                            if (long.Parse(scene4) > long.Parse(pulsh))
-                            {
-                                pulshCheck = true;
-                            }
+                            breathCheck = true;
+
+                        }
+                    }
+                }
+                foreach(var pulsh in pulshArry)
+                {
+                    if (scene4 != null && pulsh != null)
+                    {
+                        if (long.Parse(scene4) > long.Parse(pulsh))
+                        {
+                            pulshCheck = true;
                         }
                     }
                 }
 
-                if (!breathCheck)
+                if (scene4 != null && !breathCheck)
                 {
                     ErrorType = "Critical";
+                    Description = "Advanced: Failure to listen to breath sounds during advance scene (breathing stops)";
                 }
-                else if (!pulshCheck)
+                else if (scene4 != null && !pulshCheck)
                 {
                     ErrorType = "Moderate";
+                    Description = "Advanced: Failure to check pulses prior to advanced scene";
                 }
 
                 if (ErrorType != null)
                 {
                     var result = new JObject();
                     result.Add("Category", "Physical Exam");
-                    result.Add("DifficultyType", DifficultyType);
+                    result.Add("DifficultyType", DifficultyType == "BEGINNER" ? "Standard" : DifficultyType == "ADVANCED" ? "Advanced" : DifficultyType);
                     result.Add("ErrorType", ErrorType);
-                    result.Add("Description", "Example qualitative data");
+                    result.Add("Description", Description);
                     return result;
 
                 }

@@ -15,6 +15,7 @@ namespace ChlaDataRepository
         {
             string ErrorType = null;
             string DifficultyType = null;
+            string Description = null;
             var jarr = (JArray)jsonObject.GetValue("Events");
             if (jarr != null)
             {
@@ -49,29 +50,33 @@ namespace ChlaDataRepository
 
                 }
 
-                if (mainToolusedTime != null && toolusedTime != null)
+                 if (criticalUsed)
+                {
+                    ErrorType = "Critical";
+                    Description = "Failure to suction completely prior to 2nd nurse reminder regarding suction (“Dr. You need to suction now”)";
+                }
+                
+                else if (modarateUsed)
+                {
+                    ErrorType = "Moderate";
+                    Description = "Failure to suction prior to 1st nurse prompt of “He is vomiting”";
+                }
+                else if (mainToolusedTime != null && toolusedTime != null)
                 {
                     if (long.Parse(toolusedTime) < long.Parse(mainToolusedTime))
                     {
                         ErrorType = "Mild";
+                        Description = "Placement of oxygen after vomiting prior to suction ";
                     }
-                }
-                else if (modarateUsed)
-                {
-                    ErrorType = "Moderate";
-                }
-                else if (criticalUsed)
-                {
-                    ErrorType = "Critical";
                 }
 
                 if (ErrorType != null)
                 {
                     var result = new JObject();
                     result.Add("Category", "Suction");
-                    result.Add("DifficultyType", DifficultyType);
+                    result.Add("DifficultyType", DifficultyType == "BEGINNER" ? "Standard" : DifficultyType == "ADVANCED" ? "Advanced" : DifficultyType);
                     result.Add("ErrorType", ErrorType);
-                    result.Add("Description", "Example qualitative data");
+                    result.Add("Description", Description);
                     return result;
 
                 }
@@ -90,6 +95,7 @@ namespace ChlaDataRepository
         {
             string ErrorType = null;
             string DifficultyType = null;
+            string Description = null;
             var jarr = (JArray)jsonObject.GetValue("Events");
             if (jarr != null)
             {
@@ -125,6 +131,7 @@ namespace ChlaDataRepository
                     if (long.Parse(toolFeaild) < long.Parse(secnceStarted))
                     {
                         ErrorType = "Critical";
+                        Description = "Choosing to intubate at this stage (Nurse block- “early for intubation”)";
                     }
                 }
                 else if (secnceStarted != null && madicationFaild != null)
@@ -132,6 +139,7 @@ namespace ChlaDataRepository
                     if (long.Parse(madicationFaild) < long.Parse(secnceStarted))
                     {
                         ErrorType = "Moderate";
+                        Description = "Choosing medication prior to suction and oxygen";
                     }
                 }
 
@@ -139,9 +147,9 @@ namespace ChlaDataRepository
                 {
                     var result = new JObject();
                     result.Add("Category", "Suction");
-                    result.Add("DifficultyType", DifficultyType);
+                    result.Add("DifficultyType", DifficultyType == "BEGINNER" ? "Standard" : DifficultyType == "ADVANCED" ? "Advanced" : DifficultyType);
                     result.Add("ErrorType", ErrorType);
-                    result.Add("Description", "Example qualitative data");
+                    result.Add("Description", Description);
                     return result;
 
                 }

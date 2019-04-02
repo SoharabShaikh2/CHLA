@@ -11,6 +11,7 @@ namespace ChlaDataRepository
         {
             string ErrorType = null;
             string DifficultyType = null;
+            string Description = null;
             var jarr = (JArray)jsonObject.GetValue("Events");
             if (jarr != null)
             {
@@ -23,10 +24,12 @@ namespace ChlaDataRepository
                     if (currentrow.GetValue("ActionID")?.ToString() == "SCENE_ENDED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 2 - Oxygen" && currentrow.GetValue("ActionOutcome")?.ToString() == "FAILED")
                     {
                         ErrorType = "Critical";
+                        Description = "Not placing any oxygen delivery device (NRB, mask, nasal cannula)";
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && (currentrow.GetValue("ActionValue")?.ToString() == "SimpleFaceMaskTool" || currentrow.GetValue("ActionValue")?.ToString() == "NasalCannulaTool") && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         ErrorType = "Moderate";
+                        Description = "Choosing other oxygen delivery device aside from NRB (face mask, nasal cannula)";
                     }
                 }
 
@@ -34,9 +37,9 @@ namespace ChlaDataRepository
                 {
                     var result = new JObject();
                     result.Add("Category", "Oxygen");
-                    result.Add("DifficultyType", DifficultyType);
+                    result.Add("DifficultyType", DifficultyType == "BEGINNER" ? "Standard" : DifficultyType == "ADVANCED" ? "Advanced" : DifficultyType);
                     result.Add("ErrorType", ErrorType);
-                    result.Add("Description", "Example qualitative data");
+                    result.Add("Description", Description);
                     return result;
 
                 }
@@ -52,6 +55,7 @@ namespace ChlaDataRepository
         {
             string ErrorType = null;
             string DifficultyType = null;
+            string Description = null;
             var jarr = (JArray)jsonObject.GetValue("Events");
             if (jarr != null)
             {
@@ -79,6 +83,7 @@ namespace ChlaDataRepository
                     else if (currentrow.GetValue("ActionID")?.ToString() == "DIALOGUE_PLAYED" && currentrow.GetValue("ActionValue")?.ToString() == "NurseAngelCharacter" && currentrow.GetValue("ActionOutcome")?.ToString() == "S1_NA_HE_IS_CYANOTIC")
                     {
                         ErrorType = "Moderate";
+                        Description = "Waiting for Placement of oxygen device after being told by nurse “He is cyanotic”";
                     }
                 }
                 if (secnce2Started != null && secnce3Started != null && intubationTool != null)
@@ -86,15 +91,16 @@ namespace ChlaDataRepository
                     if (long.Parse(secnce2Started) < long.Parse(intubationTool) && long.Parse(intubationTool) > long.Parse(secnce3Started))
                     {
                         ErrorType = "Critical";
+                        Description = "Selecting intubation at this stage";
                     }
                 }
                 if (ErrorType != null)
                 {
                     var result = new JObject();
                     result.Add("Category", "Oxygen");
-                    result.Add("DifficultyType", DifficultyType);
+                    result.Add("DifficultyType", DifficultyType == "BEGINNER" ? "Standard" : DifficultyType == "ADVANCED" ? "Advanced" : DifficultyType);
                     result.Add("ErrorType", ErrorType);
-                    result.Add("Description", "Example qualitative data");
+                    result.Add("Description", Description);
                     return result;
 
                 }
