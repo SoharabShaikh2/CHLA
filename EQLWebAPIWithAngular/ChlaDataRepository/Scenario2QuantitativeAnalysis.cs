@@ -22,4 +22,25 @@ namespace ChlaDataRepository
             RegisterAnalyser(new TimeToEpinephrineInfusionFromStartOfScene2());
         }
     }
+    class Scenario2QualitativeAnalysis : Analysis
+    {
+        protected override void Initialise()
+        {
+            RegisterAnalyser(new MedicationsS1QualitativeAnalyser());
+            RegisterAnalyser(new MedicationsS2QualitativeAnalyser());
+            RegisterAnalyser(new MedicationsS3QualitativeAnalyser());
+            RegisterAnalyser(new MedicationsS4QualitativeAnalyser());
+
+            RegisterAnalyser(new PhysicalExamS1QualitativeAnalyser());
+            RegisterAnalyser(new PhysicalExamS2QualitativeAnalyser());
+            RegisterAnalyser(new PhysicalExamS3QualitativeAnalyser());
+            RegisterAnalyser(new PhysicalExamS4QualitativeAnalyser());
+
+            RegisterAnalyser(new VasopressorS1QualitativeAnalyser());
+
+            RegisterAnalyser(new WorseningS1QualitativeAnalyser());
+            RegisterAnalyser(new WorseningS2QualitativeAnalyser());
+
+        }
+    }
 }

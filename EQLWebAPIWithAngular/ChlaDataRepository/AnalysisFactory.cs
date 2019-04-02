@@ -22,6 +22,9 @@ namespace ChlaDataRepository
 
                 case "Adult_Seizure_Status_Epilepticus_Qualitative":
                     return new Scenario3QualitativeAnalysis();
+
+                case "Anaphylaxis_Qualitative":
+                    return new Scenario2QualitativeAnalysis();
             }
 
             return null;
