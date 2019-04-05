@@ -35,5 +35,33 @@ namespace ChlaDataRepository
                 con.Dispose();
             }
         }
+
+        public async Task<JObject> GetDataFromDataBase(string sessionId)
+        {
+            JObject full = new JObject();
+            JArray jArray = new JArray();
+            JObject main = new JObject();
+            String SQL = "SELECT log,mlog FROM chlaanalytics.logs where Session_ID=@sId;";
+            using (MySqlConnection con = new MySqlConnection(connectionParameters.ConnectionString))
+            {
+                MySqlCommand cmd = new MySqlCommand(SQL, con);
+                cmd.Parameters.AddWithValue("@sId", sessionId);
+                con.Open();
+                using (var reader = await cmd.ExecuteReaderAsync())
+                {
+                    while (reader.Read())
+                    {
+                        jArray.Add(JObject.Parse(Convert.ToString(reader["mlog"])));
+                        main = JObject.Parse(Convert.ToString(reader["log"]));
+                    }
+                }
+                full.Add("Main", main);
+                full.Add("Log", jArray);
+
+                return full;
+            }
+
+
+        }
     }
 }

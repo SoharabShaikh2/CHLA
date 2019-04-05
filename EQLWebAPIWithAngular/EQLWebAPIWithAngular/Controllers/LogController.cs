@@ -174,6 +174,15 @@ namespace EQLWebAPI.Controllers
 
             if (resEvent != null && resMaster != null)
             {
+                ILogRepository<ILog> _log = new LogDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=eqlb.weplayvr.com;Database=chlaanalytics;Uid=chlauser;Pwd=Cgh!2us3r@34Uiidw;" });
+                var data = await _log.GetDataFromDataBase(SessionId);
+                resEvent = data.GetValue("Log").ToString();
+                resMaster = data.GetValue("Main").ToString();
+            }
+
+
+            if (resEvent != null && resMaster != null)
+            {
                 string ScenarioName = "";
                 string gDifficulty = "";
                 string gUser = "";
@@ -245,7 +254,7 @@ namespace EQLWebAPI.Controllers
 
 
 
-                gameResult.Qualitative = (JArray)result.GetValue("Qualitative"); ;
+                gameResult.Qualitative = (JArray)result.GetValue("Qualitative"); 
                 gameResult.Quantitative = (JArray)result.GetValue("Quantitative");
 
                 return Json(new
