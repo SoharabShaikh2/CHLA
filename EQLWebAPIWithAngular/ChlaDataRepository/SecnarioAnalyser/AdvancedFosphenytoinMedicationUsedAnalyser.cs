@@ -20,9 +20,15 @@ namespace ChlaDataRepository
             {
                 string MedicationUsedTime = null;
                 string FosphenytoinUsedTime = null;
+                bool diffCheck = false;
                 foreach (var jobj in jarr)
                 {
                     var currentrow = (JObject)jobj;
+
+                    if (currentrow.GetValue("Difficulty")?.ToString() == "ADVANCED")
+                    {
+                        diffCheck = true;
+                    }
 
                     if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "AtivanIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
@@ -34,7 +40,7 @@ namespace ChlaDataRepository
                     }
                 }
 
-                if (MedicationUsedTime != null && FosphenytoinUsedTime != null)
+                if (MedicationUsedTime != null && FosphenytoinUsedTime != null && diffCheck)
                 {
                     var timeInSecs = long.Parse(FosphenytoinUsedTime) - long.Parse(MedicationUsedTime);
                     var result = new JObject();

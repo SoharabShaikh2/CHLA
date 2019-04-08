@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ChlaDataRepository
 {
-    class CheckBreathAnalyser :Analyser
+    class CheckBreathAnalyser : Analyser
     {
         public CheckBreathAnalyser()
         {
@@ -19,7 +20,7 @@ namespace ChlaDataRepository
             if (jarr != null)
             {
                 string SymptomChanged = null;
-                string CheckTime = null;
+                List<string> CheckTime = new List<string>();
                 foreach (var jobj in jarr)
                 {
                     var currentrow = (JObject)jobj;
@@ -31,17 +32,20 @@ namespace ChlaDataRepository
 
                     else if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_BREATH")
                     {
-                        CheckTime = currentrow.GetValue("Event_Time")?.ToString();
+                        CheckTime.Add(currentrow.GetValue("Event_Time")?.ToString());
                     }
                 }
 
-                if (SymptomChanged != null && CheckTime != null)
+                if (SymptomChanged != null && CheckTime.Count > 0)
                 {
-                    var timeInSecs = long.Parse(CheckTime) - long.Parse(SymptomChanged);
-                    var result = new JObject();
-                    result.Add("DisplayTitle", DisplayName);
-                    result.Add("DisplayValue", timeInSecs.ToString());
-                    return result;
+                    var timeInSecs = long.Parse(CheckTime.OrderByDescending(x => x).FirstOrDefault()) - long.Parse(SymptomChanged);
+                    if (timeInSecs > 0)
+                    {
+                        var result = new JObject();
+                        result.Add("DisplayTitle", DisplayName);
+                        result.Add("DisplayValue", timeInSecs.ToString());
+                        return result;
+                    }
                 }
             }
             return new JObject();

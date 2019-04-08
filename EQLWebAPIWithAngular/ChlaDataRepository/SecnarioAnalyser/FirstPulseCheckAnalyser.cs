@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ChlaDataRepository
@@ -19,7 +20,7 @@ namespace ChlaDataRepository
             if (jarr != null)
             {
                 string ScenarioStarted = null;
-                string CheckTime = null;
+                List<string> CheckTime = new List<string>();
                 foreach (var jobj in jarr)
                 {
                     var currentrow = (JObject)jobj;
@@ -31,13 +32,13 @@ namespace ChlaDataRepository
 
                     else if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_PULSE")
                     {
-                        CheckTime = currentrow.GetValue("Event_Time")?.ToString();
+                        CheckTime.Add(currentrow.GetValue("Event_Time")?.ToString());
                     }
                 }
 
-                if (ScenarioStarted != null && CheckTime != null)
+                if (ScenarioStarted != null && CheckTime.Count > 0)
                 {
-                    var timeInSecs = long.Parse(CheckTime) - long.Parse(ScenarioStarted);
+                    var timeInSecs = long.Parse(CheckTime.OrderBy(x=>x).FirstOrDefault()) - long.Parse(ScenarioStarted);
                     var result = new JObject();
                     result.Add("DisplayTitle", DisplayName);
                     result.Add("DisplayValue", timeInSecs.ToString());

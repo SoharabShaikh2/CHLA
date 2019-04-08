@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ChlaDataRepository
@@ -19,29 +20,40 @@ namespace ChlaDataRepository
             if (jarr != null)
             {
                 string MedicationUsedTime = null;
-                string CheckTime = null;
+                string MedicationUsedTime1 = null;
+                string MedicationUsedTime2 = null;
+                List<string> CheckTime = new List<string>();
                 foreach (var jobj in jarr)
                 {
                     var currentrow = (JObject)jobj;
 
-                    if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_BREATH")
+                    if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_BLOOD_GLUCOSE")
                     {
-                        CheckTime = currentrow.GetValue("Event_Time")?.ToString();
+                        CheckTime.Add(currentrow.GetValue("Event_Time")?.ToString());
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "D50WIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
-                        MedicationUsedTime = currentrow.GetValue("Event_Time")?.ToString();
+                        MedicationUsedTime1 = currentrow.GetValue("Event_Time")?.ToString();
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "GlucoseThiamineIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
-                        MedicationUsedTime = currentrow.GetValue("Event_Time")?.ToString();
+                        MedicationUsedTime2 = currentrow.GetValue("Event_Time")?.ToString();
                     }
 
                 }
 
-                if (MedicationUsedTime != null && CheckTime != null)
+                if (MedicationUsedTime1 != null)
                 {
-                    var timeInSecs = long.Parse(CheckTime) - long.Parse(MedicationUsedTime);
+                    MedicationUsedTime = MedicationUsedTime1;
+                }
+                else if (MedicationUsedTime2 != null)
+                {
+                    MedicationUsedTime = MedicationUsedTime2;
+                }
+
+                if (MedicationUsedTime != null && CheckTime.Count > 0)
+                {
+                    var timeInSecs = long.Parse(MedicationUsedTime) - long.Parse(CheckTime.OrderBy(x => x).FirstOrDefault());
                     var result = new JObject();
                     result.Add("DisplayTitle", DisplayName);
                     result.Add("DisplayValue", timeInSecs.ToString());

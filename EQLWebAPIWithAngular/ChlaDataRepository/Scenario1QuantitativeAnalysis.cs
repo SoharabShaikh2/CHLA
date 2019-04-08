@@ -9,16 +9,16 @@ namespace ChlaDataRepository
     {
         protected override void Initialise()
         {
+            RegisterAnalyser(new SuctionUsedAnalyser());
+            RegisterAnalyser(new OxygenDeviceFromStartAnalyser());
+            RegisterAnalyser(new NRBmaskFromStartAnalyser());
+            RegisterAnalyser(new AtivanMedicationUsedAnalyser());
             RegisterAnalyser(new AdvancedAtivanMedicationUsedAnalyser());
             RegisterAnalyser(new AdvancedFosphenytoinMedicationUsedAnalyser());
-            RegisterAnalyser(new AtivanMedicationUsedAnalyser());
-            RegisterAnalyser(new CheckBreathAnalyser());
-            RegisterAnalyser(new FirstPulseCheckAnalyser());
-            RegisterAnalyser(new FirstPupilCheckAnalyser());
             RegisterAnalyser(new IntubationFromSeizureAnalyser());
-            RegisterAnalyser(new NRBmaskFromStartAnalyser());
-            RegisterAnalyser(new OxygenDeviceFromStartAnalyser());
-            RegisterAnalyser(new SuctionUsedAnalyser());
+            RegisterAnalyser(new FirstPupilCheckAnalyser());
+            RegisterAnalyser(new FirstPulseCheckAnalyser());
+            RegisterAnalyser(new CheckBreathAnalyser());                      
         }
     }
 

@@ -19,28 +19,44 @@ namespace ChlaDataRepository
             if (jarr != null)
             {
                 string ScenarioStarted = null;
+                string maskUsedTime1 = null;
+                string maskUsedTime2 = null;
+                string maskUsedTime3 = null;
                 string maskUsedTime = null;
                 foreach (var jobj in jarr)
                 {
                     var currentrow = (JObject)jobj;
 
-                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENARIO_STARTED" )
+                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENARIO_STARTED" )//&& currentrow.GetValue("ActionValue")?.ToString() == "Seizure_Status_Epilepticus")
                     {
                         ScenarioStarted = currentrow.GetValue("Event_Time")?.ToString();
                     }
 
                     else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "NRBMaskTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
-                        maskUsedTime = currentrow.GetValue("Event_Time")?.ToString();
+                        maskUsedTime1 = currentrow.GetValue("Event_Time")?.ToString();
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "SimpleFaceMaskTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
-                        maskUsedTime = currentrow.GetValue("Event_Time")?.ToString();
+                        maskUsedTime2 = currentrow.GetValue("Event_Time")?.ToString();
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "NasalCannulaTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
-                        maskUsedTime = currentrow.GetValue("Event_Time")?.ToString();
+                        maskUsedTime3 = currentrow.GetValue("Event_Time")?.ToString();
                     }
+                }
+
+                if(maskUsedTime1 != null)
+                {
+                    maskUsedTime = maskUsedTime1;
+                }
+                else if (maskUsedTime2 != null)
+                {
+                    maskUsedTime = maskUsedTime2;
+                }
+                else if (maskUsedTime3 != null)
+                {
+                    maskUsedTime = maskUsedTime3;
                 }
 
                 if (ScenarioStarted != null && maskUsedTime != null)

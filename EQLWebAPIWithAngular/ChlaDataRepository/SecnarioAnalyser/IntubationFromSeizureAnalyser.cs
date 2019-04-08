@@ -20,10 +20,14 @@ namespace ChlaDataRepository
             {
                 string completeTime = null;
                 string toolUsedTime = null;
+                bool diffCheck = false;
                 foreach (var jobj in jarr)
                 {
                     var currentrow = (JObject)jobj;
-
+                    if(currentrow.GetValue("Difficulty")?.ToString() == "ADVANCED")
+                    {
+                        diffCheck = true;
+                    }
                     if (currentrow.GetValue("ActionID")?.ToString() == "OBJECTIVE_COMPLETED" && currentrow.GetValue("ActionValue")?.ToString() == "SeizureCureObjective" && currentrow.GetValue("ActionOutcome")?.ToString() == "SUCCESSFUL")
                     {
                         completeTime = currentrow.GetValue("Event_Time")?.ToString();
@@ -34,9 +38,9 @@ namespace ChlaDataRepository
                     }
                 }
 
-                if (completeTime != null && toolUsedTime != null)
+                if (completeTime != null && toolUsedTime != null && diffCheck)
                 {
-                    var timeInSecs = long.Parse(completeTime) - long.Parse(toolUsedTime);
+                    var timeInSecs = long.Parse(toolUsedTime) - long.Parse(completeTime);
                     var result = new JObject();
                     result.Add("DisplayTitle", DisplayName);
                     result.Add("DisplayValue", timeInSecs.ToString());
