@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ChlaDataRepository
 {
-    class Medications1QualitativeAnalyser : Analyser
+    class Medications1C_QualitativeAnalyser : Analyser
     {
         protected override JObject AnalyseAction(JObject jsonObject)
         {
@@ -28,12 +28,103 @@ namespace ChlaDataRepository
                         ErrorType = "Critical";
                         Description = "Failure to choose lorazepam prior to second warning by nurse";
                     }
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "DIALOGUE_PLAYED" && currentrow.GetValue("ActionValue")?.ToString() == "NurseAngelCharacter" && currentrow.GetValue("ActionOutcome")?.ToString() == "S1_NA_MEDICATION_REMINDER")
+
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "DIALOGUE_PLAYED" && currentrow.GetValue("ActionValue")?.ToString() == "NurseAngelCharacter" && currentrow.GetValue("ActionOutcome")?.ToString() == "S1_NA_NO_IV_ACCESS")
+                    {
+                        dialoguePlayed = currentrow.GetValue("Event_Time")?.ToString();
+                    }
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "IV_TOOL_FAILED" && currentrow.GetValue("ActionValue")?.ToString() == "AtivanIVMedication")
+                    {
+                        IVtoolFailed = currentrow.GetValue("Event_Time")?.ToString();
+                    }
+
+                }
+
+
+
+                if (ErrorType != null)
+                {
+                    var result = new JObject();
+                    result.Add("Category", "Medications");
+                    result.Add("DifficultyType", DifficultyType == "BEGINNER" ? "Standard" : DifficultyType == "ADVANCED" ? "Advanced" : DifficultyType);
+                    result.Add("ErrorType", ErrorType);
+                    result.Add("Description", Description);
+                    return result;
+
+                }
+            }
+            return new JObject();
+        }
+    }
+
+    class Medications1M_QualitativeAnalyser : Analyser
+    {
+        protected override JObject AnalyseAction(JObject jsonObject)
+        {
+            string ErrorType = null;
+            string DifficultyType = null;
+            string Description = null;
+            var jarr = (JArray)jsonObject.GetValue("Events");
+            if (jarr != null)
+            {
+                string dialoguePlayed = null;
+                string IVtoolFailed = null;
+
+                foreach (var jobj in jarr)
+                {
+                    var currentrow = (JObject)jobj;
+                    DifficultyType = currentrow.GetValue("Difficulty")?.ToString();
+
+                    if (currentrow.GetValue("ActionID")?.ToString() == "DIALOGUE_PLAYED" && currentrow.GetValue("ActionValue")?.ToString() == "NurseAngelCharacter" && currentrow.GetValue("ActionOutcome")?.ToString() == "S1_NA_MEDICATION_REMINDER")
                     {
                         ErrorType = "Moderate";
                         Description = "Failure to choose lorazepam prior to first warning from nurse";
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "DIALOGUE_PLAYED" && currentrow.GetValue("ActionValue")?.ToString() == "NurseAngelCharacter" && currentrow.GetValue("ActionOutcome")?.ToString() == "S1_NA_NO_IV_ACCESS")
+                    {
+                        dialoguePlayed = currentrow.GetValue("Event_Time")?.ToString();
+                    }
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "IV_TOOL_FAILED" && currentrow.GetValue("ActionValue")?.ToString() == "AtivanIVMedication")
+                    {
+                        IVtoolFailed = currentrow.GetValue("Event_Time")?.ToString();
+                    }
+
+                }
+
+                if (ErrorType != null)
+                {
+                    var result = new JObject();
+                    result.Add("Category", "Medications");
+                    result.Add("DifficultyType", DifficultyType == "BEGINNER" ? "Standard" : DifficultyType == "ADVANCED" ? "Advanced" : DifficultyType);
+                    result.Add("ErrorType", ErrorType);
+                    result.Add("Description", Description);
+                    return result;
+
+                }
+            }
+            return new JObject();
+        }
+    }
+
+    class Medications1Mild_QualitativeAnalyser : Analyser
+    {
+        protected override JObject AnalyseAction(JObject jsonObject)
+        {
+            string ErrorType = null;
+            string DifficultyType = null;
+            string Description = null;
+            var jarr = (JArray)jsonObject.GetValue("Events");
+            if (jarr != null)
+            {
+                string dialoguePlayed = null;
+                string IVtoolFailed = null;
+
+                foreach (var jobj in jarr)
+                {
+                    var currentrow = (JObject)jobj;
+                    DifficultyType = currentrow.GetValue("Difficulty")?.ToString();
+
+                    if (currentrow.GetValue("ActionID")?.ToString() == "DIALOGUE_PLAYED" && currentrow.GetValue("ActionValue")?.ToString() == "NurseAngelCharacter" && currentrow.GetValue("ActionOutcome")?.ToString() == "S1_NA_NO_IV_ACCESS")
                     {
                         dialoguePlayed = currentrow.GetValue("Event_Time")?.ToString();
                     }
@@ -68,7 +159,7 @@ namespace ChlaDataRepository
         }
     }
 
-    class Medications2QualitativeAnalyser : Analyser
+    class Medications2C_QualitativeAnalyser : Analyser
     {
         protected override JObject AnalyseAction(JObject jsonObject)
         {
@@ -91,7 +182,43 @@ namespace ChlaDataRepository
                         ErrorType = "Critical";
                         Description = "Choosing a medication that is wrong and may cause harm (adenosine, atropine, epinephrine, dopamine, propranolol, racemic epinephrine, albuterol)";
                     }
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "AtivanIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+
+                }
+
+                if (ErrorType != null)
+                {
+                    var result = new JObject();
+                    result.Add("Category", "Medications");
+                    result.Add("DifficultyType", DifficultyType == "BEGINNER" ? "Standard" : DifficultyType == "ADVANCED" ? "Advanced" : DifficultyType);
+                    result.Add("ErrorType", ErrorType);
+                    result.Add("Description", Description);
+                    return result;
+
+                }
+            }
+            return new JObject();
+        }
+    }
+
+    class Medications2M_QualitativeAnalyser : Analyser
+    {
+        protected override JObject AnalyseAction(JObject jsonObject)
+        {
+            string ErrorType = null;
+            string DifficultyType = null;
+            string Description = null;
+            var jarr = (JArray)jsonObject.GetValue("Events");
+            if (jarr != null)
+            {
+                string medicationUsed = null;
+                string medicationBefore = null;
+
+                foreach (var jobj in jarr)
+                {
+                    var currentrow = (JObject)jobj;
+                    DifficultyType = currentrow.GetValue("Difficulty")?.ToString();
+
+                    if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "AtivanIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         medicationUsed = currentrow.GetValue("Event_Time")?.ToString();
                     }
@@ -99,11 +226,7 @@ namespace ChlaDataRepository
                     {
                         medicationBefore = currentrow.GetValue("Event_Time")?.ToString();
                     }
-                    else if (currentrow.GetValue("ActionValue")?.ToString() == "CeftriaxoneIVMedication" || currentrow.GetValue("ActionValue")?.ToString() == "BenadrylIVMedication" || currentrow.GetValue("ActionValue")?.ToString() == "BenadrylTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "SoluMedrolIVMedication" || currentrow.GetValue("ActionValue")?.ToString() == "PrednisoneTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "RanitidineIVMedication" || currentrow.GetValue("ActionValue")?.ToString() == "RanitidineTabletMedication")
-                    {
-                        ErrorType = "Mild";
-                        Description = "Choosing a medication that is wrong but no harm to patient (ceftriaxone, diphenhydramine, methylprednisolone, ranitidine)";
-                    }
+
                 }
                 if (medicationUsed != null && medicationBefore != null)
                 {
@@ -128,7 +251,95 @@ namespace ChlaDataRepository
         }
     }
 
-    class Medications3QualitativeAnalyser : Analyser
+    class Medications2Mild_QualitativeAnalyser : Analyser
+    {
+        protected override JObject AnalyseAction(JObject jsonObject)
+        {
+            string ErrorType = null;
+            string DifficultyType = null;
+            string Description = null;
+            var jarr = (JArray)jsonObject.GetValue("Events");
+            if (jarr != null)
+            {
+                string medicationUsed = null;
+                string medicationBefore = null;
+
+                foreach (var jobj in jarr)
+                {
+                    var currentrow = (JObject)jobj;
+                    DifficultyType = currentrow.GetValue("Difficulty")?.ToString();
+
+                    if (currentrow.GetValue("ActionValue")?.ToString() == "CeftriaxoneIVMedication" || currentrow.GetValue("ActionValue")?.ToString() == "BenadrylIVMedication" || currentrow.GetValue("ActionValue")?.ToString() == "BenadrylTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "SoluMedrolIVMedication" || currentrow.GetValue("ActionValue")?.ToString() == "PrednisoneTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "RanitidineIVMedication" || currentrow.GetValue("ActionValue")?.ToString() == "RanitidineTabletMedication")
+                    {
+                        ErrorType = "Mild";
+                        Description = "Choosing a medication that is wrong but no harm to patient (ceftriaxone, diphenhydramine, methylprednisolone, ranitidine)";
+                    }
+                }
+
+                if (ErrorType != null)
+                {
+                    var result = new JObject();
+                    result.Add("Category", "Medications");
+                    result.Add("DifficultyType", DifficultyType == "BEGINNER" ? "Standard" : DifficultyType == "ADVANCED" ? "Advanced" : DifficultyType);
+                    result.Add("ErrorType", ErrorType);
+                    result.Add("Description", Description);
+                    return result;
+
+                }
+            }
+            return new JObject();
+        }
+    }
+
+    class Medications3C_QualitativeAnalyser : Analyser
+    {
+        protected override JObject AnalyseAction(JObject jsonObject)
+        {
+            string ErrorType = null;
+            string DifficultyType = null;
+            string Description = null;
+            var jarr = (JArray)jsonObject.GetValue("Events");
+            if (jarr != null)
+            {
+                string scenceEnd = null;
+                List<string> medicationUsed = new List<string>();
+
+                foreach (var jobj in jarr)
+                {
+                    var currentrow = (JObject)jobj;
+                    DifficultyType = currentrow.GetValue("Difficulty")?.ToString();
+
+                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENE_ENDED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 4 - Advance Status / Intubation" && currentrow.GetValue("ActionOutcome")?.ToString() == "FAILED")
+                    {
+                        scenceEnd = currentrow.GetValue("Event_Time")?.ToString();
+                    }
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "AtivanIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    {
+                        medicationUsed.Add(currentrow.GetValue("Event_Time")?.ToString());
+                    }
+                   
+                }
+                if (medicationUsed.Count != 2 && scenceEnd != null)
+                {
+                    ErrorType = "Critical";
+                    Description = "Advanced: failure to give second dose of lorazepam after nurse warning “Doctor the kid is still seizing”";
+                }
+                if (ErrorType != null && DifficultyType == "ADVANCED")
+                {
+                    var result = new JObject();
+                    result.Add("Category", "Medications");
+                    result.Add("DifficultyType", DifficultyType == "BEGINNER" ? "Standard" : DifficultyType == "ADVANCED" ? "Advanced" : DifficultyType);
+                    result.Add("ErrorType", ErrorType);
+                    result.Add("Description", Description);
+                    return result;
+
+                }
+            }
+            return new JObject();
+        }
+    }
+
+    class Medications3M_QualitativeAnalyser : Analyser
     {
         protected override JObject AnalyseAction(JObject jsonObject)
         {
@@ -160,11 +371,7 @@ namespace ChlaDataRepository
                         Description = "Choosing any tablet medication at this stage";
                     }
                 }
-                if (medicationUsed.Count != 2 && scenceEnd != null)
-                {
-                    ErrorType = "Critical";
-                    Description = "Advanced: failure to give second dose of lorazepam after nurse warning “Doctor the kid is still seizing”";
-                }
+                
                 if (ErrorType != null)
                 {
                     var result = new JObject();
@@ -207,12 +414,12 @@ namespace ChlaDataRepository
                         medicationUsed.Add(currentrow.GetValue("Event_Time")?.ToString());
                     }
                 }
-                if (medicationUsed.Count == 2 && scenceEnd != null)
+                if (medicationUsed.Count == 2 )
                 {
                     ErrorType = "Critical";
                     Description = "Advanced: Failure to give Fosphenytoin";
                 }
-                if (ErrorType != null)
+                if (ErrorType != null && DifficultyType == "ADVANCED")
                 {
                     var result = new JObject();
                     result.Add("Category", "Medications");
@@ -248,7 +455,7 @@ namespace ChlaDataRepository
                     }
                 }
 
-                if (ErrorType != null)
+                if (ErrorType != null && DifficultyType == "ADVANCED")
                 {
                     var result = new JObject();
                     result.Add("Category", "Medications");
@@ -284,7 +491,7 @@ namespace ChlaDataRepository
                     }
                 }
 
-                if (ErrorType != null)
+                if (ErrorType != null && DifficultyType == "ADVANCED")
                 {
                     var result = new JObject();
                     result.Add("Category", "Medications");
@@ -309,7 +516,7 @@ namespace ChlaDataRepository
             if (jarr != null)
             {
                 string sStart = null;
-                string mUsed = null;
+                List<string> mUsed = new List<string>();
                 foreach (var jobj in jarr)
                 {
                     var currentrow = (JObject)jobj;
@@ -321,20 +528,23 @@ namespace ChlaDataRepository
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" || currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_FAILED")
                     {
-                        mUsed = currentrow.GetValue("Event_Time")?.ToString();
+                        mUsed.Add(currentrow.GetValue("Event_Time")?.ToString());
                     }
                 }
 
-                if (sStart != null && mUsed != null)
+                if (sStart != null && mUsed.Count > 0)
                 {
-                    if (long.Parse(sStart) < long.Parse(mUsed))
+                    foreach (var m in mUsed)
                     {
-                        ErrorType = "Critical";
-                        Description = "Advanced: Choosing more medications after seizure stops prior to intubation";
+                        if (long.Parse(sStart) < long.Parse(m))
+                        {
+                            ErrorType = "Critical";
+                            Description = "Advanced: Choosing more medications after seizure stops prior to intubation";
+                        }
                     }
                 }
 
-                if (ErrorType != null)
+                if (ErrorType != null && DifficultyType == "ADVANCED")
                 {
                     var result = new JObject();
                     result.Add("Category", "Medications");

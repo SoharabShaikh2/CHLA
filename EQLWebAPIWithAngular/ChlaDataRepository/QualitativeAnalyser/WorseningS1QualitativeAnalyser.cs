@@ -98,7 +98,7 @@ namespace ChlaDataRepository
                     }                 
                 }
                 
-                if (ErrorType != null)
+                if (ErrorType != null && DifficultyType == "ADVANCED")
                 {
                     var result = new JObject();
                     result.Add("Category", "Worsening respiratory distress scene (Scene 2)");

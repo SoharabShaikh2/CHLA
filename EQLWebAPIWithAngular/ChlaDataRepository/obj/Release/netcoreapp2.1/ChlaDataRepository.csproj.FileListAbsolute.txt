@@ -26,3 +26,17 @@ D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Releas
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.csproj.CopyComplete
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.dll
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.pdb
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\ChlaDataRepository.deps.json
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\ChlaDataRepository.dll
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\ChlaDataRepository.pdb
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\DataRepository.dll
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\Newtonsoft.Json.dll
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\DataRepository.pdb
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\Newtonsoft.Json.xml
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.csprojAssemblyReference.cache
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.csproj.CoreCompileInputs.cache
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.AssemblyInfoInputs.cache
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.AssemblyInfo.cs
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.csproj.CopyComplete
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.dll
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.pdb
