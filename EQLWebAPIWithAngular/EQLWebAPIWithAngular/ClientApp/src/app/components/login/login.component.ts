@@ -40,11 +40,11 @@ export class LoginComponent implements OnInit {
       if(data.status == 1)
       {
         this.globals.loginStatus = true;
-        if(data.data.usertypeid == 1)
+        if(data.data.usertypeid == 4)
         {
           this.router.navigate(['/organizationList']);
         }
-        else if(data.data.usertypeid == 2)
+        else if(data.data.usertypeid == 1)
         {
           this.router.navigate(['/admin']);
         }

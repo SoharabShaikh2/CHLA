@@ -46,3 +46,15 @@ D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Debug
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Debug\netcoreapp2.1\MySQLDataRepository.csproj.CopyComplete
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Debug\netcoreapp2.1\MySQLDataRepository.dll
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Debug\netcoreapp2.1\MySQLDataRepository.pdb
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\bin\Debug\netcoreapp2.1\MySQLDataRepository.deps.json
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\bin\Debug\netcoreapp2.1\MySQLDataRepository.dll
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\bin\Debug\netcoreapp2.1\MySQLDataRepository.pdb
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\bin\Debug\netcoreapp2.1\DataRepository.dll
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\bin\Debug\netcoreapp2.1\DataRepository.pdb
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Debug\netcoreapp2.1\MySQLDataRepository.csprojAssemblyReference.cache
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Debug\netcoreapp2.1\MySQLDataRepository.csproj.CoreCompileInputs.cache
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Debug\netcoreapp2.1\MySQLDataRepository.AssemblyInfoInputs.cache
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Debug\netcoreapp2.1\MySQLDataRepository.AssemblyInfo.cs
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Debug\netcoreapp2.1\MySQLDataRepository.csproj.CopyComplete
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Debug\netcoreapp2.1\MySQLDataRepository.dll
+F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Debug\netcoreapp2.1\MySQLDataRepository.pdb

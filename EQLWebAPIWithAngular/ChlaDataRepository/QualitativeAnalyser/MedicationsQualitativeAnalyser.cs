@@ -25,7 +25,7 @@ namespace ChlaDataRepository
 
                     if (currentrow.GetValue("ActionID")?.ToString() == "DIALOGUE_PLAYED" && currentrow.GetValue("ActionValue")?.ToString() == "NurseAngelCharacter" && currentrow.GetValue("ActionOutcome")?.ToString() == "S1_NA_MEDICATION_REMINDER2")
                     {
-                        ErrorType = "Crtical";
+                        ErrorType = "Critical";
                         Description = "Failure to choose lorazepam prior to second warning by nurse";
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "DIALOGUE_PLAYED" && currentrow.GetValue("ActionValue")?.ToString() == "NurseAngelCharacter" && currentrow.GetValue("ActionOutcome")?.ToString() == "S1_NA_MEDICATION_REMINDER")
@@ -88,7 +88,7 @@ namespace ChlaDataRepository
 
                     if (currentrow.GetValue("ActionValue")?.ToString() == "AdenosineSyringeMedication" || currentrow.GetValue("ActionValue")?.ToString() == "AtropineSyringeMedication" || currentrow.GetValue("ActionValue")?.ToString() == "EpinephrineIVMedication" || currentrow.GetValue("ActionValue")?.ToString() == "EpinephrineSyringeMedication" || currentrow.GetValue("ActionValue")?.ToString() == "DopamineIVMedication" || currentrow.GetValue("ActionValue")?.ToString() == "PropranololTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "RacemicEpinephrineNebulizerMedication" || currentrow.GetValue("ActionValue")?.ToString() == "AlbuterolNebulizerMedication")
                     {
-                        ErrorType = "Crtical";
+                        ErrorType = "Critical";
                         Description = "Choosing a medication that is wrong and may cause harm (adenosine, atropine, epinephrine, dopamine, propranolol, racemic epinephrine, albuterol)";
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "AtivanIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")

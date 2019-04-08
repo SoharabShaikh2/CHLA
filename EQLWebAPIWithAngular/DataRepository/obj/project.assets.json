@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Projects\\CHLA\\source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj",
+      "projectUniqueName": "F:\\Projects\\CHLA\\new-source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj",
       "projectName": "DataRepository",
-      "projectPath": "F:\\Projects\\CHLA\\source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj",
+      "projectPath": "F:\\Projects\\CHLA\\new-source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj",
       "packagesPath": "C:\\Users\\Soharab\\.nuget\\packages\\",
-      "outputPath": "F:\\Projects\\CHLA\\source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\obj\\",
+      "outputPath": "F:\\Projects\\CHLA\\new-source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

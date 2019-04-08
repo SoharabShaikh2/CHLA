@@ -38,5 +38,7 @@ namespace DataRepository
         public int id { get; set; }
         public string fullname { get; set; }
         public int usertypeid { get; set; }
+        public string hospitalName { get; set; }
+        public string username { get; set; }
     }
 }

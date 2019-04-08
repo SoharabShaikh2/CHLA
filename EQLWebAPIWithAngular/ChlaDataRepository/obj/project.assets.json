@@ -1084,11 +1084,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Projects\\CHLA\\source\\CHLA\\EQLWebAPIWithAngular\\ChlaDataRepository\\ChlaDataRepository.csproj",
+      "projectUniqueName": "F:\\Projects\\CHLA\\new-source\\CHLA\\EQLWebAPIWithAngular\\ChlaDataRepository\\ChlaDataRepository.csproj",
       "projectName": "ChlaDataRepository",
-      "projectPath": "F:\\Projects\\CHLA\\source\\CHLA\\EQLWebAPIWithAngular\\ChlaDataRepository\\ChlaDataRepository.csproj",
+      "projectPath": "F:\\Projects\\CHLA\\new-source\\CHLA\\EQLWebAPIWithAngular\\ChlaDataRepository\\ChlaDataRepository.csproj",
       "packagesPath": "C:\\Users\\Soharab\\.nuget\\packages\\",
-      "outputPath": "F:\\Projects\\CHLA\\source\\CHLA\\EQLWebAPIWithAngular\\ChlaDataRepository\\obj\\",
+      "outputPath": "F:\\Projects\\CHLA\\new-source\\CHLA\\EQLWebAPIWithAngular\\ChlaDataRepository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1107,8 +1107,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "F:\\Projects\\CHLA\\source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj": {
-              "projectPath": "F:\\Projects\\CHLA\\source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj"
+            "F:\\Projects\\CHLA\\new-source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj": {
+              "projectPath": "F:\\Projects\\CHLA\\new-source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj"
             }
           }
         }

@@ -2187,11 +2187,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Projects\\CHLA\\source\\CHLA\\EQLWebAPIWithAngular\\MySQLDataRepository\\MySQLDataRepository.csproj",
+      "projectUniqueName": "F:\\Projects\\CHLA\\new-source\\CHLA\\EQLWebAPIWithAngular\\MySQLDataRepository\\MySQLDataRepository.csproj",
       "projectName": "MySQLDataRepository",
-      "projectPath": "F:\\Projects\\CHLA\\source\\CHLA\\EQLWebAPIWithAngular\\MySQLDataRepository\\MySQLDataRepository.csproj",
+      "projectPath": "F:\\Projects\\CHLA\\new-source\\CHLA\\EQLWebAPIWithAngular\\MySQLDataRepository\\MySQLDataRepository.csproj",
       "packagesPath": "C:\\Users\\Soharab\\.nuget\\packages\\",
-      "outputPath": "F:\\Projects\\CHLA\\source\\CHLA\\EQLWebAPIWithAngular\\MySQLDataRepository\\obj\\",
+      "outputPath": "F:\\Projects\\CHLA\\new-source\\CHLA\\EQLWebAPIWithAngular\\MySQLDataRepository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -2210,8 +2210,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "F:\\Projects\\CHLA\\source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj": {
-              "projectPath": "F:\\Projects\\CHLA\\source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj"
+            "F:\\Projects\\CHLA\\new-source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj": {
+              "projectPath": "F:\\Projects\\CHLA\\new-source\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj"
             }
           }
         }

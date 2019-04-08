@@ -44,7 +44,7 @@ namespace ChlaDataRepository
                 }
                 if (sceEnd != null && medUsed == null)
                 {
-                    ErrorType = "Crtical";
+                    ErrorType = "Critical";
                     Description = "Failure to select epinephrine injection or albuterol/racemic epinephrine";
                 }
                 else if (sceEnd != null && medUsed2 == null)
@@ -148,7 +148,7 @@ namespace ChlaDataRepository
 
                     if (currentrow.GetValue("ActionValue")?.ToString() == "AdenosineSyringeMedication" || currentrow.GetValue("ActionValue")?.ToString() == "AtropineSyringeMedication" || currentrow.GetValue("ActionValue")?.ToString() == "DopamineIVMedication" || currentrow.GetValue("ActionValue")?.ToString() == "PropranololTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "AtivanIVMedication" || currentrow.GetValue("ActionValue")?.ToString() == "FosphenytoinIVMedication" || currentrow.GetValue("ActionValue")?.ToString() == "XanaxTabletMedication")
                     {
-                        ErrorType = "Crtical";
+                        ErrorType = "Critical";
                         Description = "Choosing a medication that is wrong and may cause harm (adenosine, atropine, dopamine, propranolol, Lorazepam, Fosphenytoin, Alprazolam)";
                     }
                     else if (currentrow.GetValue("ActionValue")?.ToString() == "CeftriaxoneIVMedication")
@@ -215,7 +215,7 @@ namespace ChlaDataRepository
                 {
                     if (long.Parse(mainMedUsed) < long.Parse(medUsed) && long.Parse(mainMedUsed) < long.Parse(medUsed2))
                     {
-                        ErrorType = "Crtical";
+                        ErrorType = "Critical";
                         Description = "Choosing intubation prior to epinephrine and albuterol";
                     }
                 }

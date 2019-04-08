@@ -9,5 +9,6 @@ namespace DataRepository
     public interface ILogRepository<T>
     {
         void AddNewLog(string mainLog, JObject eveLog);
+        Task<JObject> GetDataFromDataBase(string sessionId);
     }
 }

@@ -10,5 +10,6 @@ namespace DataRepository
         Task<OrganizationDto> GetOrganization(int organizationId);
         Task<List<OrganizationDto>> GetOrganizationList();
         Task<List<OrganizationUserDto>> GetOrganizationUsers(int organizationId);
+        Task<List<OrganizationUserDto>> GetOrganizationUsersSearch(int organizationId, string text);
     }
 }

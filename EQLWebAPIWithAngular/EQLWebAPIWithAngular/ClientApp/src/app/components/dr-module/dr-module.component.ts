@@ -1,27 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { MatNativeDateModule, MatDialog} from '@angular/material';
+import { MatNativeDateModule, MatDialog } from '@angular/material';
 import { MatDialogComponent } from '../mat-dialog/mat-dialog.component'
-import {Globals} from '../../global';
-import {Router} from "@angular/router";
+import { Globals } from '../../global';
+import { Router, ActivatedRoute } from "@angular/router";
+import { ApiService } from 'src/app/services/api-services';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-dr-module',
   templateUrl: './dr-module.component.html',
   styleUrls: ['./dr-module.component.scss']
 })
 export class DrModuleComponent implements OnInit {
-  constructor(public matDialog: MatDialog,private globals: Globals,private router: Router) { }
-  calender:any;
+  userId: string;
+  orgaName: string;
+  resultList: [];
+
+  constructor(public matDialog: MatDialog, private datePipe: DatePipe, private globals: Globals, private router: Router, private apiService: ApiService, private route: ActivatedRoute) { }
+  calender: any;
   ngOnInit() {
-    if(!this.globals.loginStatus)
-    {
+    if (!this.globals.loginStatus) {
       this.router.navigate(['/']);
     }
-    console.log(this.calender);
+    //console.log(this.calender);
+
+    this.userId = this.route.snapshot.paramMap.get('userId');
+    this.orgaName = this.route.snapshot.paramMap.get('orgaName');
+
+    console.log(this.userId);
+    console.log(this.orgaName);
+
+    this.apiService.getOrganizationUsersResult(this.userId).subscribe(data => {
+      this.resultList = data;
+      this.globals.userResult = data;
+      console.log(data);
+    });
   }
-  close(){
+  close() {
     this.matDialog.open(MatDialogComponent, {
-      width:"700px",
+      width: "700px",
       height: "500px"
     })
+  }
+
+  formatTime(time) {
+    let newDate = new Date(time);
+    let mainDate = this.datePipe.transform(newDate, 'hh:mm a');
+    return mainDate;
   }
 }

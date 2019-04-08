@@ -26,6 +26,7 @@ import { MatDialogComponent } from './components/mat-dialog/mat-dialog.component
 import { DrModuleTabComponent } from './components/dr-module-tab/dr-module-tab.component';
 
 import { Globals } from '../app/global';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { Globals } from '../app/global';
     HttpClientModule,
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [Globals],
+  providers: [Globals, DatePipe],
   bootstrap: [AppComponent],
   entryComponents:[MatDialogComponent],
 })

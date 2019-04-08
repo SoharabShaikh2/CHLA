@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ChlaDataRepository;
 using DataRepository;
+using EQLWebAPIWithAngular.Models;
 using Microsoft.AspNetCore.Mvc;
 //using MySQLDataRepository;
 
@@ -49,6 +50,22 @@ namespace EQLWebAPI.Controllers
             return organizationUsers;
         }
 
+        [HttpPost]
+        public async Task<List<OrganizationUserDto>> OrganizationUsersListSearch([FromBody]SearchUserDto find)
+        {
+            List<OrganizationUserDto> organizationUsers = new List<OrganizationUserDto>();
+            IOrganizationRepository<IOrganization> _organization = new OrganizationDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=eqlb.weplayvr.com;Database=chlaanalytics;Uid=chlauser;Pwd=Cgh!2us3r@34Uiidw;" });
+            organizationUsers = await _organization.GetOrganizationUsersSearch(find.id, find.text);
+            return organizationUsers;
+        }
 
+        [HttpPost]
+        public async Task<List<ResultDto>> GetUserResult([FromBody]SearchUserDto input)
+        {
+            List<ResultDto> userResult = new List<ResultDto>();
+            IResultRepository<IResult> _res = new ResultDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=eqlb.weplayvr.com;Database=chlaanalytics;Uid=chlauser;Pwd=Cgh!2us3r@34Uiidw;" });
+            userResult =await _res.GetResults(input.text);
+            return userResult;
+        }
     }
 }

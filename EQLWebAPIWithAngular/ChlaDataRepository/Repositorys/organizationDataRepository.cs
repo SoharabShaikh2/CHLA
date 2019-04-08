@@ -48,8 +48,8 @@ namespace ChlaDataRepository
         public async Task<List<OrganizationDto>> GetOrganizationList()
         {
             List<OrganizationDto> list = new List<OrganizationDto>();
-           
-            String SQL = "SELECT o.id, o.name, o.isactive ,SUM(CASE WHEN u.userTypeid = 3 THEN 1 ELSE 0 END) as totalUser,SUM(CASE WHEN u.userTypeid = 2 THEN 1 ELSE 0 END) as totalAdmin FROM organization o left join user u on o.id = u.organizationid group by o.name";
+
+            String SQL = "SELECT o.id, o.name, o.isactive ,SUM(CASE WHEN u.userTypeid = 3 THEN 1 ELSE 0 END) as totalUser,SUM(CASE WHEN u.userTypeid = 1 THEN 1 ELSE 0 END) as totalAdmin FROM organization o left join user u on o.id = u.organizationid group by o.name";
             using (MySqlConnection con = new MySqlConnection(connectionParameters.ConnectionString))
             {
                 MySqlCommand cmd = new MySqlCommand(SQL, con);
@@ -83,7 +83,7 @@ namespace ChlaDataRepository
         {
             List<OrganizationUserDto> list = new List<OrganizationUserDto>();
 
-            String SQL = "SELECT id, CONCAT(firstname,' ',lastname) as fullname, usertypeid FROM user where organizationid = @id";
+            String SQL = "SELECT u.id, CONCAT(u.firstname,' ',u.lastname) as fullname, u.usertypeid,u.username,o.name FROM user u join organization o on u.organizationid = o.id where organizationid = @id";
             using (MySqlConnection con = new MySqlConnection(connectionParameters.ConnectionString))
             {
                 MySqlCommand cmd = new MySqlCommand(SQL, con);
@@ -97,6 +97,36 @@ namespace ChlaDataRepository
                         dto.id = Convert.ToInt32(reader["id"]);
                         dto.fullname = Convert.ToString(reader["fullname"]);
                         dto.usertypeid = Convert.ToInt32(reader["usertypeid"].ToString());
+                        dto.hospitalName = Convert.ToString(reader["name"]);
+                        dto.username = Convert.ToString(reader["username"]);
+                        list.Add(dto);
+                    }
+                }
+                return list;
+            }
+        }
+
+        public async Task<List<OrganizationUserDto>> GetOrganizationUsersSearch(int organizationId, string text)
+        {
+            List<OrganizationUserDto> list = new List<OrganizationUserDto>();
+
+            String SQL = "select * from (SELECT u.id, CONCAT(u.firstname,' ',u.lastname) as fullname, u.usertypeid,u.username,o.name FROM user u join organization o on u.organizationid = o.id where u.organizationid = @id ) sub where sub.fullname like @text ";
+            using (MySqlConnection con = new MySqlConnection(connectionParameters.ConnectionString))
+            {
+                MySqlCommand cmd = new MySqlCommand(SQL, con);
+                cmd.Parameters.AddWithValue("@id", organizationId);
+                cmd.Parameters.AddWithValue("@text", "%" + text + "%");
+                con.Open();
+                using (var reader = await cmd.ExecuteReaderAsync())
+                {
+                    while (reader.Read())
+                    {
+                        OrganizationUserDto dto = new OrganizationUserDto();
+                        dto.id = Convert.ToInt32(reader["id"]);
+                        dto.fullname = Convert.ToString(reader["fullname"]);
+                        dto.usertypeid = Convert.ToInt32(reader["usertypeid"].ToString());
+                        dto.hospitalName = Convert.ToString(reader["name"]);
+                        dto.username = Convert.ToString(reader["username"]);
                         list.Add(dto);
                     }
                 }

@@ -172,6 +172,14 @@ namespace EQLWebAPI.Controllers
             string resEvent = _distributedCache.GetString(SessionId + "-" + "Events");
             string resMaster = _distributedCache.GetString(SessionId + "-" + "Master");
 
+            if (resEvent == null && resMaster == null)
+            {
+                ILogRepository<ILog> _log = new LogDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=eqlb.weplayvr.com;Database=chlaanalytics;Uid=chlauser;Pwd=Cgh!2us3r@34Uiidw;" });
+                var data = await _log.GetDataFromDataBase(SessionId);
+                resEvent = data.GetValue("Log").ToString();
+                resMaster = data.GetValue("Main").ToString();
+            }
+
             if (resEvent != null && resMaster != null)
             {
                 string ScenarioName = "";
@@ -245,8 +253,17 @@ namespace EQLWebAPI.Controllers
 
 
 
-                gameResult.Qualitative = (JArray)result.GetValue("Qualitative"); ;
+                gameResult.Qualitative = (JArray)result.GetValue("Qualitative");
                 gameResult.Quantitative = (JArray)result.GetValue("Quantitative");
+
+
+                JObject AddResult = new JObject();
+                AddResult.Add("Qualitative", (JArray)result.GetValue("Qualitative"));
+                AddResult.Add("Quantitative", (JArray)result.GetValue("Quantitative"));
+                AddResult.Add("Details", JObject.FromObject(details));
+
+                IResultRepository<IResult> _res = new ResultDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=eqlb.weplayvr.com;Database=chlaanalytics;Uid=chlauser;Pwd=Cgh!2us3r@34Uiidw;" });
+                _res.AddNewResult(gUser, AddResult, details.Scenario, UnixTimestampToDateTime(Convert.ToInt64(Date)));
 
                 return Json(new
                 {
@@ -264,6 +281,13 @@ namespace EQLWebAPI.Controllers
                     error = "No data found!!"
                 });
             }
+        }
+
+        public DateTime UnixTimestampToDateTime(double unixTime)
+        {
+            DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            long unixTimeStampInTicks = (long)(unixTime * TimeSpan.TicksPerSecond);
+            return new DateTime(unixStart.Ticks + unixTimeStampInTicks, System.DateTimeKind.Utc);
         }
 
 

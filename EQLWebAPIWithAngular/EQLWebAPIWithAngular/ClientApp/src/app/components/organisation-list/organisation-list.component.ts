@@ -27,7 +27,8 @@ export class OrganisationListComponent implements OnInit {
   getOrganization(id){
     if(id > 0)
     {
-      this.router.navigate(['/admin']);
+      //var orgaName = this.orgaList.find(x => x.id == id).name;
+      this.router.navigate(['/admin', { orgaId: id, orgaName: this.orgaList.find(x => x.id == id).name}]);
     }
   }
 
