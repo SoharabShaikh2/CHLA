@@ -1,0 +1,348 @@
+@font-face {
+    font-family: 'HK bold';
+    src: url('../fonts/HKGrotesk-Bold.eot');
+    src: url('../fonts/HKGrotesk-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/HKGrotesk-Bold.woff2') format('woff2'),
+        url('../fonts/HKGrotesk-Bold.woff') format('woff'),
+        url('../fonts/HKGrotesk-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HK Grotesk';
+    src: url('../fonts/HKGrotesk-SemiBoldItalic.eot');
+    src: url('../fonts/HKGrotesk-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/HKGrotesk-SemiBold.woff2') format('woff2'),
+        url('../fonts/HKGrotesk-SemiBold.woff') format('woff'),
+        url('../fonts/HKGrotesk-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HK regular';
+    src: url('../fonts/HKGrotesk-Regular.eot');
+    src: url('../fonts/HKGrotesk-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/HKGrotesk-Regular.woff2') format('woff2'),
+        url('../fonts/HKGrotesk-Regular.woff') format('woff'),
+        url('../fonts/HKGrotesk-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HK midium';
+    src: url('../fonts/HKGrotesk-Medium.eot');
+    src: url('../fonts/HKGrotesk-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/HKGrotesk-Medium.woff2') format('woff2'),
+        url('../fonts/HKGrotesk-Medium.woff') format('woff'),
+        url('../fonts/HKGrotesk-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HK bold italic';
+    src: url('../fonts/HKGrotesk-BoldItalic.eot');
+    src: url('../fonts/HKGrotesk-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/HKGrotesk-BoldItalic.woff2') format('woff2'),
+        url('../fonts/HKGrotesk-BoldItalic.woff') format('woff'),
+        url('../fonts/HKGrotesk-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HK light Italic';
+    src: url('../fonts/HKGrotesk-LightItalic.eot');
+    src: url('../fonts/HKGrotesk-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/HKGrotesk-LightItalic.woff2') format('woff2'),
+        url('../fonts/HKGrotesk-LightItalic.woff') format('woff'),
+        url('../fonts/HKGrotesk-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HK light';
+    src: url('../fonts/HKGrotesk-Light.eot');
+    src: url('../fonts/HKGrotesk-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/HKGrotesk-Light.woff2') format('woff2'),
+        url('../fonts/HKGrotesk-Light.woff') format('woff'),
+        url('../fonts/HKGrotesk-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HK midium Italic';
+    src: url('../fonts/HKGrotesk-MediumItalic.eot');
+    src: url('../fonts/HKGrotesk-MediumItalic.eot') format('embedded-opentype'),
+        url('../fonts/HKGrotesk-MediumItalic.woff2') format('woff2'),
+        url('../fonts/HKGrotesk-MediumItalic.woff') format('woff'),
+        url('../fonts/HKGrotesk-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HK Grotesk';
+    src: url('../fonts/HKGrotesk-SemiBoldItalic.eot');
+    src: url('../fonts/HKGrotesk-SemiBoldItalic.eot') format('embedded-opentype'),
+        url('../fonts/HKGrotesk-SemiBoldItalic.woff2') format('woff2'),
+        url('../fonts/HKGrotesk-SemiBoldItalic.woff') format('woff'),
+        url('../fonts/HKGrotesk-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HKGrotesk-Regular';
+    src: url('../fonts/HKGrotesk-Regular.eot') format('embedded-opentype'), 
+    url('../fonts/HKGrotesk-Regular.woff') format('woff'),
+    url('../fonts/HKGrotesk-Regular.ttf')  format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+  h1, p, a, h3, h4, button{
+    font-family: 'HKGrotesk-Regular';
+    margin:0px;
+  }
+  button{
+      transition:0.5s;
+      &:focus{
+          outline: none !important;
+      }
+  }
+  a{
+    transition:0.5s;
+  }
+  a:hover{
+    text-decoration: none !important;
+  }
+
+body{
+  margin: 0px;
+  padding: 0px;
+  background-image: radial-gradient(#4b3597, #24225b);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+header{
+    margin-bottom: 30px;
+    padding: 10px 0px;
+}
+header .navbar-nav{
+    float: right;
+}
+header .nav-link{color: #ffffff; font-family: 'HK midium'; padding: 5px 30px !important;}
+header .navbar-collapse{justify-content: flex-end;}
+header .nav-item:hover .dropdown-menu{
+    display: block;
+}
+header .dropdown-menu{
+    top:30px;
+    padding: 0px;
+}
+header .dropdown-menu a:hover{background-color: #3aa7b9; color: #ffffff;}
+
+
+.heading{
+    width: 100%;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #33a0b7;
+}
+.heading h1{
+    font-size: 1.5em;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+.user_table{
+    background-color: #fff;
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.user_table thead tr th{
+    background-color: #33a0b7;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'HK bold';
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.user_table tbody tr td{font-family: 'HK midium'; font-size: 14px; padding-top: 10px; padding-bottom: 5px;}
+.user_table tbody tr td a{    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #33a0b7;
+    overflow: hidden;
+    color: #33a0b7;
+    display: inline-block;
+    margin-right: 10px;
+    font-family: 'HK bold';
+    padding-left: 10px;
+}
+.user_table tbody tr td a:hover{
+    box-shadow: 3px 3px 5px #ccc;
+}
+.user_table tbody tr td a span{background-color: #3da9b9; width: 28px; display: inline-block; font-size: 14px; color: #ffffff; text-align: center; margin-left: 5px;     height: 26px;
+    padding: 3px 0px;}
+.user_table tbody tr td a.delete span{background-color: #a31616;}
+.user_table tbody tr:nth-child(even){
+    background-color: #e6e6e6;
+}
+.user_table tbody tr td a span i{font-weight: 200;}
+
+
+.edit_form form{
+    background-color: #ffffff;
+    padding: 50px 50px 0px 50px;
+    border-radius: 0px 0px 5px 5px;
+}
+.edit_form .form_header{
+    background-image: linear-gradient(to top right, #33a0b7, #75dac7);
+    border-radius: 5px 5px 0px 0px;
+    padding: 20px 0px;
+    text-align: center;
+}
+.edit_form .form_header h1{
+    color: #ffffff;
+    font-size: 1.5em;
+    font-weight: 600;
+    font-family: HK bold;
+}
+.edit_form .save{
+    background-image: linear-gradient(to bottom right, #75dac7, #33a0b7);
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 5px 30px;
+    font-size: 1.188em;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    border:0px;
+    border-radius: 3px;
+    font-family: HK bold;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+.edit_form .save:hover{background-image: linear-gradient(to bottom right, #33a0b7, #75dac7);}
+.edit_form .cancel{
+    background-image: linear-gradient(to bottom right, #b83939, #a72727);
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 5px 30px;
+    font-size: 1.188em;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    border:0px;
+    border-radius: 3px;
+    font-family: HK bold;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+.edit_form .cancel:hover{
+    background-image: linear-gradient(to bottom right, #a72727, #b83939);
+}
+
+.edit_form input, .edit_form select{
+    background-color: #f2f3f8;
+    padding-left: 35px;
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    font-size: 0.875em;
+    color: #000000;
+}
+.edit_form input::placeholder{
+    color: #000000;
+}
+.check label{
+    font-size: 16px;
+    font-family: HK bold;
+}
+.edit_form input.user{ background-image: url('../images/icon-user.png');}
+.edit_form input.email{ background-image: url('../images/icon-email.png');}
+.edit_form input.date{ background-image: url('../images/icon-date.png');}
+.edit_form select.user_type{ background-image: url('../images/icon-user-type.png');}
+.edit_form input.password{ background-image: url('../images/icon-password.png');}
+.cus_checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+    float:right;
+}
+
+/* Hide the browser's default checkbox */
+.cus_checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  left:0px;
+  z-index: 999;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border:1px solid #4db7bd;
+}
+
+/* On mouse-over, add a grey background color */
+.cus_checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.cus_checkbox input:checked ~ .checkmark {
+  background-color: #4db7bd;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.cus_checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.cus_checkbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
