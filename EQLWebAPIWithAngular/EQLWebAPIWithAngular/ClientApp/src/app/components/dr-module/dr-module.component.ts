@@ -47,4 +47,10 @@ export class DrModuleComponent implements OnInit {
     let mainDate = this.datePipe.transform(newDate, 'hh:mm a');
     return mainDate;
   }
+
+  getResult(id) {
+    if (id > 0) {
+      this.router.navigate(['/drModuletab', { resId: id }]);
+    }
+  }
 }

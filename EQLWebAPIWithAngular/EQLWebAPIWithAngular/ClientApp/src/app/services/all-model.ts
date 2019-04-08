@@ -24,3 +24,11 @@ export class OrganizationUsers {
   usertypeid: number;
   hospitalName: string;
 }
+
+export class UserResult {
+  dateTimeSession: string;
+  id: number;
+  resultJSon: string;
+  scenarioname: string;
+  userid: string;
+}

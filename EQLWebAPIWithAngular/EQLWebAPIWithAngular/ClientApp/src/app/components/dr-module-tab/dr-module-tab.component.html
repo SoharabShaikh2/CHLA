@@ -1,62 +1,78 @@
-<!-- <p>
-  dr-module-tab works!
-</p> -->
 <div class="container">
-  <div class="row align-items-end">
+  <div class="row align-md-items-end">
     <div class="col-md-12">
       <div class="tabs_header">
-          <h3>DR DAY </h3>
-          <p>Module: 3 13/12/23 22:01</p>
+        <h3>{{details.User}} </h3>
+        <p>{{details.Scenario}} {{userRes.dateTimeSession}}</p>
       </div>
     </div>
-    <!-- <div class="col-md-6 text-right">
-      <ul>
-        <li><a>Session</a></li>
-        <li><a>Quantitative</a></li>
-        <li><a>Qualitative</a></li>
-      </ul>
-    </div> -->
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 dr_segment">
       <mat-tab-group mat-align-tabs="end">
         <mat-tab label="Session">
-            <div class="tab_section">
-                <div class="first_tab_section">
-                  <h3>Scenario</h3>
-                  <p>seenario 3 / Adult Status Epilepticus</p>
-                  <ul>
-                    <li>
-                      <p>Difficulty:<span>Advace</span></p>
-                    </li>
-                    <li>
-                      <p>Distruction:<span>High</span></p>
-                    </li>
-                    <li>
-                      <p>User:<span>Dr. Das</span></p>
-                    </li>
-                    <li>
-                      <p>Date:<span>12/12/2018</span></p>
-                    </li>
-                    <li>
-                      <p>Time:<span>03:23:05</span></p>
-                    </li>
-                  </ul>
-                </div>
+          <div class="tab_section">
+            <div class="first_tab_section">
+              <h3>Scenario</h3>
+              <p>{{details.Scenario}}</p>
+              <ul>
+                <li>
+                  <p>Difficulty:<span>{{details.Difficulty}}</span></p>
+                </li>
+                <li>
+                  <p>Distruction:<span>{{details.Distraction}}</span></p>
+                </li>
+                <li>
+                  <p>User:<span>{{details.User}}</span></p>
+                </li>
+                <li>
+                  <p>Date:<span>{{formatDate(userRes.dateTimeSession)}}</span></p>
+                </li>
+                <li>
+                  <p>Time:<span>{{formatTime(userRes.dateTimeSession)}}</span></p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Quantitative">
+          <div class="tab_section">
+            <div class="second_tab_section">
+              <div class="row th">
+                <div class="col-md-8"><h3>CRITERIA</h3></div>
+                <div class="col-md-4"><h3>TIME</h3></div>
               </div>
+              <div class="row" *ngFor="let q of quan">
+                <div class="col-md-8"><p>{{q.DisplayTitle}}</p></div>
+                <div class="col-md-4"><p>{{q.DisplayValue}}</p></div>
+              </div>
+            
+            </div>
+          </div>
         </mat-tab>
         <mat-tab label="Quantitative">
-
-        </mat-tab>
-        <mat-tab label="Quantitative">
-
+          <div class="tab_section">
+            <div class="second_tab_section">
+              <div class="row th">
+                <div class="col-md-2"><h3>CATAGORY</h3></div>
+                <div class="col-md-2"><h3>DIFFICULTY</h3></div>
+                <div class="col-md-2"><h3>ERROR TYPE</h3></div>
+                <div class="col-md-6"><h3>DESCRIPTION</h3></div>
+              </div>
+              <div class="row" *ngFor="let qu of quali">
+                <div class="col-md-2"><p>{{qu.Category}}</p></div>
+                <div class="col-md-2"><p>{{qu.DifficultyType}}</p></div>
+                <div class="col-md-2 error"><p>{{qu.ErrorType}}</p></div>
+                <div class="col-md-6"><p>{{qu.Description}}</p></div>
+              </div>
+              
+            </div>
+          </div>
         </mat-tab>
       </mat-tab-group>
     </div>
 
-
     <div class="col-md-12">
-      
 
     </div>
   </div>
