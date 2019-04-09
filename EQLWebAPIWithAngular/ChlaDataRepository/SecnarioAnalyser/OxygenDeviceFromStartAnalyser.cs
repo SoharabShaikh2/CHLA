@@ -46,56 +46,18 @@ namespace ChlaDataRepository
                     }
                 }
 
-                var t1 = 0l;
-                var t2 = 0l;
-                var t3 = 0l;
-
-
-                if (maskUsedTime1 != null)
+                if(maskUsedTime1 != null)
                 {
-                    t1 = long.Parse( maskUsedTime1);
+                    maskUsedTime = maskUsedTime1;
                 }
-                 if (maskUsedTime2 != null)
+                else if (maskUsedTime2 != null)
                 {
-                    t2 = long.Parse(maskUsedTime2);
+                    maskUsedTime = maskUsedTime2;
                 }
-                 if (maskUsedTime3 != null)
+                else if (maskUsedTime3 != null)
                 {
-                   t3 = long.Parse(maskUsedTime3);
+                    maskUsedTime = maskUsedTime3;
                 }
-
-               
-                if (maskUsedTime1 == null)
-                {
-                    t1 = long.MaxValue;
-                }
-                 if (maskUsedTime2 == null)
-                {
-                   t2 = long.MaxValue;
-                }
-                 if (maskUsedTime3 == null)
-                {
-                     t3 = long.MaxValue;
-                }
-
-
-                if (t1 < t2 && t1 < t3)
-                {
-                    maskUsedTime = t1.ToString();
-                }
-                else if (t2 < t1 && t2 < t3)
-                {
-                    maskUsedTime = t2.ToString();
-                }
-                else if (t3 < t1 && t3 < t2)
-                {
-                    maskUsedTime = t3.ToString();
-                }
-                else
-                    maskUsedTime = null;
-
-
-
 
                 if (ScenarioStarted != null && maskUsedTime != null)
                 {

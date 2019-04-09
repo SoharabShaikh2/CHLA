@@ -33,11 +33,6 @@ namespace ChlaDataRepository
                     {
                         MedicationUsedTime = currentrow.GetValue("Event_Time")?.ToString();
                     }
-
-                    if (ScenarioStarted != null && MedicationUsedTime != null)
-                    {
-                        break;
-                    }
                 }
 
                 if (ScenarioStarted != null && MedicationUsedTime != null)
