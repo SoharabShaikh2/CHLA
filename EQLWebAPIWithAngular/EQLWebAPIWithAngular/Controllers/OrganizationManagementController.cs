@@ -91,7 +91,7 @@ namespace EQLWebAPIWithAngular.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Address,ContactNo,ContactEmail,ContactPerson,RegisteredOn,Expiry,Timezone_Mins,IsActive,RouteName")] Organization organization)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Address,ContactNo,ContactEmail,ContactPerson,RegisteredOn,Expiry,Timezone_Mins,IsActive,RouteName")] Organization organization)
         {
             if (id != organization.Id)
             {
