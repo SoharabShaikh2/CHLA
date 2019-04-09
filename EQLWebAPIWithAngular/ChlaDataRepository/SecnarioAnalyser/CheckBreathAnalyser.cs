@@ -25,7 +25,7 @@ namespace ChlaDataRepository
                 {
                     var currentrow = (JObject)jobj;
 
-                    if (currentrow.GetValue("ActionID")?.ToString() == "SYMPTOM_CHANGED" && currentrow.GetValue("ActionValue")?.ToString() == "Stop Breathing State" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVE")
+                    if (SymptomChanged == null && currentrow.GetValue("ActionID")?.ToString() == "SYMPTOM_CHANGED" && currentrow.GetValue("ActionValue")?.ToString() == "Stop Breathing State" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVE")
                     {
                         SymptomChanged = currentrow.GetValue("Event_Time")?.ToString();
                     }
@@ -38,7 +38,13 @@ namespace ChlaDataRepository
 
                 if (SymptomChanged != null && CheckTime.Count > 0)
                 {
-                    var timeInSecs = long.Parse(CheckTime.OrderByDescending(x => x).FirstOrDefault()) - long.Parse(SymptomChanged);
+                    var dummArr = new List<string>{ "0" };
+                    var arr = CheckTime.FindAll(ti => long.Parse(ti) > long.Parse(SymptomChanged));
+                    if(arr==null || arr.Count==0)
+                    {
+                        arr = dummArr;
+                    }
+                    var timeInSecs = long.Parse((arr.OrderBy(x => x).FirstOrDefault())) - long.Parse(SymptomChanged);
                     if (timeInSecs > 0)
                     {
                         var result = new JObject();

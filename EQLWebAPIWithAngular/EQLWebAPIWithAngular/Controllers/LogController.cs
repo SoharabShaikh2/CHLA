@@ -172,13 +172,13 @@ namespace EQLWebAPI.Controllers
             string resEvent = _distributedCache.GetString(SessionId + "-" + "Events");
             string resMaster = _distributedCache.GetString(SessionId + "-" + "Master");
 
-            //if (resEvent == null && resMaster == null)
-            //{
-            //    ILogRepository<ILog> _log = new LogDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=eqlb.weplayvr.com;Database=chlaanalytics;Uid=chlauser;Pwd=Cgh!2us3r@34Uiidw;" });
-            //    var data = await _log.GetDataFromDataBase(SessionId);
-            //    resEvent = data.GetValue("Log").ToString();
-            //    resMaster = data.GetValue("Main").ToString();
-            //}
+            if (resEvent == null && resMaster == null)
+            {
+                ILogRepository<ILog> _log = new LogDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=eqlb.weplayvr.com;Database=chlaanalytics;Uid=chlauser;Pwd=Cgh!2us3r@34Uiidw;" });
+                var data = await _log.GetDataFromDataBase(SessionId);
+                resEvent = data.GetValue("Log").ToString();
+                resMaster = data.GetValue("Main").ToString();
+            }
 
             if (resEvent != null && resEvent != "[]" && resMaster != null && resMaster != "{}")
             {
@@ -189,7 +189,8 @@ namespace EQLWebAPI.Controllers
                 string StartTime = "0";
                 string StopTime = "0";
 
-                var jarrEve = JArray.Parse(resEvent);
+                var jarrEvens = JArray.Parse(resEvent);
+               var jarrEve = new JArray(jarrEvens.OrderBy(obj => (string)obj["Event_Time"]));
                 if (jarrEve != null)
                 {
                     foreach (var jobj in jarrEve)
@@ -214,7 +215,7 @@ namespace EQLWebAPI.Controllers
                     gUser = jObjectMain.GetValue("userid")?.ToString();
                 }
 
-                var mainData = "{" + "'Events'" + ":" + resEvent + "," + "'Master'" + ":" + resMaster + "}";
+                var mainData = "{" + "'Events'" + ":" + jarrEve.ToString() + "," + "'Master'" + ":" + resMaster + "}";
 
                 var jObject = JObject.Parse(mainData);
 
