@@ -138,43 +138,40 @@ namespace ChlaDataRepository
             var jarr = (JArray)jsonObject.GetValue("Events");
             if (jarr != null)
             {
-                string nrbtoolusedTime = null;
-                List<string> toolusedTime = new List<string>();
-                string suctionused = null;
-                string simpleFaceMaskToolusedTime = null;
-                string nasalCanulaToolusedTime = null;
-                
+                string toolusedTime = null;
+                string mainToolusedTime = null;
+                bool modarateUsed = false;
+                bool criticalUsed = false;
+
                 foreach (var jobj in jarr)
                 {
                     var currentrow = (JObject)jobj;
                     DifficultyType = currentrow.GetValue("Difficulty")?.ToString();
 
-                    if (suctionused == null && currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "SuctionTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "SuctionTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
-                        suctionused =  currentrow.GetValue("Event_Time")?.ToString();
+                        mainToolusedTime = currentrow.GetValue("Event_Time")?.ToString();
                     }
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "NRBMaskTool"  && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && (currentrow.GetValue("ActionValue")?.ToString() == "NRBMaskTool" || currentrow.GetValue("ActionValue")?.ToString() == "SimpleFaceMaskTool" || currentrow.GetValue("ActionValue")?.ToString() == "NasalCannulaTool") && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
-                        toolusedTime.Add(currentrow.GetValue("Event_Time")?.ToString());
-                    }
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "SimpleFaceMaskTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
-                    {
-                        toolusedTime.Add(currentrow.GetValue("Event_Time")?.ToString());
-                    }
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "TOOL_USED" && currentrow.GetValue("ActionValue")?.ToString() == "NasalCannulaTool" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
-                    {
-                        toolusedTime.Add( currentrow.GetValue("Event_Time")?.ToString());
+                        toolusedTime = currentrow.GetValue("Event_Time")?.ToString();
                     }
 
-                 
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "DIALOGUE_PLAYED" && currentrow.GetValue("ActionValue")?.ToString() == "NurseAngelCharacter" && currentrow.GetValue("ActionOutcome")?.ToString() == "S1_NA_HE_IS_VOMITTING")
+                    {
+                        modarateUsed = true;
+                    }
+
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "DIALOGUE_PLAYED" && currentrow.GetValue("ActionValue")?.ToString() == "NurseAngelCharacter" && currentrow.GetValue("ActionOutcome")?.ToString() == "S1_NA_YOU_NEED_TO_SUCTION_NOW")
+                    {
+                        criticalUsed = true;
+                    }
 
                 }
 
-                if (toolusedTime != null && toolusedTime.Count>0 && suctionused !=null )
+                if (mainToolusedTime != null && toolusedTime != null)
                 {
-
-                    var sucu = toolusedTime.FindAll(t => long.Parse(t) < long.Parse(suctionused));
-                    if (sucu !=null && sucu.Count>0)
+                    if (long.Parse(toolusedTime) < long.Parse(mainToolusedTime))
                     {
                         ErrorType = "Mild";
                         Description = "Placement of oxygen after vomiting prior to suction ";

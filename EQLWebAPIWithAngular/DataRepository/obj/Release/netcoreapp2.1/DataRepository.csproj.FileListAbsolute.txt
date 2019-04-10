@@ -34,15 +34,3 @@ F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release
 F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.pdb
 =======
 >>>>>>> parent of cfbcee6... +Fixed Edit
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Release\netcoreapp2.1\DataRepository.deps.json
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Release\netcoreapp2.1\DataRepository.dll
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Release\netcoreapp2.1\DataRepository.pdb
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Release\netcoreapp2.1\Newtonsoft.Json.dll
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Release\netcoreapp2.1\Newtonsoft.Json.xml
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.csprojAssemblyReference.cache
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.csproj.CoreCompileInputs.cache
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.AssemblyInfoInputs.cache
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.AssemblyInfo.cs
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.csproj.CopyComplete
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.dll
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.pdb

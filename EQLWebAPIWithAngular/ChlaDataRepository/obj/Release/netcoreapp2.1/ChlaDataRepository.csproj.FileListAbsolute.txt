@@ -40,17 +40,3 @@ F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Rel
 F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.csproj.CopyComplete
 F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.dll
 F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.pdb
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\ChlaDataRepository.deps.json
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\ChlaDataRepository.dll
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\ChlaDataRepository.pdb
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\DataRepository.dll
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\Newtonsoft.Json.dll
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\DataRepository.pdb
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Release\netcoreapp2.1\Newtonsoft.Json.xml
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.csprojAssemblyReference.cache
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.csproj.CoreCompileInputs.cache
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.AssemblyInfoInputs.cache
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.AssemblyInfo.cs
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.csproj.CopyComplete
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.dll
-C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Release\netcoreapp2.1\ChlaDataRepository.pdb

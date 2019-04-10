@@ -28,15 +28,18 @@ namespace ChlaDataRepository
                     var currentrow = (JObject)jobj;
                     DifficultyType = currentrow.GetValue("Difficulty")?.ToString();
 
-                    if (scene2 == null && currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 2 - Oxygen")
+                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 2 - Oxygen")
                     {
                         scene2 = currentrow.GetValue("Event_Time")?.ToString();
                     }
-                    else if (scene3 == null && currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 3 - Medications")
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 3 – Medications")
                     {
                         scene3 = currentrow.GetValue("Event_Time")?.ToString();
                     }
-                  
+                    else if (currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 1 - Suction")
+                    {
+                        scene1 = currentrow.GetValue("Event_Time")?.ToString();
+                    }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "CHECK_PUPILS")
                     {
                         pupilsArry.Add(currentrow.GetValue("Event_Time")?.ToString());
@@ -45,18 +48,36 @@ namespace ChlaDataRepository
                     }
                 }
 
-
-
-
-
-                if (scene2 != null && scene3 != null && pupilsArry != null && pupilsArry.Count > 0)
+                foreach (var pupils in pupilsArry)
                 {
-                    var pupil = pupilsArry.FindAll(pp => long.Parse(pp) >= long.Parse(scene2) && long.Parse(pp) <= long.Parse(scene3));
-                    if (pupil != null && pupil.Count == 0)
+                    if (scene2 != null && scene3 != null && pupils != null)
                     {
-                        ErrorType = "Critical";
-                        Description = "Failure to check pupils prior to Scene 3";
+                        if (long.Parse(scene2) < long.Parse(pupils) && long.Parse(scene3) > long.Parse(pupils))
+                        {
+                            pulshCheck = true;
+
+                        }
                     }
+                    else if (scene2 != null && scene1 != null && pupils != null)
+                    {
+                        if (long.Parse(scene1) < long.Parse(pupils) && long.Parse(scene2) > long.Parse(pupils))
+                        {
+                            pulshCheck2 = true;
+                        }
+                    }
+                    else if (scene1 != null && pupils != null)
+                    {
+                        if (long.Parse(scene1) > long.Parse(pupils))
+                        {
+                            pulshCheck3 = true;
+                        }
+                    }
+                }
+
+                if (scene2 != null && scene3 != null && !pulshCheck)
+                {
+                    ErrorType = "Critical";
+                    Description = "Failure to check pupils prior to Scene 3";
                 }
 
 
@@ -236,11 +257,11 @@ namespace ChlaDataRepository
                     }
                 }
 
-                // if (scene1 != null && !pulshCheck3)
-                //{
-                //    ErrorType = "Mild";
-                //    Description = "Failure to check pupils during scene1";
-                //}
+                 if (scene1 != null && !pulshCheck3)
+                {
+                    ErrorType = "Mild";
+                    Description = "Failure to check pupils during scene1";
+                }
 
                 if (ErrorType != null)
                 {

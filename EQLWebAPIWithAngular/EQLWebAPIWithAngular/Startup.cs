@@ -42,7 +42,6 @@ namespace EQLWebAPIWithAngular
                        .AllowAnyHeader();
             }));
 
-        
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

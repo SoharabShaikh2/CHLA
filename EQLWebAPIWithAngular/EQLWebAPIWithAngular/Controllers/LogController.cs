@@ -169,12 +169,8 @@ namespace EQLWebAPI.Controllers
         [HttpGet]
         public async Task<JsonResult> GetResult(string SessionId)
         {
-            //string resEvent = _distributedCache.GetString(SessionId + "-" + "Events");
-            //string resMaster = _distributedCache.GetString(SessionId + "-" + "Master");
-
-            string resEvent = null;
-            string resMaster = null;
-
+            string resEvent = _distributedCache.GetString(SessionId + "-" + "Events");
+            string resMaster = _distributedCache.GetString(SessionId + "-" + "Master");
 
             if (resEvent == null && resMaster == null)
             {
