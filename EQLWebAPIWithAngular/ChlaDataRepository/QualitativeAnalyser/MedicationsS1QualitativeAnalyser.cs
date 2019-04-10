@@ -192,27 +192,31 @@ namespace ChlaDataRepository
             if (jarr != null)
             {
                 string sceStr = null;
-                string medUsed = null;
+                List<string> medUsed = new List<string>();
 
                 foreach (var jobj in jarr)
                 {
                     var currentrow = (JObject)jobj;
                     DifficultyType = currentrow.GetValue("Difficulty")?.ToString();
 
-                    if (currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 1 - Medication")
+                    if (sceStr== null && currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 1 - Medication")
                     {
                         sceStr = currentrow.GetValue("Event_Time")?.ToString();
                     }
                     else if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "EpinephrineIVMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
-                        medUsed = currentrow.GetValue("Event_Time")?.ToString();
+                        medUsed.Add(currentrow.GetValue("Event_Time")?.ToString());
                     }
                     
 
                 }
-                if (sceStr != null && medUsed != null)
+                if (sceStr != null && medUsed != null && medUsed.Count>0)
                 {
-                    if (long.Parse(sceStr) > long.Parse(medUsed))
+
+                    var medU = medUsed.FindAll(m => long.Parse(m) < long.Parse(sceStr));
+
+
+                    if (medU!=null && medU.Count>0)
                     {
                         ErrorType = "Moderate";
                         Description = "Choosing epinephrine INFUSION at this stage.";
@@ -340,7 +344,7 @@ namespace ChlaDataRepository
 
                 string medUsed = null;
                 string medUsed2 = null;
-                string mainMedUsed = null;
+                List<string> mainMedUsed = new List<string>();
                 string secn2 = null;
 
                 foreach (var jobj in jarr)
@@ -348,26 +352,24 @@ namespace ChlaDataRepository
                     var currentrow = (JObject)jobj;
                     DifficultyType = currentrow.GetValue("Difficulty")?.ToString();
 
-                    if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && (currentrow.GetValue("ActionValue")?.ToString() == "EpinephrineSyringeMedication" || currentrow.GetValue("ActionValue")?.ToString() == "EpinephrineIVMedication") && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    if (medUsed== null && currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && (currentrow.GetValue("ActionValue")?.ToString() == "EpinephrineSyringeMedication" || currentrow.GetValue("ActionValue")?.ToString() == "EpinephrineIVMedication") && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         medUsed = currentrow.GetValue("Event_Time")?.ToString();
                     }
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "AlbuterolNebulizerMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    else if (medUsed2 == null && currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "AlbuterolNebulizerMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         medUsed2 = currentrow.GetValue("Event_Time")?.ToString();
                     }
                     else if (currentrow.GetValue("ActionValue")?.ToString() == "IntubationTool")
                     {
-                        mainMedUsed = currentrow.GetValue("Event_Time")?.ToString();
+                        mainMedUsed.Add(currentrow.GetValue("Event_Time")?.ToString());
                     }
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 2 - Worsening respiratory distress")
-                    {
-                        secn2 = currentrow.GetValue("Event_Time")?.ToString();
-                    }
+                  
                 }
-                if (mainMedUsed != null && medUsed != null && medUsed2 != null)
+                if (mainMedUsed !=null && mainMedUsed.Count>0 && medUsed != null && medUsed2 != null)
                 {
-                    if (long.Parse(mainMedUsed) < long.Parse(medUsed) && long.Parse(mainMedUsed) < long.Parse(medUsed2))
+                    var mmu = mainMedUsed.FindAll(m => long.Parse(m) < long.Parse(medUsed) && long.Parse(m) < long.Parse(medUsed2));
+                    if (mmu != null && mmu.Count > 0)
                     {
                         ErrorType = "Critical";
                         Description = "Choosing intubation prior to epinephrine and albuterol";
@@ -403,7 +405,7 @@ namespace ChlaDataRepository
 
                 string medUsed = null;
                 string medUsed2 = null;
-                string mainMedUsed = null;
+                List< string> mainMedUsed = new List<string>();
                 string secn2 = null;
 
                 foreach (var jobj in jarr)
@@ -411,26 +413,27 @@ namespace ChlaDataRepository
                     var currentrow = (JObject)jobj;
                     DifficultyType = currentrow.GetValue("Difficulty")?.ToString();
 
-                    if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && (currentrow.GetValue("ActionValue")?.ToString() == "EpinephrineSyringeMedication" || currentrow.GetValue("ActionValue")?.ToString() == "EpinephrineIVMedication") && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    if (medUsed == null && currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && (currentrow.GetValue("ActionValue")?.ToString() == "EpinephrineSyringeMedication" || currentrow.GetValue("ActionValue")?.ToString() == "EpinephrineIVMedication") && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         medUsed = currentrow.GetValue("Event_Time")?.ToString();
                     }
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "AlbuterolNebulizerMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    else if (medUsed2 == null && currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" && currentrow.GetValue("ActionValue")?.ToString() == "AlbuterolNebulizerMedication" && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
                     {
                         medUsed2 = currentrow.GetValue("Event_Time")?.ToString();
                     }
                     else if (currentrow.GetValue("ActionValue")?.ToString() == "IntubationTool")
                     {
-                        mainMedUsed = currentrow.GetValue("Event_Time")?.ToString();
+                        mainMedUsed.Add(currentrow.GetValue("Event_Time")?.ToString());
                     }
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 2 - Worsening respiratory distress")
+                    else if (secn2 == null && currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 2 - Worsening respiratory distress")
                     {
                         secn2 = currentrow.GetValue("Event_Time")?.ToString();
                     }
                 }
-                if (mainMedUsed != null && medUsed != null && medUsed2 != null && secn2 != null)
+                if (mainMedUsed != null && mainMedUsed.Count>0 && medUsed != null && medUsed2 != null && secn2 != null)
                 {
-                    if (long.Parse(mainMedUsed) > long.Parse(medUsed) && long.Parse(mainMedUsed) > long.Parse(medUsed2) && long.Parse(mainMedUsed) < long.Parse(secn2))
+                    var mmu = mainMedUsed.FindAll(m => long.Parse(m) > long.Parse(medUsed) && long.Parse(m) > long.Parse(medUsed2) && long.Parse(m) < long.Parse(secn2));
+                    if (mmu != null && mmu.Count>0)
                     {
                         ErrorType = "Moderate";
                         Description = "Choosing intubation after albuterol and epinephrine but before other medications";

@@ -51,3 +51,14 @@ D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netc
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csproj.CopyComplete
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.dll
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.pdb
+C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\DataRepository.deps.json
+C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\DataRepository.dll
+C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\DataRepository.pdb
+C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
+C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml
+C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csproj.CoreCompileInputs.cache
+C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.AssemblyInfoInputs.cache
+C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.AssemblyInfo.cs
+C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csproj.CopyComplete
+C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.dll
+C:\Users\Abhishek Shah\Desktop\GST Invoicing\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.pdb
