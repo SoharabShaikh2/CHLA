@@ -39,6 +39,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\images\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ChlaDataRepository\ChlaDataRepository.csproj" />
     <ProjectReference Include="..\DataRepository\DataRepository.csproj" />
     <ProjectReference Include="..\MySQLDataRepository\MySQLDataRepository.csproj" />
@@ -53,6 +57,21 @@
     <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
+    <None Include="wwwroot\fonts\DIN-BoldItalic.svg" />
+    <None Include="wwwroot\fonts\DS-Digital-Bold.woff2" />
+    <None Include="wwwroot\fonts\HKGrotesk-Bold.woff2" />
+    <None Include="wwwroot\fonts\HKGrotesk-BoldItalic.woff2" />
+    <None Include="wwwroot\fonts\HKGrotesk-Light.woff2" />
+    <None Include="wwwroot\fonts\HKGrotesk-LightItalic.woff2" />
+    <None Include="wwwroot\fonts\HKGrotesk-Medium.woff2" />
+    <None Include="wwwroot\fonts\HKGrotesk-MediumItalic.woff2" />
+    <None Include="wwwroot\fonts\HKGrotesk-Regular.woff2" />
+    <None Include="wwwroot\fonts\HKGrotesk-SemiBold.woff2" />
+    <None Include="wwwroot\fonts\HKGrotesk-SemiBoldItalic.woff2" />
+    <None Include="wwwroot\images\logo.png" />
+    <None Include="wwwroot\js\bootstrap.js" />
+    <None Include="wwwroot\js\jquery-3.3.1.min.js" />
+    <None Include="wwwroot\js\site.js" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

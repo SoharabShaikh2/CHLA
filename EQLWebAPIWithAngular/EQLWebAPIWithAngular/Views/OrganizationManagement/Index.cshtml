@@ -4,86 +4,115 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Organizations</h2>
+@*@section Scripts{
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"/>
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable();
+        });
+    </script>
+}*@
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContactNo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContactEmail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContactPerson)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RegisteredOn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Expiry)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Timezone_Mins)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsActive)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RouteName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactEmail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactPerson)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegisteredOn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Expiry)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Timezone_Mins)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RouteName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="container">
+    <div class="row text-left">
+        <div class="col-md-12 col-12 heading">
+            <h1 class="float-left">Organizations</h1>
+            <p class="float-right">
+                <a asp-action="Create">Create New</a>
+            </p>
+        </div>
+
+    </div>
+    <div class="row user_table">
+        <div class="col-md-12 table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ContactNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ContactEmail)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ContactPerson)
+                        </th>
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.RegisteredOn)
+                            </th>*@
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.Expiry)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Timezone_Mins)
+                            </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.IsActive)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RouteName)
+                        </th>
+                        <th align="center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ContactNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ContactEmail)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ContactPerson)
+                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.RegisteredOn)
+                                </td>*@
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.Expiry)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Timezone_Mins)
+                                </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IsActive)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RouteName)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Edit <span><i class="fa fa-edit"></i></span></a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="delete">Delete <span><i class="fa fa-trash-alt"></i></span></a>
+                            </td>
+
+                            @*<td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>*@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

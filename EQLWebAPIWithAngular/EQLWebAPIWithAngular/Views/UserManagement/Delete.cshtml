@@ -4,72 +4,113 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Expiry)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Expiry)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IsActive)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Organization)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Organization.Address)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.UserType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.UserType.Id)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+<style>
+    .edit_form .form_header {
+        background-image: linear-gradient(to top right, #33a0b7, #75dac7);
+        border-radius: 5px 5px 0px 0px;
+        padding: 20px 20px;
+        text-align: left;
+        width: 500px;
+    }
+
+    .edit_form form {
+        background-color: #ffffff;
+        width: 500px;
+        height: 80px;
+        padding: unset;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    .edit_form .save {
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        float: right;
+    }
+
+    .edit_form .cancel {
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        float: left;
+    }
+</style>
+
+<div class="container">
+
+    <div class="row justify-content-center align-items-center edit_form">
+        <div class="col-md-5 col-sm-10 col-12">
+            <div class="form_header">
+                <h3>Are you sure you want to delete this?</h3>
+                <h1>User</h1>
+
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.FirstName)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.LastName)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.UserName)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Password)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Password)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Expiry)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Expiry)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IsActive)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IsActive)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Organization)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Organization.Address)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UserType)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.UserType.Id)
+                    </dd>
+                </dl>
+            </div>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Delete" class="cancel" />
+                <a asp-action="Index" class="save">Back to List</a>
+
+            </form>
+        </div>
+    </div>
 </div>
