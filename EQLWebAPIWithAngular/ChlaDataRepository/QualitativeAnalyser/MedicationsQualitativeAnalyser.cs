@@ -124,11 +124,11 @@ namespace ChlaDataRepository
                     var currentrow = (JObject)jobj;
                     DifficultyType = currentrow.GetValue("Difficulty")?.ToString();
 
-                    if (dialoguePlayed == null && currentrow.GetValue("ActionID")?.ToString() == "DIALOGUE_PLAYED" && currentrow.GetValue("ActionValue")?.ToString() == "NurseAngelCharacter" && currentrow.GetValue("ActionOutcome")?.ToString() == "S1_NA_NO_IV_ACCESS")
+                    if (currentrow.GetValue("Scene")?.ToString() == "Scene 3 - Medications" && dialoguePlayed == null && currentrow.GetValue("ActionID")?.ToString() == "DIALOGUE_PLAYED" && currentrow.GetValue("ActionValue")?.ToString() == "NurseAngelCharacter" && currentrow.GetValue("ActionOutcome")?.ToString() == "S1_NA_NO_IV_ACCESS")
                     {
                         dialoguePlayed = currentrow.GetValue("Event_Time")?.ToString();
                     }
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "IV_TOOL_FAILED" && currentrow.GetValue("ActionValue")?.ToString() == "AtivanIVMedication")
+                    else if (currentrow.GetValue("Scene")?.ToString() == "Scene 3 - Medications" && currentrow.GetValue("ActionID")?.ToString() == "IV_TOOL_FAILED" && currentrow.GetValue("ActionValue")?.ToString() == "AtivanIVMedication")
                     {
                         IVtoolFailed = currentrow.GetValue("Event_Time")?.ToString();
                     }
@@ -137,11 +137,17 @@ namespace ChlaDataRepository
 
                 if (dialoguePlayed != null && IVtoolFailed != null)
                 {
-                    if (long.Parse(dialoguePlayed) > long.Parse(IVtoolFailed))
-                    {
-                        ErrorType = "Mild";
-                        Description = "Lorazepam prior to IV placement";
-                    }
+                    //Old Check
+                    //if (long.Parse(dialoguePlayed) > long.Parse(IVtoolFailed))
+                    //{
+                    //    ErrorType = "Mild";
+                    //    Description = "Lorazepam prior to IV placement";
+                    //}
+
+                    ErrorType = "Mild";
+                    Description = "Lorazepam prior to IV placement";
+
+
                 }
 
                 if (ErrorType != null)
@@ -363,8 +369,9 @@ namespace ChlaDataRepository
                     var currentrow = (JObject)jobj;
                     DifficultyType = currentrow.GetValue("Difficulty")?.ToString();
 
-                 
-                     if (currentrow.GetValue("Difficulty")?.ToString() == "ADVANCED" && (currentrow.GetValue("ActionValue")?.ToString() == "XanaxTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "ValiumTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "BenadrylTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "PrednisoneTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "PropranololTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "RanitidineTabletMedication"))
+
+                    //if (currentrow.GetValue("Difficulty")?.ToString() == "ADVANCED" && (currentrow.GetValue("ActionValue")?.ToString() == "XanaxTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "ValiumTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "BenadrylTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "PrednisoneTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "PropranololTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "RanitidineTabletMedication"))
+                    if (currentrow.GetValue("ActionValue")?.ToString() == "XanaxTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "ValiumTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "BenadrylTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "PrednisoneTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "PropranololTabletMedication" || currentrow.GetValue("ActionValue")?.ToString() == "RanitidineTabletMedication")
                     {
                         ErrorType = "Moderate";
                         Description = "Choosing any tablet medication at this stage";
@@ -528,7 +535,8 @@ namespace ChlaDataRepository
                     {
                         sStart = currentrow.GetValue("Event_Time")?.ToString();
                     }
-                    else if (currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" || currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_FAILED")
+                    else if ((currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_USED" || currentrow.GetValue("ActionID")?.ToString() == "MEDICATION_FAILED") && currentrow.GetValue("ActionOutcome")?.ToString() == "ACTIVATED")
+                    
                     {
                         mUsed.Add(currentrow.GetValue("Event_Time")?.ToString());
                     }

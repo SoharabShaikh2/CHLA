@@ -199,7 +199,7 @@ namespace ChlaDataRepository
                     var currentrow = (JObject)jobj;
                     DifficultyType = currentrow.GetValue("Difficulty")?.ToString();
 
-                    if (sceStr== null && currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 1 - Medication")
+                    if (sceStr== null && currentrow.GetValue("ActionID")?.ToString() == "SCENE_STARTED" && currentrow.GetValue("ActionValue")?.ToString() == "Scene 2 - Worsening respiratory distress")
                     {
                         sceStr = currentrow.GetValue("Event_Time")?.ToString();
                     }
