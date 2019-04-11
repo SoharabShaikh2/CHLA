@@ -19,18 +19,16 @@
     <div class="row">
       <div class="col-md-6 col-sm-12 col-12">
         <div class="dr_pannel">
-          <h4>CHOOSE A DATE</h4>
+            <h4>CHOOSE A DATE</h4>
         </div>
         <div class="custom_calender">
-          <mat-form-field style="padding-left: 40px; padding-top: 10px;">
-            <input matInput [matDatepicker]="picker" (dateChange)="addEvent('change', $event)">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+          <div class="calender_header">
+            <p>2019</p>
+            <h2>Tue, May 18</h2>
+          </div>
+            <!-- <mat-datepicker></mat-datepicker> -->
+            <mat-calendar #calender></mat-calendar>
         </div>
-
-       
-
       </div>
       <div class="col-md-6 col-sm-12 col-12">
         <div class="dr_pannel">
