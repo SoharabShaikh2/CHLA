@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MatNativeDateModule, MatDatepickerModule , MatDialog } from '@angular/material';
+import { MatNativeDateModule, MatDialog } from '@angular/material';
 import { MatDialogComponent } from '../mat-dialog/mat-dialog.component'
 import { Globals } from '../../global';
 import { Router, ActivatedRoute } from "@angular/router";
 import { ApiService } from 'src/app/services/api-services';
 import { DatePipe } from '@angular/common';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 @Component({
   selector: 'app-dr-module',
   templateUrl: './dr-module.component.html',
@@ -53,13 +52,5 @@ export class DrModuleComponent implements OnInit {
     if (id > 0) {
       this.router.navigate(['/drModuletab', { resId: id }]);
     }
-  }
-
-
-  events: string[] = [];
-
-  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-    //alert(event.value);
-    //this.events.push(`${type}: ${event.value}`);
   }
 }

@@ -8,11 +8,11 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MDBBootstrapModule, WavesModule, ButtonsModule, CardsFreeModule } from 'angular-bootstrap-md';
-import { MatTabsModule, MatDialogModule, MatSortModule, MatNativeDateModule, MatDatepickerModule  } from '@angular/material';
+import { MatTabsModule, MatDialogModule, MatSortModule, MatNativeDateModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
-//import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import {MatButtonModule} from '@angular/material/button';
 
