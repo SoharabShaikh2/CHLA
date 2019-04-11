@@ -4,75 +4,122 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Organization</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactNo)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ContactNo)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactEmail)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ContactEmail)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactPerson)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ContactPerson)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RegisteredOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RegisteredOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Expiry)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Expiry)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Timezone_Mins)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Timezone_Mins)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IsActive)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RouteName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RouteName)
-        </dd>
-    </dl>
+<style>
+    .edit_form .form_header {
+        background-image: linear-gradient(to top right, #33a0b7, #75dac7);
+        border-radius: 5px 5px 0px 0px;
+        padding: 20px 20px;
+        text-align: left;
+        width: 500px;
+    }
+
+    .edit_form form {
+        background-color: #ffffff;
+        width: 500px;
+        height: 80px;
+        padding: unset;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    .edit_form .save {
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        float: right;
+    }
+
+    .edit_form .cancel {
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        float: left;
+    }
+</style>
+
+<div class="container">
+
+    <div class="row justify-content-center align-items-center edit_form">
+        <div class="col-md-5 col-sm-10 col-12">
+            <div class="form_header">
+                <div class="row">
+                    <h3 style="margin-top: -4px;margin-left: 20px;margin-right: 10px;">Details</h3> <h1>:</h1>
+                    <h1 style="margin-left: 10px;">Organization</h1>
+                </div>
+                <hr />
+
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Address)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ContactNo)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ContactNo)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ContactEmail)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ContactEmail)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ContactPerson)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ContactPerson)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RegisteredOn)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.RegisteredOn)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Expiry)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Expiry)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Timezone_Mins)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Timezone_Mins)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IsActive)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IsActive)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RouteName)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.RouteName)
+                    </dd>
+                </dl>
+            </div>
+
+            <form action="" class="text-center">
+                <a asp-action="Edit" class="save" style="float: left;background-image: linear-gradient(to bottom right, #91a29f, #42494c);" asp-route-id="@Model.Id">Edit</a> &nbsp;
+                <a asp-action="Index" class="save">Back to List</a>
+            </form>
+
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
