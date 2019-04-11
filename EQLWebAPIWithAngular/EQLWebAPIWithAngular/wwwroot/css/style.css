@@ -258,7 +258,7 @@ header .dropdown-menu a:hover{background-color: #3aa7b9; color: #ffffff;}
 
 .edit_form input, .edit_form select{
     background-color: #f2f3f8;
-    padding-left: 35px;
+    padding-left: 10px;
     background-repeat: no-repeat;
     background-position: 5px center;
     font-size: 0.875em;
