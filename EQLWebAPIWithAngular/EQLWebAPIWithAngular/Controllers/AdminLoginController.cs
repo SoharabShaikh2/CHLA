@@ -48,7 +48,7 @@ namespace EQLWebAPIWithAngular.Controllers
                 return RedirectToAction("Index", "UserManagement");
             }
 
-            login.Message = "Invalid Username and Password";
+            login.Message = "Incorrect Username or Password";
             
            
             return View("Index", login);

@@ -34,7 +34,7 @@
         <div *ngFor="let user of orgaUsers">
           <div *ngIf="(user.usertypeid == 3)" class="dr_list">
             <h3>{{user.fullname}}</h3>
-            <button mat-button routerLink="" (click)=getUserResult(user.username)>View</button>
+            <button mat-button routerLink="" (click)=getUserResult(user.username,user.fullname)>View</button>
           </div>
         </div>
         </div>

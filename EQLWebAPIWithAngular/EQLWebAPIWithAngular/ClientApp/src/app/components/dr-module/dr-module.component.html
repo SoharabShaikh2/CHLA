@@ -4,10 +4,11 @@
         <div class="organization_header">
             <div class="col-md-6 col-6">
               <h3>{{orgaName}}</h3>
+              <h5>{{userFullName}}</h5>
               </div>
               <div class="col-md-3 col-6 text-right">
                 <div class="search">
-                  <input type="search" class="form-control" />
+                  <input type="text" (keyup)="searchUsers($event.target)" class="form-control" />
                   <button><img src="assets/imgs/icon-serch.svg" /></button>
                 </div>
               </div>
@@ -22,14 +23,26 @@
           <h4>CHOOSE A DATE</h4>
         </div>
         <div class="custom_calender">
+          <div class="calender_header">
+            <p>{{cyear}}</p>
+            <h2>{{cday}}, {{cmonth}} {{cdate}}</h2>
+          </div>
+          <!-- <mat-datepicker></mat-datepicker> -->
+          <mat-card>
+            <mat-calendar [selected]="selectedDate" (selectedChange)="onSelect($event)"></mat-calendar>
+          </mat-card>
+        </div>
+
+
+        <!--<div class="custom_calender">
           <mat-form-field style="padding-left: 40px; padding-top: 10px;">
-            <input matInput [matDatepicker]="picker" (dateChange)="addEvent('change', $event)">
+            <input matInput [matDatepicker]="picker" (dateChange)="addEvent($event)">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-        </div>
+        </div>-->
 
-       
+
 
       </div>
       <div class="col-md-6 col-sm-12 col-12">

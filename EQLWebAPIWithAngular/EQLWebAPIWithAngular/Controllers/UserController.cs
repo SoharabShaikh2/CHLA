@@ -37,7 +37,7 @@ namespace EQLWebAPI.Controllers
                 {
                     success = false,
                     data = "",
-                    error = "Incorrect Username or Password!!!"
+                    error = "Incorrect Username or Password"
                 });   
             }
         }
@@ -63,7 +63,7 @@ namespace EQLWebAPI.Controllers
                 {
                     status = false,
                     data = "",
-                    error = "Incorrect Username or Password!!!"
+                    error = "Incorrect Username or Password"
                 });
             }
         }

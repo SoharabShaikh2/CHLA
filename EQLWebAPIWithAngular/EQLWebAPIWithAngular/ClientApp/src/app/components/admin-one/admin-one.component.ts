@@ -46,10 +46,10 @@ export class AdminOneComponent implements OnInit {
     });
   }
 
-  getUserResult(e) {
+  getUserResult(e,f) {
     if (e != '') {
       //var orgaName = this.orgaList.find(x => x.id == id).name;
-      this.router.navigate(['/drModule', { userId: e, orgaName: this.orgaName }]);
+      this.router.navigate(['/drModule', { userId: e, orgaName: this.orgaName, userName: f }]);
     }
   }
 

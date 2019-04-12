@@ -28,14 +28,14 @@ namespace EQLWebAPIWithAngular.Controllers
                 var mySqlDbContext = _context.User.Include(u => u.Organization).Include(u => u.UserType);
                 return View(await mySqlDbContext.ToListAsync());
             }
-            else if(HttpContext.Session.GetString("utype") == "admin")
+            else if (HttpContext.Session.GetString("utype") == "admin")
             {
-                var mySqlDbContext = _context.User.Where(u=> u.OrganizationId.ToString() == HttpContext.Session.GetString("orgid")).Include(u => u.Organization).Include(u => u.UserType);
+                var mySqlDbContext = _context.User.Where(u => u.OrganizationId.ToString() == HttpContext.Session.GetString("orgid")).Include(u => u.Organization).Include(u => u.UserType);
                 return View(await mySqlDbContext.ToListAsync());
             }
             else
             {
-               //await Task.Run(()=> Console.WriteLine());
+                //await Task.Run(()=> Console.WriteLine());
                 return Redirect("~/");
             }
         }
@@ -63,6 +63,7 @@ namespace EQLWebAPIWithAngular.Controllers
         // GET: UserManagement/Create
         public IActionResult Create()
         {
+            ViewBag.userNameExist = false;
             if (HttpContext.Session.GetString("utype") == "*")
             {
 
@@ -71,8 +72,8 @@ namespace EQLWebAPIWithAngular.Controllers
             }
             else if (HttpContext.Session.GetString("utype") == "admin")
             {
-                ViewData["OrganizationId"] = new SelectList(_context.Organization.Where(o=> o.Id.ToString() == HttpContext.Session.GetString("orgid")), "Id", "Name");
-                ViewData["UserTypeId"] = new SelectList(_context.UserType.Where(u=> u.Type =="user"), "Id", "Type");
+                ViewData["OrganizationId"] = new SelectList(_context.Organization.Where(o => o.Id.ToString() == HttpContext.Session.GetString("orgid")), "Id", "Name");
+                ViewData["UserTypeId"] = new SelectList(_context.UserType.Where(u => u.Type == "user"), "Id", "Type");
             }
             else
             {
@@ -89,7 +90,14 @@ namespace EQLWebAPIWithAngular.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FirstName,LastName,UserName,Password,Email,Expiry,IsActive,OrganizationId,UserTypeId")] User user)
         {
-            if (ModelState.IsValid)
+            var userExist = await _context.User.Where(x => x.UserName == user.UserName).ToListAsync();
+
+            if (userExist.Count > 0)
+            {
+                ViewBag.userNameExist = true;
+                //return View(user);
+            }
+            else if (ModelState.IsValid)
             {
                 _context.Add(user);
                 await _context.SaveChangesAsync();
@@ -126,6 +134,8 @@ namespace EQLWebAPIWithAngular.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.userNameExist = false;
 
             var user = await _context.User.FindAsync(id);
             if (user == null)
@@ -164,11 +174,16 @@ namespace EQLWebAPIWithAngular.Controllers
         {
             if (id != user.Id)
             {
-               // user.Id = id;
+                // user.Id = id;
                 return NotFound();
             }
+            var userExist = await _context.User.Where(x => x.UserName == user.UserName).ToListAsync();
 
-            if (ModelState.IsValid)
+            if (userExist.Count > 0)
+            {
+                ViewBag.userNameExist = true;
+            }
+            else if (ModelState.IsValid)
             {
                 try
                 {
