@@ -50,8 +50,27 @@ export class ApiService {
       );
   }
 
-  getOrganizationUsersResult(userId) {
+  //getOrganizationUsersResult(userId) {
 
+
+  //  let wid: number;
+  //  let text: string;
+  //  wid = 0;
+  //  text = userId;
+
+  //  var data = {
+  //    "id": wid,
+  //    "text": text
+  //  };
+  //  let body = JSON.stringify(data)
+
+  //  return this.http.post<any>('/api/Organization/GetUserResult', body, this.httpOptions)
+  //    .pipe(
+  //      map(responseData => { return responseData })
+  //    );
+  //}
+
+  getOrganizationUsersResult(userId,dateTime,Input) {
 
     let wid: number;
     let text: string;
@@ -60,7 +79,9 @@ export class ApiService {
 
     var data = {
       "id": wid,
-      "text": text
+      "text": text,
+      "dateTime": dateTime,
+      "input": Input
     };
     let body = JSON.stringify(data)
 

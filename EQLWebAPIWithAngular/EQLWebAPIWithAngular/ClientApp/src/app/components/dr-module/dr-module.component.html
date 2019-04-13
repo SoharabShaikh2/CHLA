@@ -48,11 +48,12 @@
       <div class="col-md-6 col-sm-12 col-12">
         <div class="dr_pannel">
           <h4>STANDARD USERS</h4>
-          <div class="dr_list" *ngFor="let result of resultList">
-            <h3>{{result.scenarioname}} <span>{{formatTime(result.dateTimeSession)}}</span></h3>
-            <button mat-button routerLink="" (click)=getResult(result.id)>View</button>
+          <div class="pre-scrollable">
+            <div class="dr_list" *ngFor="let result of resultList">
+              <h3>{{result.scenarioname}} <span>{{formatTime(result.dateTimeSession)}}</span></h3>
+              <button mat-button routerLink="" (click)=getResult(result.id)>View</button>
+            </div>
           </div>
-          
         </div>
       </div>
     </div>

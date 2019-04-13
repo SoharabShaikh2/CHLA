@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatNativeDateModule, MatDatepickerModule , MatDialog } from '@angular/material';
+import { MatNativeDateModule, MatDatepickerModule, MatDialog } from '@angular/material';
 import { MatDialogComponent } from '../mat-dialog/mat-dialog.component'
 import { Globals } from '../../global';
 import { Router, ActivatedRoute } from "@angular/router";
@@ -21,6 +21,8 @@ export class DrModuleComponent implements OnInit {
   cyear: any;
   cmonth: any;
   cdate: any;
+  inputText: string = "";
+
 
   constructor(public matDialog: MatDialog, private datePipe: DatePipe, private globals: Globals, private router: Router, private apiService: ApiService, private route: ActivatedRoute) { }
   calender: any;
@@ -34,11 +36,7 @@ export class DrModuleComponent implements OnInit {
     this.orgaName = this.route.snapshot.paramMap.get('orgaName');
     this.userFullName = this.route.snapshot.paramMap.get('userName');
 
-    this.apiService.getOrganizationUsersResult(this.userId).subscribe(data => {
-      this.resultList = data;
-      this.globals.userResult = data;
-      console.log(data);
-    });
+
 
     let dateC = new Date();
     this.cday = this.datePipe.transform(dateC, 'E');
@@ -46,6 +44,13 @@ export class DrModuleComponent implements OnInit {
     this.cyear = this.datePipe.transform(dateC, 'yyyy');
     this.cdate = this.datePipe.transform(dateC, 'dd');
 
+    this.selectedDate = this.datePipe.transform(dateC, 'yyyy-MM-dd');
+
+    this.apiService.getOrganizationUsersResult(this.userId, this.selectedDate, this.inputText).subscribe(data => {
+      this.resultList = data;
+      this.globals.userResult = data;
+      console.log(data);
+    });
   }
   close() {
     this.matDialog.open(MatDialogComponent, {
@@ -68,21 +73,29 @@ export class DrModuleComponent implements OnInit {
 
 
   onSelect(event) {
-    this.selectedDate = event;
-    console.log(event);
     let newDate = new Date(event);
     let mainDate = this.datePipe.transform(newDate, 'yyyy-MM-dd');
+    this.selectedDate = mainDate;
 
     this.cday = this.datePipe.transform(newDate, 'E');
     this.cmonth = this.datePipe.transform(newDate, 'LLLL');
     this.cyear = this.datePipe.transform(newDate, 'yyyy');
     this.cdate = this.datePipe.transform(newDate, 'dd');
 
-    console.log(mainDate);
-    
+    this.apiService.getOrganizationUsersResult(this.userId, this.selectedDate, this.inputText).subscribe(data => {
+      this.resultList = data;
+      this.globals.userResult = data;
+      console.log(data);
+    });
+
   }
 
   searchUsers(e) {
-    console.log(e);
+    this.inputText = e.value;
+    this.apiService.getOrganizationUsersResult(this.userId, this.selectedDate, this.inputText).subscribe(data => {
+      this.resultList = data;
+      this.globals.userResult = data;
+      console.log(data);
+    });
   }
 }

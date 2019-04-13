@@ -8,7 +8,7 @@ namespace DataRepository
 {
     public interface IResultRepository<T>
     {
-        Task<List<ResultDto>> GetResults(string userId);
+        Task<List<ResultDto>> GetResults(string userId, string input, string dateTime);
         void AddNewResult(string userId, JObject result, string scenarioname, DateTime dateSession);
     }
 }

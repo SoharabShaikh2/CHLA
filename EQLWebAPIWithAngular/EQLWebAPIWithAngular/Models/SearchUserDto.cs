@@ -9,6 +9,8 @@ namespace EQLWebAPIWithAngular.Models
     {
         public int id { get; set; }
         public string text { get; set; }
+        public string dateTime { get; set; }
+        public string input { get; set; }
     }
 
 }

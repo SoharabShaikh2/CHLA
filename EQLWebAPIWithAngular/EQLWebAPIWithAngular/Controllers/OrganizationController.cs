@@ -64,7 +64,7 @@ namespace EQLWebAPI.Controllers
         {
             List<ResultDto> userResult = new List<ResultDto>();
             IResultRepository<IResult> _res = new ResultDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=eqlb.weplayvr.com;Database=chlaanalytics;Uid=chlauser;Pwd=Cgh!2us3r@34Uiidw;" });
-            userResult =await _res.GetResults(input.text);
+            userResult =await _res.GetResults(input.text,input.input,input.dateTime);
             return userResult;
         }
     }

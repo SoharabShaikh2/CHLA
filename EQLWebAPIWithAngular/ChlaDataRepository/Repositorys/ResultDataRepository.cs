@@ -15,14 +15,16 @@ namespace ChlaDataRepository
         {
             connectionParameters = conParam;
         }
-        public async Task<List<ResultDto>> GetResults(string userId)
+        public async Task<List<ResultDto>> GetResults(string userId, string input, string dateTime)
         {
             List<ResultDto> results = new List<ResultDto>();
-            String SQL = "SELECT * FROM results where userid like @userId";
+            String SQL = "SELECT * FROM chlaanalytics.results where userid like @userId and scenarioname like @input and DateTimeSession like @dateTime";
             using (MySqlConnection con = new MySqlConnection(connectionParameters.ConnectionString))
             {
                 MySqlCommand cmd = new MySqlCommand(SQL, con);
-                cmd.Parameters.AddWithValue("@userId", "%" + userId + "%");
+                cmd.Parameters.AddWithValue("@userId", userId);
+                cmd.Parameters.AddWithValue("@input", "%" + input + "%");
+                cmd.Parameters.AddWithValue("@dateTime", "%" + dateTime + "%");
                 con.Open();
                 using (var reader = await cmd.ExecuteReaderAsync())
                 {
