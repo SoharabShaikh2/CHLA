@@ -24,6 +24,8 @@ import { AdminOneComponent } from './components/admin-one/admin-one.component';
 import { DrModuleComponent } from './components/dr-module/dr-module.component';
 import { MatDialogComponent } from './components/mat-dialog/mat-dialog.component';
 import { DrModuleTabComponent } from './components/dr-module-tab/dr-module-tab.component';
+import { ForgotPasswordComponent } from "./components/forgot-password-email/forgot-password.component";
+import { ForgotPasswordComponentReset } from "./components/forgot-password/forgot-password.component";
 
 import { Globals } from '../app/global';
 import { DatePipe } from '@angular/common';
@@ -37,7 +39,9 @@ import { DatePipe } from '@angular/common';
     AdminOneComponent,
     DrModuleComponent,
     MatDialogComponent,
-    DrModuleTabComponent
+    DrModuleTabComponent,
+    ForgotPasswordComponent,
+    ForgotPasswordComponentReset
   ],
   imports: [
     BrowserModule,

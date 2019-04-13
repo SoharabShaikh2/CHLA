@@ -4,7 +4,7 @@
         <div class="organization_header">
             <div class="col-md-6 col-6">
               <h3>{{orgaName}}</h3>
-              <h5>{{userFullName}}</h5>
+              <h5 style="color:#6fd5c3;">{{userFullName}}</h5>
               </div>
               <div class="col-md-3 col-6 text-right">
                 <div class="search">
@@ -48,7 +48,7 @@
       <div class="col-md-6 col-sm-12 col-12">
         <div class="dr_pannel">
           <h4>STANDARD USERS</h4>
-          <div class="pre-scrollable">
+          <div class="scroll">
             <div class="dr_list" *ngFor="let result of resultList">
               <h3>{{result.scenarioname}} <span>{{formatTime(result.dateTimeSession)}}</span></h3>
               <button mat-button routerLink="" (click)=getResult(result.id)>View</button>

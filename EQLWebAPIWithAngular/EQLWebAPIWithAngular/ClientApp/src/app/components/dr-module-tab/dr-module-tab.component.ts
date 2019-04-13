@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { ApiService } from 'src/app/services/api-services';
 import { DatePipe } from '@angular/common';
 import { UserResult } from '../../services/all-model';
+import { retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dr-module-tab',
@@ -17,6 +18,7 @@ export class DrModuleTabComponent implements OnInit {
   details: any;
   quali: any;
   quan: any;
+  userName: string;
 
 
   constructor(private globals: Globals, private router: Router, private apiService: ApiService, private route: ActivatedRoute, private datePipe: DatePipe) { }
@@ -26,6 +28,7 @@ export class DrModuleTabComponent implements OnInit {
       this.router.navigate(['/']);
     }
     this.resId = this.route.snapshot.paramMap.get('resId');
+    this.userName = this.route.snapshot.paramMap.get('userName');
 
     //let userData = this.globals.userResult;
     this.userRes = this.globals.userResult.find(x => x.id == Number(this.resId));
@@ -47,6 +50,25 @@ export class DrModuleTabComponent implements OnInit {
     let newDate = new Date(time);
     let mainDate = this.datePipe.transform(newDate, 'HH:mm:ss a');
     return mainDate;
+  }
+
+  convertTimeSpanToMin(e) {
+    let time = Number(e);
+    // Hours, minutes and seconds
+    var hrs = ~~(time / 3600);
+    var mins = ~~((time % 3600) / 60);
+    var secs = ~~time % 60;
+
+    // Output like "1:01" or "4:03:59" or "123:03:59"
+    var ret = "";
+
+    if (hrs > 0) {
+      ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+    }
+
+    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+    ret += "" + secs;
+    return ret;
   }
 
 }

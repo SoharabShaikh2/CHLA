@@ -67,7 +67,7 @@ export class DrModuleComponent implements OnInit {
 
   getResult(id) {
     if (id > 0) {
-      this.router.navigate(['/drModuletab', { resId: id }]);
+      this.router.navigate(['/drModuletab', { resId: id, userName: this.userFullName }]);
     }
   }
 

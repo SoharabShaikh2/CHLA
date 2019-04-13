@@ -21,10 +21,11 @@
 .tab_section {
   background-color: #ffffff;
   border-radius: 5px;
-  min-height: 430px;
+  min-height: 460px;
   padding: 15px;
 
   .first_tab_section {
+    padding: 100px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -75,7 +76,7 @@
     .th {
       div {
         h3 {
-          background-color: $primary_color;
+          background-color: #66cdc3;
           font-size: $small_font;
           font-weight: 600;
           padding: 6px 10px 3px;
@@ -108,14 +109,17 @@
 
         &:nth-child(2) {
           padding-right: 0px;
+          padding-left: 6px;
         }
 
         &:nth-child(3) {
           padding-right: 0px;
+          padding-left: 6px;
         }
 
         &:last-child {
           padding-right: 15px;
+          padding-left: 6px;
         }
       }
 

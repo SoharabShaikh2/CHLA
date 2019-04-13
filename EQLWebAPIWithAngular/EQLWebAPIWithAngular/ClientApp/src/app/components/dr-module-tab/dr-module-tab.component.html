@@ -2,7 +2,7 @@
   <div class="row align-md-items-end">
     <div class="col-md-12">
       <div class="tabs_header">
-        <h3>{{details.User}} </h3>
+        <h3 style="color:#6fd5c3;">{{userName}} </h3>
         <p>{{details.Scenario}} {{userRes.dateTimeSession}}</p>
       </div>
     </div>
@@ -13,23 +13,23 @@
         <mat-tab label="Session">
           <div class="tab_section">
             <div class="first_tab_section">
-              <h3>Scenario</h3>
+              <h3 style="color:#312970;">Scenario:</h3>
               <p>{{details.Scenario}}</p>
               <ul>
                 <li>
-                  <p>Difficulty:<span>{{details.Difficulty}}</span></p>
+                  <p style="color:#312970;">Difficulty:<span>{{details.Difficulty}}</span></p>
                 </li>
                 <li>
-                  <p>Distruction:<span>{{details.Distraction}}</span></p>
+                  <p style="color:#312970;">Distraction:<span>{{details.Distraction}}</span></p>
                 </li>
                 <li>
-                  <p>User:<span>{{details.User}}</span></p>
+                  <p style="color:#312970;">User:<span>{{userName}}</span></p>
                 </li>
                 <li>
-                  <p>Date:<span>{{formatDate(userRes.dateTimeSession)}}</span></p>
+                  <p style="color:#312970;">Date:<span>{{formatDate(userRes.dateTimeSession)}}</span></p>
                 </li>
                 <li>
-                  <p>Time:<span>{{formatTime(userRes.dateTimeSession)}}</span></p>
+                  <p style="color:#312970;">Time:<span>{{formatTime(userRes.dateTimeSession)}}</span></p>
                 </li>
               </ul>
             </div>
@@ -44,13 +44,13 @@
               </div>
               <div class="row" *ngFor="let q of quan">
                 <div class="col-md-8"><p>{{q.DisplayTitle}}</p></div>
-                <div class="col-md-4"><p>{{q.DisplayValue}}</p></div>
+                <div class="col-md-4"><p>{{convertTimeSpanToMin(q.DisplayValue)}}</p></div>
               </div>
             
             </div>
           </div>
         </mat-tab>
-        <mat-tab label="Quantitative">
+        <mat-tab label="Qualitative">
           <div class="tab_section">
             <div class="second_tab_section">
               <div class="row th">
