@@ -9,5 +9,6 @@ namespace DataRepository
     {
         Task<UserDto> LoginUser(string email, string password);
         Task<UserDtoApp> LoginUserApp(string email, string password);
+        Task<UserDtoApp> LoginUserAppFromAdmin(int UserId);
     }
 }

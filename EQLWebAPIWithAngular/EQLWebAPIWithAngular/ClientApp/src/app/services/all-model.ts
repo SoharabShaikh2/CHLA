@@ -1,6 +1,7 @@
 export class LoginData {
   Username: string;
   Password: string;
+  UserId: number;
 }
 
 export class Organization {

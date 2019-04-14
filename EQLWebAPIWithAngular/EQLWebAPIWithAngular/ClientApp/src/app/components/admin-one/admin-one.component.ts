@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { Globals } from '../../global';
 import { ApiService } from 'src/app/services/api-services';
 import { OrganizationUsers } from '../../services/all-model';
+import { UserService } from '../../services/user-service/user.service';
 
 @Component({
   selector: 'app-admin-one',
@@ -10,31 +11,69 @@ import { OrganizationUsers } from '../../services/all-model';
   styleUrls: ['./admin-one.component.scss']
 })
 export class AdminOneComponent implements OnInit {
-  orgaId: string;
+  orgaId: number;
   orgaName: string;
+  adminCheck: string = null;
+  adminView: boolean = false;
 
   orgaUsers: Array<OrganizationUsers>;
-  constructor(private globals: Globals, private router: Router, private apiService: ApiService, private route: ActivatedRoute) {
+  constructor(private globals: Globals, private router: Router, private apiService: ApiService, private userService: UserService, private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
+    this.globals.selectDate = null;
 
-    this.orgaId = this.route.snapshot.paramMap.get('orgaId');
-    this.orgaName = this.route.snapshot.paramMap.get('orgaName');
-    console.log(this.orgaId);
+    this.adminCheck = this.route.snapshot.paramMap.get('adminPortal');
+    if (this.adminCheck == 'true') {
+      this.globals.loginStatus = true;
+      this.userService.checkUserFromAdmin(0).subscribe(data => {
+        console.log(data);
 
-    if (!this.globals.loginStatus) {
-      this.router.navigate(['/']);
+        if (!data.status) {
+          this.router.navigate(['/']);
+        }
+        else {
+          this.adminView = true;
+          this.globals.loginUserType = data.data.usertypeid;
+          this.globals.loginOrganizationId = data.data.organizationid;
+          this.globals.loginOrganizationName = data.data.organizationName;
+
+          this.orgaId = this.globals.loginOrganizationId;
+          this.orgaName = this.globals.loginOrganizationName;
+
+          this.apiService.getOrganizationUsers(this.orgaId).subscribe(data => {
+            this.orgaUsers = data;
+            //this.orgaName = data[0].hospitalName;
+            console.log('Users', this.orgaUsers);
+            console.log('orgaName', this.orgaName);
+          });
+        }
+      });
+
     }
+    else {
 
+      if (!this.globals.loginStatus) {
+        this.router.navigate(['/']);
+      }
 
-    this.apiService.getOrganizationUsers(this.orgaId).subscribe(data => {
-      this.orgaUsers = data;
-      //this.orgaName = data[0].hospitalName;
-      console.log('Users', this.orgaUsers);
-      console.log('orgaName', this.orgaName);
-    });
+      if (this.globals.loginUserType == this.globals.hospitalAdmin) {
+        this.orgaId = this.globals.loginOrganizationId;
+        this.orgaName = this.globals.loginOrganizationName;
+      }
+      else {
+        this.orgaId = Number(this.route.snapshot.paramMap.get('orgaId'));
+        this.orgaName = this.route.snapshot.paramMap.get('orgaName');
+      }
+
+      this.apiService.getOrganizationUsers(this.orgaId).subscribe(data => {
+        this.orgaUsers = data;
+        //this.orgaName = data[0].hospitalName;
+        console.log('Users', this.orgaUsers);
+        console.log('orgaName', this.orgaName);
+      });
+    }
   }
 
   searchUsers(e) {

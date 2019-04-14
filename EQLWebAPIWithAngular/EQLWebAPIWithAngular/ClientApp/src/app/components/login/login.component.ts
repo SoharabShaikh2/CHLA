@@ -40,16 +40,23 @@ export class LoginComponent implements OnInit {
       if(data.status == 1)
       {
         this.globals.loginStatus = true;
-        if(data.data.usertypeid == 4)
+        this.globals.loginUserType = data.data.usertypeid;
+
+        if (data.data.usertypeid == this.globals.mainAdmin)
         {
           this.router.navigate(['/organizationList']);
         }
-        else if(data.data.usertypeid == 1)
+        else if (data.data.usertypeid == this.globals.hospitalAdmin)
         {
-          this.router.navigate(['/admin']);
+          this.globals.loginOrganizationId = data.data.organizationid;
+          this.globals.loginOrganizationName = data.data.organizationName
+          this.router.navigate(['/admin']);         
         }
-        else if(data.data.usertypeid == 3)
+        else if (data.data.usertypeid == this.globals.hospitalUser)
         {
+          this.globals.loginUserName = data.data.username;
+          this.globals.loginUserFullName = data.data.firstname + " " + data.data.lastname;
+          this.globals.loginOrganizationName = data.data.organizationName;
           this.router.navigate(['/drModule']);
         }
 

@@ -4,6 +4,9 @@
       <div class="organization_header">
         <div class="col-md-6 col-6">
           <h3>{{this.orgaName}}</h3>
+          <a *ngIf ="(adminView)" href="/UserManagement">
+            Back to Admin Panel
+          </a>
         </div>
         <div class="col-md-3 col-6 text-right">
           <div class="search">
@@ -23,7 +26,7 @@
         <div *ngFor="let user of orgaUsers">
           <div *ngIf="(user.usertypeid == 1)" class="dr_list">
             <h3>{{user.fullname}}</h3>
-            <button mat-button routerLink="" (click)=getUserResult(user.username)>View</button>
+            <button mat-button routerLink="" (click)=getUserResult(user.username,user.fullname)>View</button>
           </div>
         </div>
       </div>

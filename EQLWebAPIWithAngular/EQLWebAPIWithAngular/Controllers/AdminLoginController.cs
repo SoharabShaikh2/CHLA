@@ -29,28 +29,27 @@ namespace EQLWebAPIWithAngular.Controllers
         public IActionResult LogOut()
         {
             HttpContext.Session.Clear();
-            return View("Index",new Login());
+            return View("Index", new Login());
         }
 
         [HttpPost]
         public IActionResult Login([FromForm]Models.Login login)
         {
 
-            var users = _context.User.Where(u => u.UserName == login.UserName && u.Password == login.Password).Include(u=>u.Organization).Include(u=>u.UserType);
+            var users = _context.User.Where(u => u.UserName == login.UserName && u.Password == login.Password).Include(u => u.Organization).Include(u => u.UserType);
             User user;
-            if (users.Count()>0 && (user = users.First()).UserType.Type != "user")
+            if (users.Count() > 0 && (user = users.First()).UserType.Type != "user")
             {
-                
-              
-                    HttpContext.Session.SetString("utype", user.UserType.Type);
-                    HttpContext.Session.SetString("orgid", user.Organization.Id.ToString());
-                
+                HttpContext.Session.SetString("utype", user.UserType.Type);
+                HttpContext.Session.SetString("orgid", user.Organization.Id.ToString());
+                HttpContext.Session.SetString("userId", user.Id.ToString());
+
                 return RedirectToAction("Index", "UserManagement");
             }
 
             login.Message = "Incorrect Username or Password";
-            
-           
+
+
             return View("Index", login);
         }
     }

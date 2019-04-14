@@ -16,7 +16,7 @@ export class DrModuleComponent implements OnInit {
   orgaName: string;
   userFullName: string;
   resultList: [];
-  selectedDate: any;
+  selectedDate: any = null;
   cday: any;
   cyear: any;
   cmonth: any;
@@ -32,13 +32,18 @@ export class DrModuleComponent implements OnInit {
     }
     //console.log(this.calender);
 
-    this.userId = this.route.snapshot.paramMap.get('userId');
-    this.orgaName = this.route.snapshot.paramMap.get('orgaName');
-    this.userFullName = this.route.snapshot.paramMap.get('userName');
+    if (this.globals.loginUserType == this.globals.hospitalUser) {
+      this.userId = this.globals.loginUserName;
+      this.orgaName = this.globals.loginOrganizationName;
+      this.userFullName = this.globals.loginUserFullName;
+    }
+    else {
+      this.userId = this.route.snapshot.paramMap.get('userId');
+      this.orgaName = this.route.snapshot.paramMap.get('orgaName');
+      this.userFullName = this.route.snapshot.paramMap.get('userName');
+    }
 
-
-
-    let dateC = new Date();
+    let dateC = this.globals.selectDate == null ? new Date() : this.globals.selectDate;
     this.cday = this.datePipe.transform(dateC, 'E');
     this.cmonth = this.datePipe.transform(dateC, 'LLLL');
     this.cyear = this.datePipe.transform(dateC, 'yyyy');
@@ -73,6 +78,7 @@ export class DrModuleComponent implements OnInit {
 
 
   onSelect(event) {
+    this.globals.selectDate = new Date(event);
     let newDate = new Date(event);
     let mainDate = this.datePipe.transform(newDate, 'yyyy-MM-dd');
     this.selectedDate = mainDate;

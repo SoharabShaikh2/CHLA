@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<EQLWebAPIWithAngular.Models.User>
+@using Microsoft.AspNetCore.Http;
+
 
 @{
     ViewData["Title"] = "User";
@@ -20,9 +22,16 @@
     <div class="row text-left">
         <div class="col-md-12 col-12 heading">
             <h1 class="float-left">Users</h1>
+
             <p class="float-right">
                 <a asp-action="Create">Create New</a>
             </p>
+            @if (Context.Session.GetString("utype") == "admin")
+            {
+                <p class="float-right" style="margin-right: 30px;cursor: pointer;">
+                    <a href="/admin;adminPortal=true">User View</a>
+                </p>
+            }
         </div>
 
     </div>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ChlaDataRepository;
 using DataRepository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 //using MySQLDataRepository;
 
@@ -22,7 +23,7 @@ namespace EQLWebAPI.Controllers
             IUserRepository<IUser> _user = new UserDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=eqlb.weplayvr.com;Database=chlaanalytics;Uid=chlauser;Pwd=Cgh!2us3r@34Uiidw;" });
             user = await _user.LoginUser(login.Username, login.Password);
 
-            if(!String.IsNullOrEmpty(user.username))
+            if (!String.IsNullOrEmpty(user.username))
             {
                 return Json(new
                 {
@@ -38,7 +39,7 @@ namespace EQLWebAPI.Controllers
                     success = false,
                     data = "",
                     error = "Incorrect Username or Password"
-                });   
+                });
             }
         }
         [HttpPost]
@@ -66,6 +67,48 @@ namespace EQLWebAPI.Controllers
                     error = "Incorrect Username or Password"
                 });
             }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UserLoginAppFromAdmin()
+        {
+            UserLogin login = new UserLogin();
+            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("userId")))
+            {
+                login.UserId = int.Parse(HttpContext.Session.GetString("userId"));
+                UserDtoApp user = new UserDtoApp();
+                IUserRepository<IUser> _user = new UserDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=eqlb.weplayvr.com;Database=chlaanalytics;Uid=chlauser;Pwd=Cgh!2us3r@34Uiidw;" });
+                user = await _user.LoginUserAppFromAdmin(login.UserId);
+                if (user.id > 0)
+                {
+                    return Json(new
+                    {
+                        status = true,
+                        data = user,
+                        error = ""
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        status = false,
+                        data = "",
+                        error = "Incorrect Username or Password"
+                    });
+                }
+            }
+            else
+            {
+                return Json(new
+                {
+                    status = false,
+                    data = "",
+                    error = "Incorrect Username or Password"
+                });
+            }
+
+
         }
 
 

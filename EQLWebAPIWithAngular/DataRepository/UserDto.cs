@@ -25,12 +25,14 @@ namespace DataRepository
         public int organizationid { get; set; }
         public int usertypeid { get; set; }
         public bool isactive { get; set; }
+        public string organizationName { get; set; }
     }
 
     public class UserLogin
     {
         public string Username { get; set; }
         public string Password { get; set; }
+        public int UserId { get; set; }
     }
 
     public class OrganizationUserDto
