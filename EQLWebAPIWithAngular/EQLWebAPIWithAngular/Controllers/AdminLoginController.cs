@@ -36,6 +36,7 @@ namespace EQLWebAPIWithAngular.Controllers
         public IActionResult Login([FromForm]Models.Login login)
         {
 
+            var reset = _context.PasswordReset.ToList();
             var users = _context.User.Where(u => u.UserName == login.UserName && u.Password == login.Password).Include(u => u.Organization).Include(u => u.UserType);
             User user;
             if (users.Count() > 0 && (user = users.First()).UserType.Type != "user")

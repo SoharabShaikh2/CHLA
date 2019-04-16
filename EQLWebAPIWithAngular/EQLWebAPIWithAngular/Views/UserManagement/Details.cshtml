@@ -16,7 +16,6 @@
     .edit_form form {
         background-color: #ffffff;
         width: 500px;
-        height: 80px;
         padding: unset;
         border-radius: 0px 0px 5px 5px;
     }
@@ -46,10 +45,11 @@
                 <div class="row">
                     <h3 style="margin-top: -4px;margin-left: 20px;margin-right: 10px;">Details</h3> <h1>:</h1>
                     <h1 style="margin-left: 10px;">User</h1>
-                </div>
-                <hr />
+                </div>             
+            </div>
+            <form action="" class="text-center">
 
-                <dl class="dl-horizontal">
+                <dl class="dl-horizontal" style="text-align: left;margin-left: 10%;">
                     <dt>
                         @Html.DisplayNameFor(model => model.FirstName)
                     </dt>
@@ -105,10 +105,10 @@
                         @Html.DisplayFor(model => model.UserType.Type)
                     </dd>
                 </dl>
-            </div>
-            <form action="" class="text-center">
-                <a asp-action="Edit" class="save" style="float: left;background-image: linear-gradient(to bottom right, #91a29f, #42494c);" asp-route-id="@Model.Id">Edit</a> &nbsp;
-                <a asp-action="Index" class="save">Back to List</a>
+                <div class="row">
+                    <a asp-action="Edit" class="save" style="margin-left: 10%;float: left;background-image: linear-gradient(to bottom right, #91a29f, #42494c);" asp-route-id="@Model.Id">Edit</a> &nbsp;
+                    <a asp-action="Index" class="save" style="margin-left: 25%;">Back to List</a>
+                </div>
             </form>
 
         </div>

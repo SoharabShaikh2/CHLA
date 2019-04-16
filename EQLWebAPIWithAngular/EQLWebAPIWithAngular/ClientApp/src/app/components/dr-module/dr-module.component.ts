@@ -6,6 +6,8 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { ApiService } from 'src/app/services/api-services';
 import { DatePipe } from '@angular/common';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'app-dr-module',
   templateUrl: './dr-module.component.html',
@@ -22,9 +24,10 @@ export class DrModuleComponent implements OnInit {
   cmonth: any;
   cdate: any;
   inputText: string = "";
+  showNotFound: boolean = false;
 
 
-  constructor(public matDialog: MatDialog, private datePipe: DatePipe, private globals: Globals, private router: Router, private apiService: ApiService, private route: ActivatedRoute) { }
+  constructor(private spinner: NgxSpinnerService,public matDialog: MatDialog, private datePipe: DatePipe, private globals: Globals, private router: Router, private apiService: ApiService, private route: ActivatedRoute) { }
   calender: any;
   ngOnInit() {
     if (!this.globals.loginStatus) {
@@ -54,7 +57,10 @@ export class DrModuleComponent implements OnInit {
     this.apiService.getOrganizationUsersResult(this.userId, this.selectedDate, this.inputText).subscribe(data => {
       this.resultList = data;
       this.globals.userResult = data;
-      console.log(data);
+      if (data.length < 1)
+        this.showNotFound = true;
+      else
+        this.showNotFound = false;
     });
   }
   close() {
@@ -88,20 +94,30 @@ export class DrModuleComponent implements OnInit {
     this.cyear = this.datePipe.transform(newDate, 'yyyy');
     this.cdate = this.datePipe.transform(newDate, 'dd');
 
+    this.spinner.show();
     this.apiService.getOrganizationUsersResult(this.userId, this.selectedDate, this.inputText).subscribe(data => {
       this.resultList = data;
       this.globals.userResult = data;
-      console.log(data);
+      this.spinner.hide();
+      if (data.length < 1)
+        this.showNotFound = true;
+      else
+        this.showNotFound = false;
     });
 
   }
 
   searchUsers(e) {
+    this.spinner.show();
     this.inputText = e.value;
     this.apiService.getOrganizationUsersResult(this.userId, this.selectedDate, this.inputText).subscribe(data => {
       this.resultList = data;
       this.globals.userResult = data;
-      console.log(data);
+      this.spinner.hide();
+      if (data.length < 1)
+        this.showNotFound = true;
+      else
+        this.showNotFound = false;
     });
   }
 }

@@ -29,6 +29,7 @@ import { ForgotPasswordComponentReset } from "./components/forgot-password/forgo
 
 import { Globals } from '../app/global';
 import { DatePipe } from '@angular/common';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { DatePipe } from '@angular/common';
     MatNativeDateModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
+    NgxSpinnerModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [Globals, DatePipe],

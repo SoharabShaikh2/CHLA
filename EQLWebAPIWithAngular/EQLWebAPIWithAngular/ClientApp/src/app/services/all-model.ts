@@ -4,6 +4,11 @@ export class LoginData {
   UserId: number;
 }
 
+export class PasswordReset {
+  ResetCode: string;
+  Password: string;
+}
+
 export class Organization {
   id: number;
   name: string;

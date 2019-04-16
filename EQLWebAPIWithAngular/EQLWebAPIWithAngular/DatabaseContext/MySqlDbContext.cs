@@ -11,6 +11,7 @@ namespace EQLWebAPIWithAngular.DatabaseContext
         public DbSet<Organization> Organization { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<UserType> UserType { get; set; }
+        public DbSet<PasswordReset> PasswordReset { get; set; }
 
         public MySqlDbContext(DbContextOptions<MySqlDbContext> options)
            : base(options)

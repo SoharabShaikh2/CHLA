@@ -35,6 +35,12 @@ namespace DataRepository
         public int UserId { get; set; }
     }
 
+    public class PasswordSet
+    {
+        public int ResetCode { get; set; }
+        public string Password { get; set; }
+    }
+
     public class OrganizationUserDto
     {
         public int id { get; set; }

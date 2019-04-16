@@ -24,12 +24,12 @@
             <h1 class="float-left">Users</h1>
 
             <p class="float-right">
-                <a asp-action="Create">Create New</a>
+                <a style="color:white" asp-action="Create">Create New</a>
             </p>
             @if (Context.Session.GetString("utype") == "admin")
             {
                 <p class="float-right" style="margin-right: 30px;cursor: pointer;">
-                    <a href="/admin;adminPortal=true">User View</a>
+                    <a style="color:white" href="/admin;adminPortal=true">User View</a>
                 </p>
             }
         </div>

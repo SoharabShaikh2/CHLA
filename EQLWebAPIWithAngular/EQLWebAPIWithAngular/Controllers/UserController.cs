@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using ChlaDataRepository;
 using DataRepository;
+using EQLWebAPIWithAngular.DatabaseContext;
+using EQLWebAPIWithAngular.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 //using MySQLDataRepository;
@@ -14,6 +18,12 @@ namespace EQLWebAPI.Controllers
     public class UserController : Controller
     {
         readonly IUserRepository<IUser> UserRepository;
+        private readonly MySqlDbContext _context;
+
+        public UserController(MySqlDbContext context)
+        {
+            _context = context;
+        }
 
         // GET api/values
         [HttpPost]
@@ -111,8 +121,125 @@ namespace EQLWebAPI.Controllers
 
         }
 
+        [HttpPost]
+        public async Task<IActionResult> PasswordReset([FromBody]UserLogin login)
+        {
+            var user = _context.User.Where(x => x.UserName == login.Username).FirstOrDefault();
 
+            if (user != null)
+            {
+                Random generator = new Random();
+                String r = generator.Next(0, 999999).ToString("D6");
+                PasswordReset dto = new PasswordReset();
+                dto.Resetcode = int.Parse(r);
+                dto.userid = user.Id;
+                dto.status = false;
+                await _context.PasswordReset.AddAsync(dto);
+                await _context.SaveChangesAsync();
 
+                await SendEmailAsync(user.Email, r);
+                return Json(new
+                {
+                    status = true,
+                    data = "",
+                    error = ""
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    status = false,
+                    data = "",
+                    error = "Incorrect Username"
+                });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SetNewPassword([FromBody]PasswordSet pass)
+        {
+            if (pass != null)
+            {
+                var passDto = _context.PasswordReset.Where(x => x.Resetcode == pass.ResetCode).FirstOrDefault();
+
+                if (passDto != null && !passDto.status)
+                {
+                    var userSet = _context.User.Where(x => x.Id == passDto.userid).FirstOrDefault();
+                    if (userSet != null)
+                    {
+                        userSet.Password = pass.Password;
+                        _context.User.Update(userSet);
+
+                        passDto.status = true;
+                        _context.PasswordReset.Update(passDto);
+                        await _context.SaveChangesAsync();
+
+                        return Json(new
+                        {
+                            status = true,
+                            data = "",
+                            error = ""
+                        });
+                    }
+                    else
+                    {
+                        return Json(new
+                        {
+                            status = false,
+                            data = "",
+                            error = "Reset not valid"
+                        });
+                    }
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        status = false,
+                        data = "",
+                        error = "Incorrect Reset code"
+                    });
+                }
+            }
+            else
+            {
+                return Json(new
+                {
+                    status = false,
+                    data = "",
+                    error = "Incorrect Reset code"
+                });
+            }
+        }
+
+        private Task SendEmailAsync(string email, string resetCode)
+        {
+            try
+            {
+                string subject = "Reset Password";
+                string htmlMessage = "<html><body><h3>Your password reset code is:</h3><h3 style=\"color:#312970\">" + resetCode + "</h3>></body></html>";
+
+                var client = new SmtpClient("smtp.gmail.com")
+                {
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential("iamsoharab@gmail.com", "Soharab143Sab#"),
+                    Port = 587
+                };
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress("resuscitation-vr-noreply@aisolve.com")
+                };
+                mailMessage.To.Add(email);
+                mailMessage.Subject = subject;
+                mailMessage.Body = htmlMessage;
+                return client.SendMailAsync(mailMessage);
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
+        }
 
     }
 }

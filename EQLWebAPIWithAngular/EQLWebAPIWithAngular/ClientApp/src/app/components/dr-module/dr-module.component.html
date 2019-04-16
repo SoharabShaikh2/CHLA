@@ -1,74 +1,85 @@
 <div class="container">
-    <div class="row align-items-center justify-content-between">
-      <div class="col-md-12">
-        <div class="organization_header">
-            <div class="col-md-6 col-6">
-              <h3>{{orgaName}}</h3>
-              <h5 style="color:#6fd5c3;">{{userFullName}}</h5>
-              </div>
-              <div class="col-md-3 col-6 text-right">
-                <div class="search">
-                  <input type="text" (keyup)="searchUsers($event.target)" class="form-control" />
-                  <button><img src="assets/imgs/icon-serch.svg" /></button>
-                </div>
-              </div>
+  <div class="row align-items-center justify-content-between">
+    <div class="col-md-12">
+      <div class="organization_header">
+        <div class="col-md-6 col-6">
+          <h3>{{orgaName}}</h3>
+          <h5 style="color:#6fd5c3;">{{userFullName}}</h5>
         </div>
-      </div>
-      
-    </div>
-  
-    <div class="row">
-      <div class="col-md-6 col-sm-12 col-12">
-        <div class="dr_pannel">
-          <h4>CHOOSE A DATE</h4>
-        </div>
-        <div class="custom_calender">
-          <div class="calender_header">
-            <p>{{cyear}}</p>
-            <h2>{{cday}}, {{cmonth}} {{cdate}}</h2>
-          </div>
-          <!-- <mat-datepicker></mat-datepicker> -->
-          <mat-card>
-            <mat-calendar [selected]="selectedDate" (selectedChange)="onSelect($event)"></mat-calendar>
-          </mat-card>
-        </div>
-
-
-        <!--<div class="custom_calender">
-          <mat-form-field style="padding-left: 40px; padding-top: 10px;">
-            <input matInput [matDatepicker]="picker" (dateChange)="addEvent($event)">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </div>-->
-
-
-
-      </div>
-      <div class="col-md-6 col-sm-12 col-12">
-        <div class="dr_pannel">
-          <h4>STANDARD USERS</h4>
-          <div class="scroll">
-            <div class="dr_list" *ngFor="let result of resultList">
-              <h3>{{result.scenarioname}} <span>{{formatTime(result.dateTimeSession)}}</span></h3>
-              <button mat-button routerLink="" (click)=getResult(result.id)>View</button>
-            </div>
+        <div class="col-md-3 col-6 text-right">
+          <div class="search">
+            <input type="text" (keyup)="searchUsers($event.target)" class="form-control" />
+            <button><img src="assets/imgs/icon-serch.svg" /></button>
           </div>
         </div>
       </div>
     </div>
-    <!-- <div class="row pagination justify-content-end">
-      <ul>
-        <li><a href="" class="prev"><img src="assets/imgs/arrow-left.svg" /></a></li>
-        <li><a href="" class="active">1</a></li>
-        <li><a href="">2</a></li>
-        <li><a href="">3</a></li>
-        <li><a href="">4</a></li>
-        <li><a href="">5</a></li>
-        <li><a href="" class="next"><img src="assets/imgs/arrow-right.svg" /></a></li>
-      </ul>
-    </div> -->
+
   </div>
+
+  <ngx-spinner bdOpacity=0.1
+               bdColor="rgba(51,51,51,0.33)"
+               size="medium"
+               color="#fff"
+               type="ball-clip-rotate"
+               [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+  </ngx-spinner>
+
+  <div class="row">
+    <div class="col-md-6 col-sm-12 col-12">
+      <div class="dr_pannel">
+        <h4>CHOOSE A DATE</h4>
+      </div>
+      <div class="custom_calender">
+        <div class="calender_header">
+          <p>{{cyear}}</p>
+          <h2>{{cday}}, {{cmonth}} {{cdate}}</h2>
+        </div>
+        <!-- <mat-datepicker></mat-datepicker> -->
+        <mat-card>
+          <mat-calendar [selected]="selectedDate" (selectedChange)="onSelect($event)"></mat-calendar>
+        </mat-card>
+      </div>
+
+
+      <!--<div class="custom_calender">
+        <mat-form-field style="padding-left: 40px; padding-top: 10px;">
+          <input matInput [matDatepicker]="picker" (dateChange)="addEvent($event)">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>-->
+
+
+
+    </div>
+    <div class="col-md-6 col-sm-12 col-12">
+
+      <div class="dr_pannel">
+        <h4>STANDARD USERS</h4>
+        <h5 style="color: white;text-align: center;margin-top: 10px;" *ngIf="(showNotFound)"> No Data Available </h5>
+        <div class="scroll">
+          <div class="dr_list" *ngFor="let result of resultList">
+            <h3>{{result.scenarioname}} <span>{{formatTime(result.dateTimeSession)}}</span></h3>
+            <button mat-button routerLink="" (click)=getResult(result.id)>View</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row pagination justify-content-end">
+    <ul>
+      <li><a href="" class="prev"><img src="assets/imgs/arrow-left.svg" /></a></li>
+      <li><a href="" class="active">1</a></li>
+      <li><a href="">2</a></li>
+      <li><a href="">3</a></li>
+      <li><a href="">4</a></li>
+      <li><a href="">5</a></li>
+      <li><a href="" class="next"><img src="assets/imgs/arrow-right.svg" /></a></li>
+    </ul>
+  </div> -->
+</div>
 
   <!--<button (click)="close()">
     my dialog
