@@ -67,5 +67,14 @@ namespace EQLWebAPI.Controllers
             userResult =await _res.GetResults(input.text,input.input,input.dateTime);
             return userResult;
         }
+
+        [HttpPost]
+        public async Task<List<ResultDto>> GetUserResultDates([FromBody]SearchUserDto input)
+        {
+            List<ResultDto> userResult = new List<ResultDto>();
+            IResultRepository<IResult> _res = new ResultDataRepository(new MySqlConnectionParameters() { ConnectionString = "Server=eqlb.weplayvr.com;Database=chlaanalytics;Uid=chlauser;Pwd=Cgh!2us3r@34Uiidw;" });
+            userResult = await _res.GetDateForUserID(input.text);
+            return userResult;
+        }
     }
 }

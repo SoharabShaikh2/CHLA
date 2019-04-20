@@ -31,25 +31,28 @@
       <div class="dr_pannel">
         <h4>CHOOSE A DATE</h4>
       </div>
-      <div class="custom_calender">
-        <div class="calender_header">
-          <p>{{cyear}}</p>
-          <h2>{{cday}}, {{cmonth}} {{cdate}}</h2>
+      <div *ngIf="showCalender">
+        <div class="custom_calender">
+          <div class="calender_header">
+            <p>{{cyear}}</p>
+            <h2>{{cday}}, {{cmonth}} {{cdate}}</h2>
+          </div>
+          <!-- <mat-datepicker></mat-datepicker> -->
+
+          <mat-card>
+            <mat-calendar [dateClass]="dateClass()" [selected]="selectedDate" (selectedChange)="onSelect($event)"></mat-calendar>
+          </mat-card>
         </div>
-        <!-- <mat-datepicker></mat-datepicker> -->
-        <mat-card>
-          <mat-calendar [selected]="selectedDate" (selectedChange)="onSelect($event)"></mat-calendar>
-        </mat-card>
       </div>
 
 
       <!--<div class="custom_calender">
-        <mat-form-field style="padding-left: 40px; padding-top: 10px;">
-          <input matInput [matDatepicker]="picker" (dateChange)="addEvent($event)">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>-->
+    <mat-form-field style="padding-left: 40px; padding-top: 10px;">
+      <input matInput [matDatepicker]="picker" (dateChange)="addEvent($event)">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>-->
 
 
 

@@ -213,27 +213,27 @@ namespace EQLWebAPI.Controllers
             }
         }
 
-        private Task SendEmailAsync(string email, string resetCode)
+        private async Task SendEmailAsync(string email, string resetCode)
         {
             try
             {
                 string subject = "Reset Password";
                 string htmlMessage = "<html><body><h3>Your password reset code is:</h3><h3 style=\"color:#312970\">" + resetCode + "</h3>></body></html>";
 
-                var client = new SmtpClient("smtp.gmail.com")
+                var client = new SmtpClient("smtp.office365.com")
                 {
                     UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential("iamsoharab@gmail.com", "Soharab143Sab#"),
+                    Credentials = new NetworkCredential("support@aisolve.com", "Qaf93821"),
                     Port = 587
                 };
                 var mailMessage = new MailMessage
                 {
-                    From = new MailAddress("resuscitation-vr-noreply@aisolve.com")
+                    From = new MailAddress("support@aisolve.com")
                 };
                 mailMessage.To.Add(email);
                 mailMessage.Subject = subject;
                 mailMessage.Body = htmlMessage;
-                return client.SendMailAsync(mailMessage);
+                await client.SendMailAsync(mailMessage);
             }
             catch(Exception ex)
             {

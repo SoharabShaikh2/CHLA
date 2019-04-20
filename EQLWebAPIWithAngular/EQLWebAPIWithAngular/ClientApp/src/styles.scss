@@ -1,115 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~@angular/cdk/overlay-prebuilt.css';
-// @font-face {
-//     font-family: 'HK Grotesk';
-//     src: url('fonts/HKGrotesk-Bold.eot');
-//     src: url('fonts/HKGrotesk-Bold.eot?#iefix') format('embedded-opentype'),
-//         url('fonts/HKGrotesk-Bold.woff2') format('woff2'),
-//         url('fonts/HKGrotesk-Bold.woff') format('woff'),
-//         url('fonts/HKGrotesk-Bold.ttf') format('truetype');
-//     font-weight: bold;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'HK Grotesk';
-//     src: url('fonts/HKGrotesk-SemiBoldItalic.eot');
-//     src: url('fonts/HKGrotesk-SemiBold.eot?#iefix') format('embedded-opentype'),
-//         url('fonts/HKGrotesk-SemiBold.woff2') format('woff2'),
-//         url('fonts/HKGrotesk-SemiBold.woff') format('woff'),
-//         url('fonts/HKGrotesk-SemiBold.ttf') format('truetype');
-//     font-weight: 600;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'HK Grotesk';
-//     src: url('fonts/HKGrotesk-Regular.eot');
-//     src: url('fonts/HKGrotesk-Regular.eot?#iefix') format('embedded-opentype'),
-//         url('fonts/HKGrotesk-Regular.woff2') format('woff2'),
-//         url('fonts/HKGrotesk-Regular.woff') format('woff'),
-//         url('fonts/HKGrotesk-Regular.ttf') format('truetype');
-//     font-weight: normal;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'HK Grotesk';
-//     src: url('fonts/HKGrotesk-Medium.eot');
-//     src: url('fonts/HKGrotesk-Medium.eot?#iefix') format('embedded-opentype'),
-//         url('fonts/HKGrotesk-Medium.woff2') format('woff2'),
-//         url('fonts/HKGrotesk-Medium.woff') format('woff'),
-//         url('fonts/HKGrotesk-Medium.ttf') format('truetype');
-//     font-weight: 500;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'HK Grotesk';
-//     src: url('fonts/HKGrotesk-BoldItalic.eot');
-//     src: url('fonts/HKGrotesk-BoldItalic.eot?#iefix') format('embedded-opentype'),
-//         url('fonts/HKGrotesk-BoldItalic.woff2') format('woff2'),
-//         url('fonts/HKGrotesk-BoldItalic.woff') format('woff'),
-//         url('fonts/HKGrotesk-BoldItalic.ttf') format('truetype');
-//     font-weight: bold;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: 'HK Grotesk';
-//     src: url('fonts/HKGrotesk-LightItalic.eot');
-//     src: url('fonts/HKGrotesk-LightItalic.eot?#iefix') format('embedded-opentype'),
-//         url('fonts/HKGrotesk-LightItalic.woff2') format('woff2'),
-//         url('fonts/HKGrotesk-LightItalic.woff') format('woff'),
-//         url('fonts/HKGrotesk-LightItalic.ttf') format('truetype');
-//     font-weight: 300;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: 'HK Grotesk';
-//     src: url('fonts/HKGrotesk-Light.eot');
-//     src: url('fonts/HKGrotesk-Light.eot?#iefix') format('embedded-opentype'),
-//         url('fonts/HKGrotesk-Light.woff2') format('woff2'),
-//         url('fonts/HKGrotesk-Light.woff') format('woff'),
-//         url('fonts/HKGrotesk-Light.ttf') format('truetype');
-//     font-weight: 300;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'HK Grotesk';
-//     src: url('fonts/HKGrotesk-MediumItalic.eot');
-//     src: url('fonts/HKGrotesk-MediumItalic.eot?#iefix') format('embedded-opentype'),
-//         url('fonts/HKGrotesk-MediumItalic.woff2') format('woff2'),
-//         url('fonts/HKGrotesk-MediumItalic.woff') format('woff'),
-//         url('fonts/HKGrotesk-MediumItalic.ttf') format('truetype');
-//     font-weight: 500;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: 'HK Grotesk';
-//     src: url('fonts/HKGrotesk-SemiBoldItalic.eot');
-//     src: url('fonts/HKGrotesk-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
-//         url('fonts/HKGrotesk-SemiBoldItalic.woff2') format('woff2'),
-//         url('fonts/HKGrotesk-SemiBoldItalic.woff') format('woff'),
-//         url('fonts/HKGrotesk-SemiBoldItalic.ttf') format('truetype');
-//     font-weight: 600;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: 'HKGrotesk-Regular';
-//     src: url('../src/fonts/HKGrotesk-Regular.eot?#iefix') format('embedded-opentype'),  url('../src/fonts/HKGrotesk-Regular.woff') format('woff'), url('../src/fonts/HKGrotesk-Regular.ttf')  format('truetype'), url('../src/fonts/HKGrotesk-Regular.svg#HKGrotesk-Regular') format('svg');
-//     font-weight: normal;
-//     font-style: normal;
-//   }
-
-
-
-
 $background_color:#24225b;
 $forground_color:#4b3597;
 $primary_color:#33a0b7;
@@ -125,10 +16,10 @@ $light_color:#dcdcdc;
   $medium_font:1.188em; //19px
   $big_font:1.500em; //24px
   $very_big_font:4em;
-  h1, p, a, h3, h4, button{
-    font-family: 'HK Grotesk';
-    margin:0px;
-  }
+h1, p, a, h3, h4, button {
+  font-family: 'HKGrotesk-Regular';
+  margin: 0px;
+}
   button{
       transition:0.5s;
       &:focus{
@@ -268,4 +159,8 @@ $light_color:#dcdcdc;
             background-image: linear-gradient(to top, $primary_color, $secondary_color);
         }
     }
+}
+
+.special-date .mat-calendar-body-cell-content {
+  border: 2px solid #51babe;
 }

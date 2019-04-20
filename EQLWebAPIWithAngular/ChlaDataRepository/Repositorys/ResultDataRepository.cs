@@ -62,5 +62,28 @@ namespace ChlaDataRepository
                 con.Dispose();
             }
         }
+
+
+        public async Task<List<ResultDto>> GetDateForUserID(string userId)
+        {
+            List<ResultDto> results = new List<ResultDto>();
+            String SQL = "SELECT DateTimeSession FROM chlaanalytics.results where userid like @userId;";
+            using (MySqlConnection con = new MySqlConnection(connectionParameters.ConnectionString))
+            {
+                MySqlCommand cmd = new MySqlCommand(SQL, con);
+                cmd.Parameters.AddWithValue("@userId", userId);
+                con.Open();
+                using (var reader = await cmd.ExecuteReaderAsync())
+                {
+                    while (reader.Read())
+                    {
+                        ResultDto result = new ResultDto();
+                        result.DateTimeSession = (Convert.ToDateTime(reader["DateTimeSession"])).ToString("F");
+                        results.Add(result);
+                    }
+                }
+                return results;
+            }
+        }
     }
 }

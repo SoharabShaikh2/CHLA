@@ -5,7 +5,7 @@ import { Globals } from '../../global';
 import { Router, ActivatedRoute } from "@angular/router";
 import { ApiService } from 'src/app/services/api-services';
 import { DatePipe } from '@angular/common';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { MatDatepickerInputEvent, MatCalendarCellCssClasses } from '@angular/material/datepicker';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -25,6 +25,8 @@ export class DrModuleComponent implements OnInit {
   cdate: any;
   inputText: string = "";
   showNotFound: boolean = false;
+  datesToHighlight = [];
+  showCalender: boolean = false;
 
 
   constructor(private spinner: NgxSpinnerService,public matDialog: MatDialog, private datePipe: DatePipe, private globals: Globals, private router: Router, private apiService: ApiService, private route: ActivatedRoute) { }
@@ -34,6 +36,7 @@ export class DrModuleComponent implements OnInit {
       this.router.navigate(['/']);
     }
     //console.log(this.calender);
+    this.spinner.show();
 
     if (this.globals.loginUserType == this.globals.hospitalUser) {
       this.userId = this.globals.loginUserName;
@@ -61,6 +64,12 @@ export class DrModuleComponent implements OnInit {
         this.showNotFound = true;
       else
         this.showNotFound = false;
+    });
+
+    this.apiService.getOrganizationUsersResultDates(this.userId).subscribe(data => {
+      this.datesToHighlight = data.map(x => x.dateTimeSession);
+      this.showCalender = true;
+      this.spinner.hide();
     });
   }
   close() {
@@ -105,6 +114,8 @@ export class DrModuleComponent implements OnInit {
         this.showNotFound = false;
     });
 
+ 
+
   }
 
   searchUsers(e) {
@@ -119,5 +130,16 @@ export class DrModuleComponent implements OnInit {
       else
         this.showNotFound = false;
     });
+  }
+
+
+
+  dateClass() {
+    return (date: Date): MatCalendarCellCssClasses => {
+      const highlightDate = this.datesToHighlight
+        .map(strDate => new Date(strDate))
+        .some(d => d.getDate() === date.getDate() && d.getMonth() === date.getMonth() && d.getFullYear() === date.getFullYear());
+      return highlightDate ? 'special-date' : '';
+    };
   }
 }

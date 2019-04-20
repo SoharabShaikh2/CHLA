@@ -234,6 +234,7 @@ header .dropdown-menu a:hover{background-color: #3aa7b9; color: #ffffff;}
     font-family: HK bold;
     cursor: pointer;
     margin-bottom: 30px;
+    background-position:center;
 }
 .edit_form .save:hover{background-image: linear-gradient(to bottom right, #33a0b7, #75dac7);}
 .edit_form .cancel{

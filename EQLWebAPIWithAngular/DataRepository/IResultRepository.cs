@@ -10,5 +10,6 @@ namespace DataRepository
     {
         Task<List<ResultDto>> GetResults(string userId, string input, string dateTime);
         void AddNewResult(string userId, JObject result, string scenarioname, DateTime dateSession);
+        Task<List<ResultDto>> GetDateForUserID(string userId);
     }
 }
