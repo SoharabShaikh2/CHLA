@@ -25,7 +25,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   onSubmit(f) {
     this.user.resetPassword(f.email).subscribe(data => {
-      if (data.status == 1) {
+      if (data.status == true) {
         this.router.navigate(['/resetPassword']);
       }
       else {

@@ -218,13 +218,14 @@ namespace EQLWebAPI.Controllers
             try
             {
                 string subject = "Reset Password";
-                string htmlMessage = "<html><body><h3>Your password reset code is:</h3><h3 style=\"color:#312970\">" + resetCode + "</h3>></body></html>";
+                string htmlMessage = "Your password reset code is: " + resetCode;
 
                 var client = new SmtpClient("smtp.office365.com")
                 {
                     UseDefaultCredentials = false,
                     Credentials = new NetworkCredential("support@aisolve.com", "Qaf93821"),
-                    Port = 587
+                    Port = 587,
+                    EnableSsl=true
                 };
                 var mailMessage = new MailMessage
                 {
