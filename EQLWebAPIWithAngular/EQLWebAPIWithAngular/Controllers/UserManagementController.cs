@@ -177,7 +177,25 @@ namespace EQLWebAPIWithAngular.Controllers
                 // user.Id = id;
                 return NotFound();
             }
-            var userExist = await _context.User.Where(x => x.UserName == user.UserName).ToListAsync();
+            var userExist = await _context.User.Where(x => x.UserName == user.UserName && x.Id != user.Id).ToListAsync();
+            var userMain = await _context.User.Where(x => x.Id == user.Id).FirstOrDefaultAsync();
+
+            if (userMain.UserTypeId == 4)
+            {
+                user.UserTypeId = 4;
+            }
+
+            userMain.Email = user.Email;
+            userMain.Expiry = user.Expiry;
+            userMain.FirstName = user.FirstName;
+            userMain.IsActive = user.IsActive;
+            userMain.LastName = user.LastName;
+            userMain.Organization = user.Organization;
+            userMain.OrganizationId = user.OrganizationId;
+            userMain.Password = user.Password;
+            userMain.UserName = user.UserName;
+            userMain.UserType = user.UserType;
+            userMain.UserTypeId = user.UserTypeId;
 
             if (userExist.Count > 0)
             {
@@ -186,8 +204,8 @@ namespace EQLWebAPIWithAngular.Controllers
             else if (ModelState.IsValid)
             {
                 try
-                {
-                    _context.Update(user);
+                {                             
+                    _context.Update(userMain);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
