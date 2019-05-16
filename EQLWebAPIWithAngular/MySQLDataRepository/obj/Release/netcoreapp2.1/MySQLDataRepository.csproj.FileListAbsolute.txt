@@ -34,3 +34,15 @@ F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Re
 F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Release\netcoreapp2.1\MySQLDataRepository.csproj.CopyComplete
 F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Release\netcoreapp2.1\MySQLDataRepository.dll
 F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Release\netcoreapp2.1\MySQLDataRepository.pdb
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\bin\Release\netcoreapp2.1\MySQLDataRepository.deps.json
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\bin\Release\netcoreapp2.1\MySQLDataRepository.dll
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\bin\Release\netcoreapp2.1\MySQLDataRepository.pdb
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\bin\Release\netcoreapp2.1\DataRepository.dll
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\bin\Release\netcoreapp2.1\DataRepository.pdb
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Release\netcoreapp2.1\MySQLDataRepository.csprojAssemblyReference.cache
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Release\netcoreapp2.1\MySQLDataRepository.csproj.CoreCompileInputs.cache
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Release\netcoreapp2.1\MySQLDataRepository.AssemblyInfoInputs.cache
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Release\netcoreapp2.1\MySQLDataRepository.AssemblyInfo.cs
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Release\netcoreapp2.1\MySQLDataRepository.csproj.CopyComplete
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Release\netcoreapp2.1\MySQLDataRepository.dll
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\MySQLDataRepository\obj\Release\netcoreapp2.1\MySQLDataRepository.pdb

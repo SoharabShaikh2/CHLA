@@ -52,3 +52,15 @@ D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netc
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csproj.CopyComplete
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.dll
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.pdb
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\DataRepository.deps.json
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\DataRepository.dll
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\DataRepository.pdb
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csprojAssemblyReference.cache
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csproj.CoreCompileInputs.cache
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.AssemblyInfoInputs.cache
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.AssemblyInfo.cs
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.csproj.CopyComplete
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.dll
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Debug\netcoreapp2.1\DataRepository.pdb

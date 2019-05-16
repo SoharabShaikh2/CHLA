@@ -2185,11 +2185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHubSources\\ovrpass\\CHLA\\EQLWebAPIWithAngular\\MySQLDataRepository\\MySQLDataRepository.csproj",
+      "projectUniqueName": "D:\\GitHubSources\\ovrpass\\FinalServerFix1\\CHLA\\EQLWebAPIWithAngular\\MySQLDataRepository\\MySQLDataRepository.csproj",
       "projectName": "MySQLDataRepository",
-      "projectPath": "D:\\GitHubSources\\ovrpass\\CHLA\\EQLWebAPIWithAngular\\MySQLDataRepository\\MySQLDataRepository.csproj",
+      "projectPath": "D:\\GitHubSources\\ovrpass\\FinalServerFix1\\CHLA\\EQLWebAPIWithAngular\\MySQLDataRepository\\MySQLDataRepository.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHubSources\\ovrpass\\CHLA\\EQLWebAPIWithAngular\\MySQLDataRepository\\obj\\",
+      "outputPath": "D:\\GitHubSources\\ovrpass\\FinalServerFix1\\CHLA\\EQLWebAPIWithAngular\\MySQLDataRepository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -2208,8 +2208,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\GitHubSources\\ovrpass\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj": {
-              "projectPath": "D:\\GitHubSources\\ovrpass\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj"
+            "D:\\GitHubSources\\ovrpass\\FinalServerFix1\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj": {
+              "projectPath": "D:\\GitHubSources\\ovrpass\\FinalServerFix1\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj"
             }
           }
         }

@@ -31,3 +31,15 @@ F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release
 F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.csproj.CopyComplete
 F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.dll
 F:\Projects\CHLA\new-source\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.pdb
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Release\netcoreapp2.1\DataRepository.deps.json
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Release\netcoreapp2.1\DataRepository.dll
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Release\netcoreapp2.1\DataRepository.pdb
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Release\netcoreapp2.1\Newtonsoft.Json.dll
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\bin\Release\netcoreapp2.1\Newtonsoft.Json.xml
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.csprojAssemblyReference.cache
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.csproj.CoreCompileInputs.cache
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.AssemblyInfoInputs.cache
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.AssemblyInfo.cs
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.csproj.CopyComplete
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.dll
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\DataRepository\obj\Release\netcoreapp2.1\DataRepository.pdb

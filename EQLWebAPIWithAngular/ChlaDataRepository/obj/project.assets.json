@@ -1084,11 +1084,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHubSources\\ovrpass\\CHLA\\EQLWebAPIWithAngular\\ChlaDataRepository\\ChlaDataRepository.csproj",
+      "projectUniqueName": "D:\\GitHubSources\\ovrpass\\FinalServerFix1\\CHLA\\EQLWebAPIWithAngular\\ChlaDataRepository\\ChlaDataRepository.csproj",
       "projectName": "ChlaDataRepository",
-      "projectPath": "D:\\GitHubSources\\ovrpass\\CHLA\\EQLWebAPIWithAngular\\ChlaDataRepository\\ChlaDataRepository.csproj",
+      "projectPath": "D:\\GitHubSources\\ovrpass\\FinalServerFix1\\CHLA\\EQLWebAPIWithAngular\\ChlaDataRepository\\ChlaDataRepository.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHubSources\\ovrpass\\CHLA\\EQLWebAPIWithAngular\\ChlaDataRepository\\obj\\",
+      "outputPath": "D:\\GitHubSources\\ovrpass\\FinalServerFix1\\CHLA\\EQLWebAPIWithAngular\\ChlaDataRepository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1107,8 +1107,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\GitHubSources\\ovrpass\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj": {
-              "projectPath": "D:\\GitHubSources\\ovrpass\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj"
+            "D:\\GitHubSources\\ovrpass\\FinalServerFix1\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj": {
+              "projectPath": "D:\\GitHubSources\\ovrpass\\FinalServerFix1\\CHLA\\EQLWebAPIWithAngular\\DataRepository\\DataRepository.csproj"
             }
           }
         }

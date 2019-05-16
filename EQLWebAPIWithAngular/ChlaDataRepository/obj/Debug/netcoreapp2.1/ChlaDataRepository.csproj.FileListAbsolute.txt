@@ -64,3 +64,17 @@ D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Debug\
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.csproj.CopyComplete
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.dll
 D:\GitHubSources\ovrpass\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.pdb
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Debug\netcoreapp2.1\ChlaDataRepository.deps.json
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Debug\netcoreapp2.1\ChlaDataRepository.dll
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Debug\netcoreapp2.1\ChlaDataRepository.pdb
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Debug\netcoreapp2.1\DataRepository.dll
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Debug\netcoreapp2.1\DataRepository.pdb
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.csprojAssemblyReference.cache
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.csproj.CoreCompileInputs.cache
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.AssemblyInfoInputs.cache
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.AssemblyInfo.cs
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.csproj.CopyComplete
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.dll
+D:\GitHubSources\ovrpass\FinalServerFix1\CHLA\EQLWebAPIWithAngular\ChlaDataRepository\obj\Debug\netcoreapp2.1\ChlaDataRepository.pdb

@@ -153,7 +153,7 @@ namespace EQLWebAPIWithAngular.Controllers
             else if (HttpContext.Session.GetString("utype") == "admin")
             {
                 ViewData["OrganizationId"] = new SelectList(_context.Organization.Where(o => o.Id.ToString() == HttpContext.Session.GetString("orgid")), "Id", "Name", user.OrganizationId);
-                ViewData["UserTypeId"] = new SelectList(_context.UserType.Where(u => u.Type == "user"), "Id", "Type", user.UserTypeId);
+                ViewData["UserTypeId"] = new SelectList(_context.UserType.Where(u => u.Type != "*"), "Id", "Type", user.UserTypeId);
             }
             else
             {
